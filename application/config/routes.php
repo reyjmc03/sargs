@@ -48,38 +48,8 @@
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
+$route['default_controller'] = 'PageController/view';
+$route['(:any)'] = 'PageController/view/$1';
 
-/******************/
-/* SYSTEMS ROUTES */
-/******************/
-$route['404_override'] = '';
+$route['404_override'] = 'Error404Controller/error';
 $route['translate_uri_dashes'] = FALSE;
-
-// login
-$route['default_controller'] = 'login';
-
-// dashboard
-$route['dashboard'] = 'systems/dashboard'; 
-
-// my profile
-$route['my-profile'] = 'myprofile';
-// account settings
-$route['account-settings'] = '';
-// activity logs
-$route['activity-logs'] = '';
-
-
-/************************/
-/* ADMINISTRATOR ROUTES */
-/************************/
-// login mainpage (administrator)
-$route['administrator'] = 'administrator/index';
-// administrator - home
-$route['administrator/home'] = 'administrator/home';
-// 
-
-// students
-
-// instructors
-// user accounts
-// logs

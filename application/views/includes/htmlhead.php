@@ -9,7 +9,7 @@
     <link rel="shortcut icon" href="<?php echo base_url();?>/dist/images/favicon.ico" />
 
     <!-- Title -->
-    <title><marquee>Dashboard | STUDENT ADMISSION REGISTRATION AND GRADING SYSTEM</marquee></title>
+    <title><marquee><?php echo $nav; ?> | STUDENT ADMISSION REGISTRATION AND GRADING SYSTEM</marquee></title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?php echo base_url();?>/dist/royal-hospital/version12/css/bootstrap.min.css">

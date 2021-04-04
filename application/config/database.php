@@ -73,50 +73,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = TRUE;
 
-// $db['default'] = array(
-// 	'dsn'	=> '',
-// 	'hostname' => 'localhost',
-// 	'username' => 'root',
-// 	'password' => '',
-// 	'database' => 'raksquad_centralized',
-// 	'dbdriver' => 'mysqli',
-// 	'dbprefix' => '',
-// 	'pconnect' => FALSE,
-// 	'db_debug' => (ENVIRONMENT !== 'production'),
-// 	'cache_on' => FALSE,
-// 	'cachedir' => '',
-// 	'char_set' => 'utf8',
-// 	'dbcollat' => 'utf8_general_ci',
-// 	'swap_pre' => '',
-// 	'encrypt' => FALSE,
-// 	'compress' => FALSE,
-// 	'stricton' => FALSE,
-// 	'failover' => array(),
-// 	'save_queries' => TRUE
-// );
-
-// FOR LOCAL
-$db['default']['host name'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = '';
-
-// FOR DOMAIN
-// $db['default']['host name'] = 'http://raksquad-apps.com';
-// $db['default']['username'] = 'raksquad';
-// $db['default']['password'] = '12345#Rak';
-
-$db['default']['database'] = 'raksquad_centralized';
-
-//$db['default']['dbdriver'] = 'mysql';
-// $db['default']['dbdriver'] = 'mssql';
-$db['default']['dbdriver'] = 'mysqli';
-$db['default']['dbprefix'] = '';
-$db['default']['pconnect'] = TRUE;
-$db['default']['db_debug'] = TRUE;
-$db['default']['cache_on'] = FALSE;
-$db['default']['cachedir'] = '';
-$db['default']['char_set'] = 'utf8';
-$db['default']['dbcollat'] = 'utf8_general_ci';
-$db['default']['swap_pre'] = '';
-$db['default']['autoinit'] = TRUE;
-$db['default']['stricton'] = FALSE;
+$db['default'] = array(
+	//'dsn'      => 'pgsql:host=http://192.168.1.3;port=5432;dbname=db_sargs', 
+	'dsn'	   => '',
+	'hostname' => '192.168.1.3',
+	'username' => 'sargs2021',
+	'password' => '1234',
+	'database' => 'db_sargs',
+	'dbdriver' => 'postgre',
+	'dbprefix' => '',
+	'pconnect' => TRUE,
+	'db_debug' => (ENVIRONMENT !== 'development'),
+	'cache_on' => FALSE,
+	'cachedir' => '',
+	'char_set' => 'utf8',
+	'dbcollat' => 'utf8_general_ci',
+	'swap_pre' => '',
+	'encrypt' => FALSE,
+	'compress' => FALSE,
+	'stricton' => FALSE,
+	'failover' => array(),
+	'save_queries' => TRUE,
+	'port'   => 5432, # Add 
+);

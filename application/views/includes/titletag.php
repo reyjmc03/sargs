@@ -1,0 +1,1 @@
+<title><?php echo $nav; ?> | S.A.R.G.S version 1.0.0</title>

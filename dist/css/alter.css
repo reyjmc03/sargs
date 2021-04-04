@@ -25,7 +25,8 @@ body {
 }
 
 .authentication-bg {
-    background-image: url(../nazox/assets/images/megamenu-img.png) !important;
+    /* background-image: url(../nazox/assets/images/megamenu-img.png) !important; */
+    background-image: url(../images/c2ctradoc.jpg) !important;
     height: 100vh !important;
     background-size: cover !important;
     background-position: center !important;
@@ -72,4 +73,15 @@ body {
 
 .header-profile-actions .header-user-profile p {
     color: #ffffff !important;
+}
+
+
+.text-danger {
+    margin-top: -20px !important;
+}
+
+.btn-sargs-button {
+    color: #fff;
+    background-color: #0c4316;
+    border-color: #0c4316;
 }
