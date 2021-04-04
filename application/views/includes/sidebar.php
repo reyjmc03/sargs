@@ -3,7 +3,7 @@
 		<div id="sidebar-menu" class="sidebar-menu">
 			<ul>
 				<li class="menu-title"> 
-					<span>MAIN MENU</span>
+					<span><u>MAIN MENU</u></span>
 				</li>
 				<li class='<?php echo $nav == "DASHBOARD" ? "active" : " "; ?>'> 
 					<a href="<?php echo base_url(); ?>dashboard"><i class="fas fa-th-large"></i> <span>Dashboard</span></a>
@@ -27,30 +27,32 @@
 					</ul>
 				</li>
 				
-				<!-- <hr> -->
+				<br>
 				<!-- System Management -->
 				<li class="menu-title"> 
-					<span>REPORTS</span>
+					<span><u>REPORTS</u></span>
 				</li>
 				<li class=""> 
 					<a href="<?php echo base_url(); ?>dashboard"><i class="fas fa-th-large"></i> <span>Individual Training List</span></a>
 				</li>
 
+				<br>
 				<li class="menu-title"> 
-					<span>CERTIFICATES AND AWARDS</span>
+					<span><u>CERTIFICATES AND AWARDS</u></span>
 				</li>
 				<li class=""> 
 					<a href="<?php echo base_url(); ?>dashboard"><i class="fas fa-th-large"></i> <span>Individual Training List</span></a>
 				</li>
-				<!-- <hr> -->
+
+				<br>
 				<!-- System Management -->
 				<li class="menu-title"> 
-					<span>SYSTEM MANAGEMENT</span>
+					<span><u>SYSTEM MANAGEMENT</u></span>
 				</li>
-				<li class=""> 
+				<li class='<?php echo $nav == "USER ACCOUNTS" ? "active" : " "; ?>'>  
 					<a href="<?php echo base_url(); ?>user-accounts"><i class="fas fa-users"></i> <span>User Accounts</span></a>
 				</li>
-				<li class=""> 
+				<li class='<?php echo $nav == "USER LOGS" ? "active" : " "; ?>'>  
 					<a href="<?php echo base_url(); ?>user-logs"><i class="fas fa-clock"></i> <span>User Logs</span></a>
 				</li>
 			</ul>

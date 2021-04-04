@@ -17,7 +17,7 @@ body { background-color:#d5dea7 !important }
 
 .menu-title {
     color: #ffff !important;
-    font-size: 20px !important;
+    font-size: 18px !important;
 }
 
 .sidebar-menu li a {
@@ -47,47 +47,4 @@ body { background-color:#d5dea7 !important }
     color:  #0c4316 !important;
 }
 
-
-
-
-/* .sidebar .sidebar-menu > ul > li > a span {
-    font-size: 15px;
-    color: #ffff;
-}
-
-.sidebar .sidebar-menu > ul > li.active > a span {
-    color: #0c4316 !important;
-}
-
-.sidebar .sidebar-menu > ul > li.hover > a span {
-    color: #0c4316 !important;
-    background-color: #d5dea7;
-}
-
-.sidebar .sidebar-menu > ul > li > a span {
-    color: #d5dea7 !important;
-}
-
-
-.sidebar-menu li.active > a {
-    color: #0c4316 !important;
-    background-color: #d5dea7;
-}
-
-.sidebar-menu li.hover > a {
-    color: #0c4316 !important;
-    background-color: #d5dea7;
-} */
-
-/* .sidebar-menu ul li.active a i {
-    color: #0c4316 !important;
-}
-
-.sidebar-menu ul li.hover a i {
-    color: #0c4316 !important;
-} */
-
-/* .sidebar-menu li a {
-    color: white !important;
-} */
 

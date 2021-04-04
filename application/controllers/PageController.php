@@ -21,6 +21,7 @@ class PageController extends My_Controller {
         // dashboard or home
         if($page == 'dashboard') {
             //$this->notLoggedIn();
+            $this->notLoggedIn();
             $data['nav'] = 'DASHBOARD';
             $data['page_title'] = 'Dashboard';
             $data['breadcrumbs'] = 'Dashboard/';
@@ -31,6 +32,20 @@ class PageController extends My_Controller {
             $data['nav'] = 'USER PROFILE';
             $data['page_title'] = 'User Profile';
             $data['breadcrumbs'] = 'User Profile/';
+        }
+
+        // user accounts
+        if($page == 'user-accounts') {
+            $data['nav'] = 'USER ACCOUNTS';
+            $data['title_title'] = 'User Accounts';
+            $data['breadcrumbs'] = 'User Accounts/';
+        }
+
+        // user logs
+        if($page == 'user-logs') {
+            $data['nav'] = 'USER LOGS';
+            $data['title_title'] = 'User Logs';
+            $data['breadcrumbs'] = 'User Logs/';
         }
 
         // page output

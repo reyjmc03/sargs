@@ -65,21 +65,23 @@
                                         </div>
 
                                         <div class="p-2 mt-5">
-                                            <form class="form-horizontal" action="">
+                                            <form id="login" class="form-horizontal">
 
                                                 <div class="form-group auth-form-group-custom mb-4">
                                                     <i class="ri-user-2-line auti-custom-input-icon"></i>
                                                     <label for="username">Username</label>
-                                                    <input type="text" class="form-control" id="txtUsername" name="txtUsername" placeholder="Enter username">
+                                                    <input type="text" class="form-control red-tooltip" placeholder="Username" name="username"v-model="userLogin.username">
                                                 </div>
-                                                <p class="text-danger">Username field is required.</p>
+                                                <p class="text-danger" v-if="message.username" v-html="message.username"></p>
                         
                                                 <div class="form-group auth-form-group-custom mb-4">
                                                     <i class="ri-lock-2-line auti-custom-input-icon"></i>
                                                     <label for="userpassword">Password</label>
-                                                    <input type="password" class="form-control" id="txtPassword" name="txtPassword" placeholder="Enter password">
+                                                    <input type="password" class="form-control" placeholder="Enter Password" name="password"v-model="userLogin.password" id="password">
                                                 </div>
-                                                <p class="text-danger">Password field is required.</p>
+                                                <p class="text-danger" v-if="message.password" v-html="message.password"></p>
+
+                                                <p class="text-danger text-center" v-html="message.failed" v-if="message.failed"></p>
                         
                                                 <div class="custom-control custom-checkbox">
                                                     <input type="checkbox" class="custom-control-input" id="customControlInline">
@@ -87,7 +89,7 @@
                                                 </div>
 
                                                 <div class="form-group mt-4 text-center">
-                                                    <button class="btn btn-block btn-sargs-button" id="btnLogin" name="btnLogin" type="submit">LOGIN</button>
+                                                    <input type="submit" class="btn btn-block btn-sargs-button" value="Login" @click="login()">
                                                 </div>
 
 
@@ -111,13 +113,15 @@
         </div>
 
         <!-- JAVASCRIPT -->
-        <!-- <script src="<?php //echo base_url(); ?>dist/nazox/assets/libs/jquery/jquery.min.js"></script>
-        <script src="<?php //echo base_url(); ?>dist/nazox/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="<?php //echo base_url(); ?>dist/nazox/assets/libs/metismenu/metisMenu.min.js"></script>
-        <script src="<?php //echo base_url(); ?>dist/nazox/assets/libs/simplebar/simplebar.min.js"></script>
-        <script src="<?php //echo base_url(); ?>dist/nazox/assets/libs/node-waves/waves.min.js"></script>
-        <script src="<?php //echo base_url(); ?>dist/nazox/assets/js/app.js"></script>
-     -->
+        <script> var url = '<?php echo base_url(); ?>'</script>
+        <script src="<?php echo base_url();?>dist/js/jquery.min.js"></script>
+        <script src="<?php echo base_url();?>dist/js/popper.min.js"></script>
+        <script src="<?php echo base_url();?>dist/js/bootstrap.min.js"></script>
+        <script src="<?php echo base_url();?>dist/js/vue.min.js"></script>
+        <script src="<?php echo base_url();?>dist/js/vuex.min.js"></script>
+        <script src="<?php echo base_url();?>dist/js/axios.min.js"></script>
+        <script src="<?php echo base_url();?>dist/store.js"></script>
+        <script src="<?php echo base_url();?>dist/auth.js"></script>
     
     </body>
 </html>
