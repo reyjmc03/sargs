@@ -105,3 +105,12 @@ body {
     background-color: #d5dea7 !important;
     color: #0c4316 !important;
 }
+
+
+.mini-sidebar.expand-menu .sidebar {
+    width: 300px !important;
+}
+
+.slide-nav .sidebar {
+    width: 300px !important;
+}
