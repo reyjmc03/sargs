@@ -21,6 +21,7 @@ body {
 .menu-title {
     color: #ffff !important;
     font-size: 16px !important;
+    padding: inherit;
 }
 
 .sidebar-menu li a {
@@ -34,11 +35,13 @@ body {
 .sidebar-menu li.active>a {
     color: #0c4316 !important;
     background-color: #d5dea7 !important;
+    padding-left: 20px !important;
 }
 
 .sidebar-menu li>a:hover {
     color: #0c4316 !important;
     background-color: #d5dea7 !important;
+    padding-left: 40px !important;
 }
 
 #toggle_btn {
@@ -64,4 +67,16 @@ body {
 
 .user-header .user-text h6 {
     color: #d5dea7 !important;
+}
+
+.sidebar-menu>ul>li>a {
+    padding: 4px !important;
+}
+
+.header .header-left {
+    padding: 0 15px im !important;
+}
+
+.sidebar-menu .menu-arrow {
+    top: inherit !important;
 }

@@ -8,9 +8,9 @@
 				<li class='<?php echo $nav == "DASHBOARD" ? "active" : " "; ?>'> 
 					<a href="<?php echo base_url(); ?>dashboard"><i class="fas fa-th-large"></i> <span>Dashboard</span></a>
 				</li>
-				<li class="submenu">
+				<li class="active subdrop">
 					<a href="#"><i class="fas fa-user-graduate"></i> <span> Students</span> <span class="menu-arrow"></span></a>
-					<ul>
+					<ul class="active">
 						<li><a href="student-details.html">Student List</a></li>
 					</ul>
 				</li>
@@ -57,10 +57,16 @@
 					<a href="<?php echo base_url(); ?>dashboard"><i class="fas fa-graduation-cap"></i> <span>Commanders Recognition Award</span></a>
 				</li>
 				<li class=""> 
+					<a href="<?php echo base_url(); ?>dashboard"><i class="fas fa-graduation-cap"></i> <span>Commandants Award</span></a>
+				</li>
+				<li class=""> 
+					<a href="<?php echo base_url(); ?>dashboard"><i class="fas fa-graduation-cap"></i> <span>COMTRADOC Award</span></a>
+				</li>
+				<li class=""> 
 					<a href="<?php echo base_url(); ?>dashboard"><i class="fas fa-certificate"></i> <span></span></a>
 				</li>
 
-				<br>
+			
 				<!-- System Management -->
 				<li class="menu-title"> 
 					<span><u>SYSTEM MANAGEMENT</u></span>
