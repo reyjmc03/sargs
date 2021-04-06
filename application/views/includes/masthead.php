@@ -2,10 +2,10 @@
 	<!-- Logo -->
 	<div class="header-left">
 		<a href="#" class="logo">
-			<img src="<?php echo base_url(); ?>dist/images/logo-sargs-2.png" alt="Logo">
+			<img src="<?php echo base_url(); ?>assets/images/logo-sargs-7.png" alt="Logo" width="270" height="40">
 		</a>
 		<a href="#" class="logo logo-small">
-			<img src="<?php echo base_url(); ?>dist/images/C2C.png" alt="Logo" width="30" height="30">
+			<img src="<?php echo base_url(); ?>assets/images/C2C.png" alt="Logo" width="40" height="40">
 		</a>
 	</div>
 	<!-- /Logo -->

@@ -26,22 +26,38 @@
 						<li><a href="departments.html">Course List</a></li>
 					</ul>
 				</li>
+
+				<br>
+				<!-- Reports -->
+				<li class="menu-title"> 
+					<span><u>IDENTIFICATION CARDS (I.D)</u></span>
+				</li>
+				<li class='<?php echo $nav == "STUDENT I.D" ? "active" : " "; ?>'> 
+					<a href="<?php echo base_url(); ?>student-identification"><i class="fas fa-id-card"></i> <span>Generate Student ID</span></a>
+				</li>
 				
 				<br>
-				<!-- System Management -->
+				<!-- Reports -->
 				<li class="menu-title"> 
 					<span><u>REPORTS</u></span>
 				</li>
 				<li class=""> 
-					<a href="<?php echo base_url(); ?>dashboard"><i class="fas fa-th-large"></i> <span>Individual Training List</span></a>
+					<a href="<?php echo base_url(); ?>dashboard"><i class="fas fa-file"></i> <span>Individual Training List Report</span></a>
 				</li>
 
+				<!-- certificates and awards -->
 				<br>
 				<li class="menu-title"> 
-					<span><u>CERTIFICATES AND AWARDS</u></span>
+					<span><u>GRADES, CERTIFICATE & AWARDS</u></span>
 				</li>
 				<li class=""> 
-					<a href="<?php echo base_url(); ?>dashboard"><i class="fas fa-th-large"></i> <span>Individual Training List</span></a>
+					<a href="<?php echo base_url(); ?>dashboard"><i class="fas fa-graduation-cap"></i> <span>Student Certificate</span></a>
+				</li>
+				<li class=""> 
+					<a href="<?php echo base_url(); ?>dashboard"><i class="fas fa-graduation-cap"></i> <span>Commanders Recognition Award</span></a>
+				</li>
+				<li class=""> 
+					<a href="<?php echo base_url(); ?>dashboard"><i class="fas fa-certificate"></i> <span></span></a>
 				</li>
 
 				<br>

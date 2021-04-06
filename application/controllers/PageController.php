@@ -57,6 +57,16 @@ class PageController extends My_Controller {
             . '<li class="breadcrumb-item"></li>';
         }
 
+
+        // user logs
+        if($page == 'student-identification') {
+            $this->notLoggedIn();
+            $data['nav'] = 'STUDENT I.D';
+            $data['page_title'] = 'Student Identification Card (I.D)';
+            $data['breadcrumbs'] = '<li class="breadcrumb-item active"><a href="'. base_url() . 'user-logs">Student Identification Card (I.D)</a></li>' 
+            . '<li class="breadcrumb-item"></li>';
+        }
+
         // page output
         $page == 'index' ? '' : $this->load->view('includes/header', $data);
         $this->load->view($page, $data);
