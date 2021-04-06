@@ -24,6 +24,10 @@ body {
 }
 
 .sidebar-menu li a {
+    font-size: 14px !important;
+}
+
+.sidebar-menu li a {
     color: #d5dea7 !important;
 }
 
