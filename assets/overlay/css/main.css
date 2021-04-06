@@ -80,3 +80,28 @@ body {
 .sidebar-menu .menu-arrow {
     top: inherit !important;
 }
+
+
+/* .sub-active {
+    color: #0c4316 !important;
+    background-color: #d5dea7 !important;
+} */
+
+.sidebar-menu li.sub-active a {
+    color: #0c4316 !important;
+    background-color: #d5dea7 !important;
+}
+
+.sidebar-menu ul ul li.sub-active a {
+    color: #0c4316 !important;
+    background-color: #d5dea7 !important;
+}
+
+.sidebar-menu ul ul li:hover a {
+    padding-left: 70px !important;
+}
+
+.dropdown-item {
+    background-color: #d5dea7 !important;
+    color: #0c4316 !important;
+}

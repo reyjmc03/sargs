@@ -8,12 +8,16 @@
 				<li class='<?php echo $nav == "DASHBOARD" ? "active" : " "; ?>'> 
 					<a href="<?php echo base_url(); ?>dashboard"><i class="fas fa-th-large"></i> <span>Dashboard</span></a>
 				</li>
-				<li class="active subdrop">
+
+				<!-- <li class="submenu active">
 					<a href="#"><i class="fas fa-user-graduate"></i> <span> Students</span> <span class="menu-arrow"></span></a>
-					<ul class="active">
-						<li><a href="student-details.html">Student List</a></li>
+					<ul class="" style="display:block">
+						<li><a href="student-details.html">Instructor List</a></li>
+						<li class="sub-active"><a href="student-details.html">Student List</a></li>
 					</ul>
-				</li>
+				</li> -->
+
+
 				<li class="submenu">
 					<a href="#"><i class="fas fa-chalkboard-teacher"></i> <span> Teachers</span> <span class="menu-arrow"></span></a>
 					<ul>
@@ -35,7 +39,6 @@
 				<li class='<?php echo $nav == "STUDENT I.D" ? "active" : " "; ?>'> 
 					<a href="<?php echo base_url(); ?>student-identification"><i class="fas fa-id-card"></i> <span>Generate Student ID</span></a>
 				</li>
-				
 				<br>
 				<!-- Reports -->
 				<li class="menu-title"> 
@@ -44,29 +47,24 @@
 				<li class=""> 
 					<a href="<?php echo base_url(); ?>dashboard"><i class="fas fa-file"></i> <span>Individual Training List Report</span></a>
 				</li>
-
-				<!-- certificates and awards -->
 				<br>
+				<!-- certificates and awards -->
 				<li class="menu-title"> 
 					<span><u>GRADES, CERTIFICATE & AWARDS</u></span>
 				</li>
 				<li class=""> 
-					<a href="<?php echo base_url(); ?>dashboard"><i class="fas fa-graduation-cap"></i> <span>Student Certificate</span></a>
+					<a href="<?php echo base_url(); ?>dashboard"><i class="fas fa-certificate"></i> <span>Student Certificate</span></a>
 				</li>
 				<li class=""> 
-					<a href="<?php echo base_url(); ?>dashboard"><i class="fas fa-graduation-cap"></i> <span>Commanders Recognition Award</span></a>
+					<a href="<?php echo base_url(); ?>dashboard"><i class="fas fa-certificate"></i> <span>Commanders Recognition Award</span></a>
 				</li>
 				<li class=""> 
-					<a href="<?php echo base_url(); ?>dashboard"><i class="fas fa-graduation-cap"></i> <span>Commandants Award</span></a>
+					<a href="<?php echo base_url(); ?>dashboard"><i class="fas fa-certificate"></i> <span>Commandants Award</span></a>
 				</li>
 				<li class=""> 
-					<a href="<?php echo base_url(); ?>dashboard"><i class="fas fa-graduation-cap"></i> <span>COMTRADOC Award</span></a>
+					<a href="<?php echo base_url(); ?>dashboard"><i class="fas fa-certificate"></i> <span>COMTRADOC Award</span></a>
 				</li>
-				<li class=""> 
-					<a href="<?php echo base_url(); ?>dashboard"><i class="fas fa-certificate"></i> <span></span></a>
-				</li>
-
-			
+				<br>
 				<!-- System Management -->
 				<li class="menu-title"> 
 					<span><u>SYSTEM MANAGEMENT</u></span>
