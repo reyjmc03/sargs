@@ -12,23 +12,23 @@
         <?php $this->load->view('includes/favicon'); ?>
 
         <!-- login css -->
-        <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/login.css" />
+        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/overlay/css/login.css" />
 
         <!-- Bootstrap Css -->
-        <link href="<?php echo base_url();?>dist/nazox/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url();?>assets/overlay/nazox/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
 
         <!-- Icons Css -->
-        <link href="<?php echo base_url();?>dist/nazox/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url();?>assets/overlay/nazox/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
 
         <!-- App Css-->
-        <link href="<?php echo base_url();?>dist/nazox/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url();?>assets/overlay/nazox/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
 
 
         <!-- animate css -->
-        <link href="<?php echo base_url();?>dist/animatecss/animate.min.css" id="animate-style" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url();?>assets/overlay/animatecss/animate.min.css" id="animate-style" rel="stylesheet" type="text/css" />
 
         <!-- ALTER STYLESHEET -->
-        <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/alter.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/overlay/css/alter.css">
 
     </head>
     <body class="auth-body-bg">
@@ -56,7 +56,7 @@
                                             <div>
                                             <!-- <div class="animate__animated animate__zoomIn"> -->
                                                 <a href="<?php echo base_url(); ?>" class="logo">
-                                                    <img src="<?php echo base_url(); ?>dist/images/C2C.png" height="300" width="300" alt="logo">
+                                                    <img src="<?php echo base_url(); ?>assets/images/C2C.png" height="300" width="300" alt="logo">
                                                 </a>
                                             </div>
                                             <h1 class="font-size-18 mt-4">Student Admission Registration and Grading System</h1>
@@ -65,23 +65,22 @@
                                         </div>
 
                                         <div class="p-2 mt-5">
-                                            <form id="login" class="form-horizontal">
+                                            <div id="login" class="form-horizontal">
+                                                <p class="text-danger text-center" v-html="message.failed" v-if="message.failed"></p>
 
                                                 <div class="form-group auth-form-group-custom mb-4">
                                                     <i class="ri-user-2-line auti-custom-input-icon"></i>
-                                                    <label for="username">Username</label>
-                                                    <input type="text" class="form-control red-tooltip" placeholder="Username" name="username"v-model="userLogin.username">
+                                                    <label for="username">USERNAME</label>
+                                                    <input type="text" class="form-control red-tooltip" placeholder="Please Enter Username" name="username"v-model="userLogin.username">
                                                 </div>
                                                 <p class="text-danger" v-if="message.username" v-html="message.username"></p>
                         
                                                 <div class="form-group auth-form-group-custom mb-4">
                                                     <i class="ri-lock-2-line auti-custom-input-icon"></i>
-                                                    <label for="userpassword">Password</label>
-                                                    <input type="password" class="form-control" placeholder="Enter Password" name="password"v-model="userLogin.password" id="password">
+                                                    <label for="userpassword">PASSWORD</label>
+                                                    <input type="password" class="form-control" placeholder="Please Enter Password" name="password"v-model="userLogin.password" id="password">
                                                 </div>
                                                 <p class="text-danger" v-if="message.password" v-html="message.password"></p>
-
-                                                <p class="text-danger text-center" v-html="message.failed" v-if="message.failed"></p>
                         
                                                 <div class="custom-control custom-checkbox">
                                                     <input type="checkbox" class="custom-control-input" id="customControlInline">
@@ -96,7 +95,7 @@
                                                 <!-- <div class="mt-4 text-center">
                                                     <a href="auth-recoverpw.html" class="text-muted"><i class="mdi mdi-lock mr-1"></i> Forgot your password?</a>
                                                 </div> -->
-                                            </form>
+                                            </div>
                                         </div>
 
                                         <!-- <div class="mt-5 text-center">
@@ -110,18 +109,23 @@
                     </div>
                 </div>
             </div>
+
+            <?php //include'includes/modal.php'?>
         </div>
+
+
+        <?php //include'includes/vue_templates.php';?>
 
         <!-- JAVASCRIPT -->
         <script> var url = '<?php echo base_url(); ?>'</script>
-        <script src="<?php echo base_url();?>dist/js/jquery.min.js"></script>
-        <script src="<?php echo base_url();?>dist/js/popper.min.js"></script>
-        <script src="<?php echo base_url();?>dist/js/bootstrap.min.js"></script>
-        <script src="<?php echo base_url();?>dist/js/vue.min.js"></script>
-        <script src="<?php echo base_url();?>dist/js/vuex.min.js"></script>
-        <script src="<?php echo base_url();?>dist/js/axios.min.js"></script>
-        <script src="<?php echo base_url();?>dist/store.js"></script>
-        <script src="<?php echo base_url();?>dist/auth.js"></script>
+        <script src="<?php echo base_url();?>assets/js/jquery.min.js"></script>
+        <script src="<?php echo base_url();?>assets/js/popper.min.js"></script>
+        <script src="<?php echo base_url();?>assets/js/bootstrap.min.js"></script>
+        <script src="<?php echo base_url();?>assets/js/vue.min.js"></script>
+        <script src="<?php echo base_url();?>assets/js/vuex.min.js"></script>
+        <script src="<?php echo base_url();?>assets/js/axios.min.js"></script>
+        <script src="<?php echo base_url();?>assets/store.js"></script>
+        <script src="<?php echo base_url();?>assets/auth.js"></script>
     
     </body>
 </html>

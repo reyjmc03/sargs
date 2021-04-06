@@ -20,32 +20,41 @@ class PageController extends My_Controller {
 
         // dashboard or home
         if($page == 'dashboard') {
-            //$this->notLoggedIn();
             $this->notLoggedIn();
             $data['nav'] = 'DASHBOARD';
-            $data['page_title'] = 'Dashboard';
-            $data['breadcrumbs'] = 'Dashboard/';
+            $data['page_title'] = 'Welcome';
+            $data['breadcrumbs'] = '<li class="breadcrumb-item active"><a href="'. base_url() . 'dashboard">Dashboard</a></li>'
+            . '<li class="breadcrumb-item"></li>';
+
+            // $data['breadcrumbs'] = '<li class="breadcrumb-item active"><a href="'. base_url() . 'dashboard">Dashboard</a></li>
+            // <li class="breadcrumb-item active">Add Teachers</li>';
         }
 
         // user profile
         if($page == 'user-profile') {
+            $this->notLoggedIn();
             $data['nav'] = 'USER PROFILE';
             $data['page_title'] = 'User Profile';
-            $data['breadcrumbs'] = 'User Profile/';
+            $data['breadcrumbs'] = '<li class="breadcrumb-item active"><a href="'. base_url() . 'user-profile">User Profile</a></li>' 
+            . '<li class="breadcrumb-item"></li>';
         }
 
         // user accounts
         if($page == 'user-accounts') {
+            $this->notLoggedIn();
             $data['nav'] = 'USER ACCOUNTS';
-            $data['title_title'] = 'User Accounts';
-            $data['breadcrumbs'] = 'User Accounts/';
+            $data['page_title'] = 'User Accounts';
+            $data['breadcrumbs'] = '<li class="breadcrumb-item active"><a href="'. base_url() . 'user-accounts">User Accounts</a></li>' 
+            . '<li class="breadcrumb-item"></li>';
         }
 
         // user logs
         if($page == 'user-logs') {
+            $this->notLoggedIn();
             $data['nav'] = 'USER LOGS';
-            $data['title_title'] = 'User Logs';
-            $data['breadcrumbs'] = 'User Logs/';
+            $data['page_title'] = 'User Logs';
+            $data['breadcrumbs'] = '<li class="breadcrumb-item active"><a href="'. base_url() . 'user-logs">User Logs</a></li>' 
+            . '<li class="breadcrumb-item"></li>';
         }
 
         // page output
