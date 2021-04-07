@@ -53,16 +53,16 @@
 					<span><u>GRADES, CERTIFICATE & AWARDS</u></span>
 				</li>
 				<li class=""> 
-					<a href="<?php echo base_url(); ?>dashboard"><i class="fas fa-certificate"></i> <span>Student Certificate</span></a>
+					<a href="<?php echo base_url(); ?>student-certificate"><i class="fas fa-certificate"></i> <span>Student Certificate</span></a>
 				</li>
 				<li class=""> 
-					<a href="<?php echo base_url(); ?>dashboard"><i class="fas fa-certificate"></i> <span>Commanders Recognition Award</span></a>
+					<a href="<?php echo base_url(); ?>commanders-recognition-award"><i class="fas fa-certificate"></i> <span>Commanders Recognition Award</span></a>
 				</li>
 				<li class=""> 
-					<a href="<?php echo base_url(); ?>dashboard"><i class="fas fa-certificate"></i> <span>Commandants Award</span></a>
+					<a href="<?php echo base_url(); ?>commandants-award"><i class="fas fa-certificate"></i> <span>Commandants Award</span></a>
 				</li>
 				<li class=""> 
-					<a href="<?php echo base_url(); ?>dashboard"><i class="fas fa-certificate"></i> <span>COMTRADOC Award</span></a>
+					<a href="<?php echo base_url(); ?>comtradoc-award"><i class="fas fa-certificate"></i> <span>COMTRADOC Award</span></a>
 				</li>
 				<br>
 				<!-- System Management -->

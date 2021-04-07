@@ -56,6 +56,24 @@ class PageController extends My_Controller {
         // ******************************
         // * GRADES, CERTIFICATE & AWARDS
         // ******************************
+        /* student certificate */
+        if($page == 'student-certificate') {
+            $this->notLoggedIn();
+            $data['nav'] = 'STUDENT CERTITICATE';
+            $data['page_title'] = 'Student Certificate';
+            $data['breadcrumbs'] = '<li class="breadcrumb-item active">Grades, Certificate & Awards</li>' 
+            . '<li class="breadcrumb-item"><a href="'. base_url() . 'user-accounts">Student Certificate</a></li>';
+        }
+        /* commanders recognition award */
+        if($page == 'commanders-recognition-award') {
+            $this->notLoggedIn();
+            $data['nav'] = 'COMMANDERS RECOGNITION AWARD';
+            $data['page_title'] = 'Commanders Recognition Award';
+            $data['breadcrumbs'] = '<li class="breadcrumb-item active">Grades, Certificate & Awards</li>' 
+            . '<li class="breadcrumb-item"><a href="'. base_url() . 'user-accounts">Commanders Recognition Award</a></li>';
+        }
+        /* commandants award */
+        /* comtradoc award */
 
 
         // *******************
