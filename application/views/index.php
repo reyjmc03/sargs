@@ -46,7 +46,11 @@
                 <!-- background image -->
                 <div class="col-lg-8">
                     <div class="authentication-bg">
-                        <div class="bg-overlay"></div>
+                        <div class="bg-overlay">
+                            <div class="text-center">
+                                <h1>Content</h1>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- login form -->
