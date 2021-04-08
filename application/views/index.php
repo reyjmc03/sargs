@@ -30,6 +30,10 @@
         <!-- ALTER STYLESHEET -->
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/overlay/css/alter.css">
 
+        <!-- Fontawesome CSS -->
+        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/overlay/pre-skool/assets/plugins/fontawesome/css/fontawesome.min.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/overlay/pre-skool/assets/plugins/fontawesome/css/all.min.css">
+
     </head>
     <body class="auth-body-bg">
         <!-- <div class="home-btn d-none d-sm-block">
@@ -69,14 +73,16 @@
                                                 <p class="text-danger text-center" v-html="message.failed" v-if="message.failed"></p>
 
                                                 <div class="form-group auth-form-group-custom mb-4">
-                                                    <i class="ri-user-2-line auti-custom-input-icon"></i>
+                                                    <!-- <i class="ri-user-2-line auti-custom-input-icon"></i> -->
+                                                    <i class="fas fa-user auti-custom-input-icon"></i>
                                                     <label for="username">USERNAME</label>
                                                     <input type="text" class="form-control red-tooltip" placeholder="Please Enter Username" name="username"v-model="userLogin.username">
                                                 </div>
                                                 <p class="text-danger" v-if="message.username" v-html="message.username"></p>
                         
                                                 <div class="form-group auth-form-group-custom mb-4">
-                                                    <i class="ri-lock-2-line auti-custom-input-icon"></i>
+                                                    <!-- <i class="ri-lock-2-line auti-custom-input-icon"></i> -->
+                                                    <i class="fas fa-lock auti-custom-input-icon"></i>
                                                     <label for="userpassword">PASSWORD</label>
                                                     <input type="password" class="form-control" placeholder="Please Enter Password" name="password"v-model="userLogin.password" id="password">
                                                 </div>
@@ -92,9 +98,9 @@
                                                 </div>
 
 
-                                                <!-- <div class="mt-4 text-center">
+                                                <div class="mt-4 text-center">
                                                     <a href="auth-recoverpw.html" class="text-muted"><i class="mdi mdi-lock mr-1"></i> Forgot your password?</a>
-                                                </div> -->
+                                                </div>
                                             </div>
                                         </div>
 
@@ -110,11 +116,11 @@
                 </div>
             </div>
 
-            <?php //include'includes/modal.php'?>
+            <?php include'includes/modal.php'?>
         </div>
 
 
-        <?php //include'includes/vue_templates.php';?>
+        <?php include'includes/vue_templates.php';?>
 
         <!-- JAVASCRIPT -->
         <script> var url = '<?php echo base_url(); ?>'</script>

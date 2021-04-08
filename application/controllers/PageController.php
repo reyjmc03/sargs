@@ -25,6 +25,7 @@ class PageController extends My_Controller {
         /* dashboard or home */
         if($page == 'dashboard') {
             $this->notLoggedIn();
+            $data['userData'] = $this->user_model->get_userdata($this->session->userdata('user_id'));
             $data['nav'] = 'DASHBOARD';
             $data['page_title'] = 'Welcome';
             $data['breadcrumbs'] = '<li class="breadcrumb-item active"><a href="'. base_url() . 'dashboard">Dashboard</a></li>'
@@ -41,6 +42,7 @@ class PageController extends My_Controller {
         // student identification
         if($page == 'student-identification') {
             $this->notLoggedIn();
+            $data['userData'] = $this->user_model->get_userdata($this->session->userdata('user_id'));
             $data['nav'] = 'STUDENT I.D';
             $data['page_title'] = 'IDENTIFICATION CARDS (I.D)';
             $data['breadcrumbs'] = '<li class="breadcrumb-item active"><a href="'. base_url() . 'user-logs">IDENTIFICATION CARDS (I.D)</a></li>' 
@@ -59,21 +61,39 @@ class PageController extends My_Controller {
         /* student certificate */
         if($page == 'student-certificate') {
             $this->notLoggedIn();
+            $data['userData'] = $this->user_model->get_userdata($this->session->userdata('user_id'));
             $data['nav'] = 'STUDENT CERTITICATE';
             $data['page_title'] = 'Student Certificate';
             $data['breadcrumbs'] = '<li class="breadcrumb-item active">Grades, Certificate & Awards</li>' 
-            . '<li class="breadcrumb-item"><a href="'. base_url() . 'user-accounts">Student Certificate</a></li>';
+            . '<li class="breadcrumb-item"><a href="'. base_url($page) . '">' . $data['page_title'] . '</a></li>';
         }
         /* commanders recognition award */
         if($page == 'commanders-recognition-award') {
             $this->notLoggedIn();
+            $data['userData'] = $this->user_model->get_userdata($this->session->userdata('user_id'));
             $data['nav'] = 'COMMANDERS RECOGNITION AWARD';
             $data['page_title'] = 'Commanders Recognition Award';
             $data['breadcrumbs'] = '<li class="breadcrumb-item active">Grades, Certificate & Awards</li>' 
-            . '<li class="breadcrumb-item"><a href="'. base_url() . 'user-accounts">Commanders Recognition Award</a></li>';
+            . '<li class="breadcrumb-item"><a href="'. base_url($page) . '">' . $data['page_title'] . '</a></li>';
         }
         /* commandants award */
+        if($page == 'commandants-award') {
+            $this->notLoggedIn();
+            $data['userData'] = $this->user_model->get_userdata($this->session->userdata('user_id'));
+            $data['nav'] = 'COMMANDANTS AWARD';
+            $data['page_title'] = 'Commandants Award';
+            $data['breadcrumbs'] = '<li class="breadcrumb-item active">Grades, Certificate & Awards</li>' 
+            . '<li class="breadcrumb-item"><a href="'. base_url($page) . '">' . $data['page_title'] . '</a></li>';
+        }
         /* comtradoc award */
+        if($page == 'comtradoc-award') {
+            $this->notLoggedIn();
+            $data['userData'] = $this->user_model->get_userdata($this->session->userdata('user_id'));
+            $data['nav'] = 'COMTRADOC AWARD';
+            $data['page_title'] = 'COMTRADOC Award';
+            $data['breadcrumbs'] = '<li class="breadcrumb-item active">Grades, Certificate & Awards</li>' 
+            . '<li class="breadcrumb-item"><a href="'. base_url($page) . '">' . $data['page_title'] . '</a></li>';
+        }
 
 
         // *******************
@@ -82,26 +102,29 @@ class PageController extends My_Controller {
         /* user accounts */
         if($page == 'user-accounts') {
             $this->notLoggedIn();
+            $data['userData'] = $this->user_model->get_userdata($this->session->userdata('user_id'));
             $data['nav'] = 'USER ACCOUNTS';
             $data['page_title'] = 'User Accounts';
-            $data['breadcrumbs'] = '<li class="breadcrumb-item active"><a href="'. base_url() . 'user-accounts">User Accounts</a></li>' 
-            . '<li class="breadcrumb-item"></li>';
+            $data['breadcrumbs'] = '<li class="breadcrumb-item active">System Management</li>' 
+            . '<li class="breadcrumb-item"><a href="'. base_url($page) . '">' . $data['page_title'] . '</a></li>';
         }
         /* user logs */
         if($page == 'user-logs') {
             $this->notLoggedIn();
             $data['nav'] = 'USER LOGS';
+            $data['userData'] = $this->user_model->get_userdata($this->session->userdata('user_id'));
             $data['page_title'] = 'User Logs';
-            $data['breadcrumbs'] = '<li class="breadcrumb-item active"><a href="'. base_url() . 'user-logs">User Logs</a></li>' 
-            . '<li class="breadcrumb-item"></li>';
+            $data['breadcrumbs'] = '<li class="breadcrumb-item active">System Management</li>' 
+            . '<li class="breadcrumb-item"><a href="'. base_url($page) . '">' . $data['page_title'] . '</a></li>';
         }
         /* user profile */
         if($page == 'user-profile') {
             $this->notLoggedIn();
-            $data['nav'] = 'USER PROFILE';
-            $data['page_title'] = 'User Profile';
-            $data['breadcrumbs'] = '<li class="breadcrumb-item active"><a href="'. base_url() . 'user-profile">User Profile</a></li>' 
-            . '<li class="breadcrumb-item"></li>';
+            $data['nav'] = 'MY PROFILE';
+            $data['userData'] = $this->user_model->get_userdata($this->session->userdata('user_id'));
+            $data['page_title'] = 'My Profile';
+            $data['breadcrumbs'] = '<li class="breadcrumb-item active">System Management</li>' 
+            . '<li class="breadcrumb-item"><a href="'. base_url($page) . '">' . $data['page_title'] . '</a></li>';
         }
 
         // page output
