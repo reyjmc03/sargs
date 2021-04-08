@@ -107,6 +107,7 @@ class PageController extends My_Controller {
             $data['page_title'] = 'User Accounts';
             $data['breadcrumbs'] = '<li class="breadcrumb-item active">System Management</li>' 
             . '<li class="breadcrumb-item"><a href="'. base_url($page) . '">' . $data['page_title'] . '</a></li>';
+            $data['add_button'] = '';
         }
         /* user logs */
         if($page == 'user-logs') {
@@ -116,6 +117,7 @@ class PageController extends My_Controller {
             $data['page_title'] = 'User Logs';
             $data['breadcrumbs'] = '<li class="breadcrumb-item active">System Management</li>' 
             . '<li class="breadcrumb-item"><a href="'. base_url($page) . '">' . $data['page_title'] . '</a></li>';
+
         }
         /* user profile */
         if($page == 'user-profile') {

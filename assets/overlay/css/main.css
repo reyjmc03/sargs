@@ -106,11 +106,29 @@ body {
     color: #0c4316 !important;
 }
 
-
 .mini-sidebar.expand-menu .sidebar {
     width: 300px !important;
 }
 
 .slide-nav .sidebar {
     width: 300px !important;
+}
+
+.card .card-header {
+    background-color: #0c4316 !important;
+    border-bottom: 1px solid #d5dea7 !important;
+    color: #d5dea7 !important;
+}
+
+.add-button {
+    position: relative;
+}
+
+
+/* .card-body {
+    background-color: #d5dea7 !important;
+} */
+
+.table-responsive {
+    font-size: 13px !important;
 }
