@@ -48,7 +48,7 @@
                     <div class="authentication-bg">
                         <div class="bg-overlay">
                             <div class="text-center">
-                                <h1>Content</h1>
+                                <h1>STUDENT ADMISSION, REGISTRATION AND GRADING SYSTEM</h1>
                             </div>
                         </div>
                     </div>
@@ -67,9 +67,12 @@
                                                     <img src="<?php echo base_url(); ?>assets/images/C2C.png" height="300" width="300" alt="logo">
                                                 </a>
                                             </div>
-                                            <h1 class="font-size-18 mt-4">Student Admission Registration and Grading System</h1>
+                                            <h1 class="font-size-18 mt-4"><?php echo md5(trim('1234')); ?></h1>
                                             <!-- <h1 class="font-size-20 mt-4">Welcome, Please Login!</h1> -->
                                             <!-- <p class="text-muted">Login to continue to S.A.R.G.S.</p> -->
+
+                                            <!-- <p class="text-muted">Hello! let's get started</p>
+                                            <p class="text-muted">Sign in to continue.</p> -->
                                         </div>
 
                                         <div class="p-2 mt-5">
@@ -120,11 +123,11 @@
                 </div>
             </div>
 
-            <?php include'includes/modal.php'?>
+            <?php //include'includes/modal.php'?>
         </div>
 
 
-        <?php include'includes/vue_templates.php';?>
+        <?php //include'includes/vue_templates.php';?>
 
         <!-- JAVASCRIPT -->
         <script> var url = '<?php echo base_url(); ?>'</script>

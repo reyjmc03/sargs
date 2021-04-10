@@ -109,16 +109,30 @@ class PageController extends My_Controller {
             . '<li class="breadcrumb-item"><a href="'. base_url($page) . '">' . $data['page_title'] . '</a></li>';
             $data['add_button'] = '';
         }
-        /* user logs */
-        if($page == 'user-logs') {
+        /* activity logs */
+        if($page == 'activity-logs') {
             $this->notLoggedIn();
-            $data['nav'] = 'USER LOGS';
+            $data['nav'] = 'ACTIVITY LOGS';
             $data['userData'] = $this->user_model->get_userdata($this->session->userdata('user_id'));
-            $data['page_title'] = 'User Logs';
+            $data['page_title'] = 'Activity Logs';
             $data['breadcrumbs'] = '<li class="breadcrumb-item active">System Management</li>' 
             . '<li class="breadcrumb-item"><a href="'. base_url($page) . '">' . $data['page_title'] . '</a></li>';
 
         }
+        /* download database */
+        if($page == 'download-database') {
+            $this->notLoggedIn();
+            $data['nav'] = 'DOWNLOAD DATABASE';
+            $data['userData'] = $this->user_model->get_userdata($this->session->userdata('user_id'));
+            $data['page_title'] = 'Download Databasae';
+            $data['breadcrumbs'] = '<li class="breadcrumb-item active">System Management</li>' 
+            . '<li class="breadcrumb-item"><a href="'. base_url($page) . '">' . $data['page_title'] . '</a></li>';
+
+        }
+
+
+
+
         /* user profile */
         if($page == 'user-profile') {
             $this->notLoggedIn();

@@ -3,9 +3,9 @@
         <div class="card">
             <div class="card-header">
                 <div class="float-left">
-                    <form>
-                        <input type="text" class="form-control" placeholder="Search here">
-                        <button class="btn" type="submit"><i class="fas fa-search"></i></button>
+                    <form class="search-box">
+                        <input type="text" class="search-form-control" placeholder="Search here">
+                        <button class="btn search-button" type="submit"><i class="fas fa-search"></i></button>
                     </form>
                 </div>
                 <div class="text-right float-right add-button">
@@ -19,12 +19,12 @@
                         <thead>
                             <tr>
                                 <th>USER ID</th>
-                                <th>Fullname</th>
-                                <th>Email</th>
-                                <th>Username</th>
-                                <th>User Level</th>
-                                <th>Status</th>
-                                <th>Actions</th>
+                                <th>FULLNAME</th>
+                                <th>EMAIL ADDRESS</th>
+                                <th>USERNAME</th>
+                                <th>USER LEVEL</th>
+                                <th>STATUS</th>
+                                <th width="21%" >ACTIONS</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -33,21 +33,129 @@
                                 <td>asdasdas asdasda asdasdasdas</td>
                                 <td>john@example.com</td>
                                 <td>asdasdasd</td>
-                                <td>ADMINISTRATOR</td>
+                                <td>ADMINISTRATOR <a href="edit-teacher.html" class="btn btn-sm bg-success mr-2"><i class="fas fa-pen"></i> Change</a></td>
                                 <td>Active</td>
                                 <td class="">
-                                    <a href="edit-teacher.html" class="btn btn-sm bg-success-light mr-2">
-                                        <i class="fas fa-eye"></i>
-                                    </a>
-                                    <a href="edit-teacher.html" class="btn btn-sm bg-success-light mr-2">
-                                        <i class="fas fa-eye"></i>
-                                    </a>
-                                    <a href="edit-teacher.html" class="btn btn-sm bg-success-light mr-2">
-                                        <i class="fas fa-pen"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-sm bg-danger-light">
-                                        <i class="fas fa-trash"></i>
-                                    </a>
+                                    <a href="edit-teacher.html" class="btn btn-sm bg-info mr-2"><i class="fas fa-eye"></i> More Details</a>
+                                    <a href="edit-teacher.html" class="btn btn-sm bg-success mr-2"><i class="fas fa-pen"></i> Edit</a>
+                                    <a href="#" class="btn btn-sm bg-danger"><i class="fas fa-trash"></i> Delete</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>test-001</td>
+                                <td>asdasdas asdasda asdasdasdas</td>
+                                <td>john@example.com</td>
+                                <td>asdasdasd</td>
+                                <td>ADMINISTRATOR <a href="edit-teacher.html" class="btn btn-sm bg-success mr-2"><i class="fas fa-pen"></i> Change</a></td>
+                                <td>Active</td>
+                                <td class="">
+                                    <a href="edit-teacher.html" class="btn btn-sm bg-info mr-2"><i class="fas fa-eye"></i> More Details</a>
+                                    <a href="edit-teacher.html" class="btn btn-sm bg-success mr-2"><i class="fas fa-pen"></i> Edit</a>
+                                    <a href="#" class="btn btn-sm bg-danger"><i class="fas fa-trash"></i> Delete</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>test-001</td>
+                                <td>asdasdas asdasda asdasdasdas</td>
+                                <td>john@example.com</td>
+                                <td>asdasdasd</td>
+                                <td>ADMINISTRATOR <a href="edit-teacher.html" class="btn btn-sm bg-success mr-2"><i class="fas fa-pen"></i> Change</a></td>
+                                <td>Active</td>
+                                <td class="">
+                                    <a href="edit-teacher.html" class="btn btn-sm bg-info mr-2"><i class="fas fa-eye"></i> More Details</a>
+                                    <a href="edit-teacher.html" class="btn btn-sm bg-success mr-2"><i class="fas fa-pen"></i> Edit</a>
+                                    <a href="#" class="btn btn-sm bg-danger"><i class="fas fa-trash"></i> Delete</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>test-001</td>
+                                <td>asdasdas asdasda asdasdasdas</td>
+                                <td>john@example.com</td>
+                                <td>asdasdasd</td>
+                                <td>ADMINISTRATOR <a href="edit-teacher.html" class="btn btn-sm bg-success mr-2"><i class="fas fa-pen"></i> Change</a></td>
+                                <td>Active</td>
+                                <td class="">
+                                    <a href="edit-teacher.html" class="btn btn-sm bg-info mr-2"><i class="fas fa-eye"></i> More Details</a>
+                                    <a href="edit-teacher.html" class="btn btn-sm bg-success mr-2"><i class="fas fa-pen"></i> Edit</a>
+                                    <a href="#" class="btn btn-sm bg-danger"><i class="fas fa-trash"></i> Delete</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>test-001</td>
+                                <td>asdasdas asdasda asdasdasdas</td>
+                                <td>john@example.com</td>
+                                <td>asdasdasd</td>
+                                <td>ADMINISTRATOR <a href="edit-teacher.html" class="btn btn-sm bg-success mr-2"><i class="fas fa-pen"></i> Change</a></td>
+                                <td>Active</td>
+                                <td class="">
+                                    <a href="edit-teacher.html" class="btn btn-sm bg-info mr-2"><i class="fas fa-eye"></i> More Details</a>
+                                    <a href="edit-teacher.html" class="btn btn-sm bg-success mr-2"><i class="fas fa-pen"></i> Edit</a>
+                                    <a href="#" class="btn btn-sm bg-danger"><i class="fas fa-trash"></i> Delete</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>test-001</td>
+                                <td>asdasdas asdasda asdasdasdas</td>
+                                <td>john@example.com</td>
+                                <td>asdasdasd</td>
+                                <td>ADMINISTRATOR <a href="edit-teacher.html" class="btn btn-sm bg-success mr-2"><i class="fas fa-pen"></i> Change</a></td>
+                                <td>Active</td>
+                                <td class="">
+                                    <a href="edit-teacher.html" class="btn btn-sm bg-info mr-2"><i class="fas fa-eye"></i> More Details</a>
+                                    <a href="edit-teacher.html" class="btn btn-sm bg-success mr-2"><i class="fas fa-pen"></i> Edit</a>
+                                    <a href="#" class="btn btn-sm bg-danger"><i class="fas fa-trash"></i> Delete</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>test-001</td>
+                                <td>asdasdas asdasda asdasdasdas</td>
+                                <td>john@example.com</td>
+                                <td>asdasdasd</td>
+                                <td>ADMINISTRATOR <a href="edit-teacher.html" class="btn btn-sm bg-success mr-2"><i class="fas fa-pen"></i> Change</a></td>
+                                <td>Active</td>
+                                <td class="">
+                                    <a href="edit-teacher.html" class="btn btn-sm bg-info mr-2"><i class="fas fa-eye"></i> More Details</a>
+                                    <a href="edit-teacher.html" class="btn btn-sm bg-success mr-2"><i class="fas fa-pen"></i> Edit</a>
+                                    <a href="#" class="btn btn-sm bg-danger"><i class="fas fa-trash"></i> Delete</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>test-001</td>
+                                <td>asdasdas asdasda asdasdasdas</td>
+                                <td>john@example.com</td>
+                                <td>asdasdasd</td>
+                                <td>ADMINISTRATOR <a href="edit-teacher.html" class="btn btn-sm bg-success mr-2"><i class="fas fa-pen"></i> Change</a></td>
+                                <td>Active</td>
+                                <td class="">
+                                    <a href="edit-teacher.html" class="btn btn-sm bg-info mr-2"><i class="fas fa-eye"></i> More Details</a>
+                                    <a href="edit-teacher.html" class="btn btn-sm bg-success mr-2"><i class="fas fa-pen"></i> Edit</a>
+                                    <a href="#" class="btn btn-sm bg-danger"><i class="fas fa-trash"></i> Delete</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>test-001</td>
+                                <td>asdasdas asdasda asdasdasdas</td>
+                                <td>john@example.com</td>
+                                <td>asdasdasd</td>
+                                <td>ADMINISTRATOR <a href="edit-teacher.html" class="btn btn-sm bg-success mr-2"><i class="fas fa-pen"></i> Change</a></td>
+                                <td>Active</td>
+                                <td class="">
+                                    <a href="edit-teacher.html" class="btn btn-sm bg-info mr-2"><i class="fas fa-eye"></i> More Details</a>
+                                    <a href="edit-teacher.html" class="btn btn-sm bg-success mr-2"><i class="fas fa-pen"></i> Edit</a>
+                                    <a href="#" class="btn btn-sm bg-danger"><i class="fas fa-trash"></i> Delete</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>test-001</td>
+                                <td>asdasdas asdasda asdasdasdas</td>
+                                <td>john@example.com</td>
+                                <td>asdasdasd</td>
+                                <td>ADMINISTRATOR <a href="edit-teacher.html" class="btn btn-sm bg-success mr-2"><i class="fas fa-pen"></i> Change</a></td>
+                                <td>Active</td>
+                                <td class="">
+                                    <a href="edit-teacher.html" class="btn btn-sm bg-info mr-2"><i class="fas fa-eye"></i> More Details</a>
+                                    <a href="edit-teacher.html" class="btn btn-sm bg-success mr-2"><i class="fas fa-pen"></i> Edit</a>
+                                    <a href="#" class="btn btn-sm bg-danger"><i class="fas fa-trash"></i> Delete</a>
                                 </td>
                             </tr>
                            
@@ -59,4 +167,6 @@
 
     </div>			
 </div>
+
+
 

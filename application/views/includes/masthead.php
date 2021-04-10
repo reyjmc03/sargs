@@ -113,7 +113,7 @@
 			<div class="dropdown-menu">
 				<div class="user-header">
 					<div class="avatar avatar-sm">
-						<img src="<?php echo pg_unescape_bytea($userData->photo);?>" alt="User Image" class="avatar-img rounded-circle">
+						<img src="" alt="User Image" class="avatar-img rounded-circle">
 					</div>
 					<div class="user-text">
 						<h6><?php echo $userData->firstname . ' ' . $userData->middlename . ' ' . $userData->lastname; ?></h6>

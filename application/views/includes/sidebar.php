@@ -72,8 +72,11 @@
 				<li class='<?php echo $nav == "USER ACCOUNTS" ? "active" : " "; ?>'>  
 					<a href="<?php echo base_url(); ?>user-accounts"><i class="fas fa-users"></i> <span>User Accounts</span></a>
 				</li>
-				<li class='<?php echo $nav == "USER LOGS" ? "active" : " "; ?>'>  
-					<a href="<?php echo base_url(); ?>user-logs"><i class="fas fa-clock"></i> <span>User Logs</span></a>
+				<li class='<?php echo $nav == "ACTIVITY LOGS" ? "active" : " "; ?>'>  
+					<a href="<?php echo base_url(); ?>activity-logs"><i class="fas fa-clock"></i> <span>Activity Logs</span></a>
+				</li>
+				<li class='<?php echo $nav == "DOWNLOAD DATABASE" ? "active" : "";?>'>
+					<a href="<?php echo base_url(); ?>download-database"><i class="fas fa-database"></i> <span>Download Database</span></a>
 				</li>
 			</ul>
 		</div>
