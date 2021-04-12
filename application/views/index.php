@@ -34,6 +34,19 @@
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/overlay/pre-skool/assets/plugins/fontawesome/css/fontawesome.min.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/overlay/pre-skool/assets/plugins/fontawesome/css/all.min.css">
 
+
+
+        <!-- Main CSS -->
+        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/overlay/pre-skool/assets/css/style.css">
+
+        <link rel="stylesheet" href="<?php //echo base_url(); ?>assets/overlay/css/poppins-font.css">
+
+        <style>
+       .auth-form-group-custom .auti-custom-input-icon {
+           color: black !important;
+       }
+        </style>
+
     </head>
     <body class="auth-body-bg">
         <!-- <div class="home-btn d-none d-sm-block">
@@ -67,7 +80,7 @@
                                                     <img src="<?php echo base_url(); ?>assets/images/C2C.png" height="300" width="300" alt="logo">
                                                 </a>
                                             </div>
-                                            <h1 class="font-size-18 mt-4"><?php echo md5(trim('1234')); ?></h1>
+                                            <!-- <h1 class="font-size-18 mt-4"></h1> -->
                                             <!-- <h1 class="font-size-20 mt-4">Welcome, Please Login!</h1> -->
                                             <!-- <p class="text-muted">Login to continue to S.A.R.G.S.</p> -->
 

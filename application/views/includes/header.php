@@ -8,8 +8,7 @@
         <!-- Favicon -->
         <?php $this->load->view('includes/favicon'); ?>
 
-        <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,600;0,700;1,400&amp;display=swap"> -->
-        <!-- <link rel="stylesheet" href="<?php //echo base_url(); ?>assets/overlay/css/poppins-font.css"> -->
+        <link rel="stylesheet" href="<?php //echo base_url(); ?>assets/overlay/css/poppins-font.css">
         
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/overlay/pre-skool/assets/plugins/bootstrap/css/bootstrap.min.css">
@@ -46,11 +45,27 @@
         }
         </style>
 
+        <!-- JAVASCRIPTS -->
+        <script src="<?php echo base_url(); ?>assets/overlay/pre-skool/assets/js/jquery-3.5.1.min.js"></script>
+        <script src="<?php echo base_url(); ?>assets/overlay/pre-skool/assets/js/popper.min.js"></script>
+        <script src="<?php echo base_url(); ?>assets/overlay/pre-skool/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+        <!-- slimscroll js -->
+        <script src="<?php echo base_url(); ?>assets/overlay/pre-skool/assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
 
         <script src="<?php echo base_url()?>assets/js/vue.min.js"></script>
         <script src="<?php echo base_url()?>assets/js/axios.min.js"></script>
         <!-- <script src="<?php //echo base_url()?>assets/js/jquery.min.js"></script> -->
         <!-- <script src="<?php //echo base_url()?>assets/js/draggable.js"></script> -->
+
+
+        <!-- <script src="<?php //echo base_url();?>assets/js/pagination.js"></script>
+        <script src="<?php //echo base_url();?>assets/js/app.js"></script> -->
+
+        <!-- datatables -->
+        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/datatables/jquery.dataTables.min.css">
+        <script src="<?php echo base_url(); ?>assets/datatables/jquery.dataTables.min.js"></script>
     </head>
     <body>
         <div class="main-wrapper">
