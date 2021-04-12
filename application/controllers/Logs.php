@@ -6,8 +6,8 @@ class Logs extends CI_Controller {
         $this->load->model('logs_model');
     }
 
-    function showAll(){
-    $query = $this->logs_model->get_all_logs();
+    function show_all_logs(){
+        $query = $this->logs_model->get_all_logs();
         if($query){
             $result['logs']  = $this->logs_model->get_all_logs();
         }

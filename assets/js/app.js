@@ -32,6 +32,10 @@ var v = new Vue({
         addModal: false,
         editModal: false,
         deleteModal: false,
+        logs:[],
+        search: {text: ''},
+        emptyResult: false,
+        
         
     }
 })

@@ -46,14 +46,14 @@
                 </div>
             </div>
 
-            <pagination
+            <!-- <pagination
                 :current_page="currentPage"
                 :row_count_page="rowCountPage"
                 @page-update="pageUpdate"
                 :total_users="totalUsers"
                 :page_range="pageRange"
                 >
-            </pagination>
+            </pagination> -->
         </div>
 
     </div>			
