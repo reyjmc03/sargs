@@ -49,7 +49,7 @@
                             
                             </tbody>
                         </table>
-                        <hr>
+                        <!-- <hr>
                         <pagination 
                             :current_page="currentPage" 
                             :row_count_page="rowCountPage" 
@@ -57,7 +57,7 @@
                             :total_rows="totalRows" 
                             :page_range="pageRange"
                         >
-                        </pagination>	
+                        </pagination>	 -->
                     </div>
                 </div>
             </div>

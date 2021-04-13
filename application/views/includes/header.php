@@ -27,9 +27,9 @@
         .search-form-control {
             background-color: #d5dea !important;
             border-color: rgba(0, 0, 0, 0.1) !important;
-            border-radius: 50px !important;
+            border-radius: 5px !important;
             color: black !important;
-            height: 40px !important;
+            height: 37px !important;
             padding: 10px 50px 10px 15px !important;
             width: 400px !important;
         }
@@ -42,6 +42,9 @@
             padding: 7px 15px !important;
             right: 0px !important; */
             top: 0 !important;
+        }
+        thead {
+            font-size: 15px;
         }
         </style>
 
@@ -59,9 +62,6 @@
         <!-- <script src="<?php //echo base_url()?>assets/js/jquery.min.js"></script> -->
         <!-- <script src="<?php //echo base_url()?>assets/js/draggable.js"></script> -->
 
-
-        <!-- <script src="<?php //echo base_url();?>assets/js/pagination.js"></script>
-        <script src="<?php //echo base_url();?>assets/js/app.js"></script> -->
 
         <!-- datatables -->
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/datatables/jquery.dataTables.min.css">

@@ -1,28 +1,30 @@
+// pagination
 Vue.component('pagination',{
-    template:`  <div class="pager" v-if="totalPages > 0">
-   <ul class="pagination justify-content-center">
-    <li @click="updatePage(prev)" class="page-item">
-      <a v-if="showPrevLink"class="page-link fa fa-arrow-left" href="javascript:void(0)" aria-label="Previous">
-      </a>
-    </li>
-      <li class="page-item" v-if="firstPage">
-<a class="page-link" @click="updatePage(0)" href="javascript:void(0)">1</a>
-</li>
-<li class="page-item page-link text-dark px-3 fa fa-ellipsis-h"  v-if="firstPage"></li>
-    <li class="page-item" :class="{'active': current_page == page}"v-for="page in pages">
-<a class="page-link" @click="updatePage(page)" href="javascript:void(0)">{{page + 1}}</a>
-</li>
-<li class="page-item page-link text-dark px-3 fa fa-ellipsis-h"  v-if="lastPage"></li>
-      <li class="page-item" v-if="lastPage">
-<a class="page-link" @click="updatePage(totalPages - 1)" href="javascript:void(0)">{{totalPages}}</a>
-</li>
-    <li @click="updatePage(next)" class="page-item">
-      <a v-if="showNextLink"class="page-link fa fa-arrow-right" href="javascript:void(0)" aria-label="Next">
-      </a>
-    </li>
-  </ul>
-      </div>`,
-    props:['current_page', 'row_count_page','total_users','page_range'], 
+    template:`
+    <div class="pager" v-if="totalPages > 0">
+    <ul class="pagination float-right">
+        <li @click="updatePage(prev)" class="page-item">
+            <a v-if="showPrevLink"class="page-link fa fa-arrow-left" href="javascript:void(0)" aria-label="Previous">
+            </a>
+        </li>
+        <li class="page-item" v-if="firstPage">
+            <a class="page-link" @click="updatePage(0)" href="javascript:void(0)">1</a>
+        </li>
+        <li class="page-item page-link text-dark px-3 fa fa-ellipsis-h"  v-if="firstPage"></li>
+        <li class="page-item" :class="{'active': current_page == page}"v-for="page in pages">
+            <a class="page-link" @click="updatePage(page)" href="javascript:void(0)">{{page + 1}}</a>
+        </li>
+        <li class="page-item page-link text-dark px-3 fa fa-ellipsis-h"  v-if="lastPage"></li>
+        <li class="page-item" v-if="lastPage">
+            <a class="page-link" @click="updatePage(totalPages - 1)" href="javascript:void(0)">{{totalPages}}</a>
+        </li>
+        <li @click="updatePage(next)" class="page-item">
+            <a v-if="showNextLink"class="page-link fa fa-arrow-right" href="javascript:void(0)" aria-label="Next">
+            </a>
+        </li>
+    </ul>
+    </div>`,
+    props:['current_page', 'row_count_page','total_rows','page_range'], 
     computed:{
         prev(){
             return this.current_page - 1
@@ -46,7 +48,7 @@ Vue.component('pagination',{
             return pages
         },
          totalPages(){
-        return Math.ceil(this.total_users / this.row_count_page);  
+        return Math.ceil(this.total_rows / this.row_count_page);  
         },
         firstPage(){
             return this.rangeStart !==0 
@@ -61,9 +63,9 @@ Vue.component('pagination',{
             return this.current_page == (this.totalPages - 1) ? false : true;
         }
     },
-  methods: {
+    methods: {
         updatePage(pageNumber) {
             this.$emit('page-update', pageNumber);
-         },
-     }
+        },
+    }
 })
