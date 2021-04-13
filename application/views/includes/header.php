@@ -64,7 +64,7 @@
 
 
         <!-- datatables -->
-        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/datatables/jquery.dataTables.min.css">
+        <link rel="stylesheet" href="<?php //echo base_url(); ?>assets/datatables/jquery.dataTables.min.css">
         <script src="<?php echo base_url(); ?>assets/datatables/jquery.dataTables.min.js"></script>
     </head>
     <body>

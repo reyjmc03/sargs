@@ -1,6 +1,6 @@
 <?php
 class Logs_model extends CI_Model {
-    protected $logs = 'tbl_activity_log';
+    public $logs = 'tbl_activity_log';
 
     function __construct() {
         parent::__construct();
@@ -9,8 +9,9 @@ class Logs_model extends CI_Model {
     // get log by users id
 
     // get all logs
-    public function get_all_logs() {
-        $query = $this->db->select('log.user_id AS userid, 
+    public function get_all_data() {
+        $query = $this->db->select('log.id AS id, 
+            log.user_id AS userid, 
             login.username AS username, 
             info.rank AS rank, 
             info.firstname AS firstname, 
@@ -21,7 +22,7 @@ class Logs_model extends CI_Model {
             log.action AS activity, 
             log.ip AS ip, 
             log.date_created AS datecreated');
-        $query = $this->db->select('login.username');
+        $query = $this->db->select('login.username AS username');
         $query = $this->db->from('tbl_activity_log log');
         $query = $this->db->join('tbl_sysuser_login login', 'login.id = log.user_id');
         $query = $this->db->join('tbl_sysuser_info info', 'info.id = login.id');
@@ -33,5 +34,10 @@ class Logs_model extends CI_Model {
 		else{
 			return FALSE;	
         }
+    }
+
+    public function count_all() {
+        $this->db->from('tbl_activity_log');
+        return $this->db->count_all_results();
     }
 }

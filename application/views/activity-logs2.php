@@ -32,7 +32,7 @@
                             </thead>
                             <tbody>
                                 <tr v-for="log in logs">
-                                    <td>1</td>
+                                    <td>{{log.id}}</td>
                                     <td>{{log.firstname}} {{log.middlename}} {{log.lastname}} {{log.suffixname}} ({{log.username}})</td>
                                     <td>{{log.activity}}</td>
                                     <td>{{log.ip}}</td>
@@ -49,7 +49,7 @@
                             
                             </tbody>
                         </table>
-                        <!-- <hr>
+                        <hr>
                         <pagination 
                             :current_page="currentPage" 
                             :row_count_page="rowCountPage" 
@@ -57,7 +57,7 @@
                             :total_rows="totalRows" 
                             :page_range="pageRange"
                         >
-                        </pagination>	 -->
+                        </pagination>	
                     </div>
                 </div>
             </div>
@@ -83,7 +83,7 @@ var v = new Vue({
         currentPage: 0,
         rowCountPage:8,
         totalRows:0,
-        pageRange:1
+        pageRange:4
     },
     created() {
         this.showAll();

@@ -6,7 +6,7 @@
                 <div class="card-header">
                     <div class="float-left">
                         <form class="search-box">
-                            <input type="text" class="search-form-control" placeholder="Search Activity Logs Here">
+                            <input type="search" class="search-form-control" placeholder="Search Activity Logs Here">
                             <!-- <button class="btn search-button" type="submit"><i class="fas fa-search"></i></button> -->
                             <a href="" class="btn btn-success"><i class="fas fa-search"></i> Search</a>
                         </form>
@@ -32,13 +32,13 @@
                             </thead>
                             <tbody>
                                 <tr v-for="log in logs">
-                                    <td>1</td>
-                                    <td>{{log.firstname}} {{log.middlename}} {{log.lastname}} {{log.suffixname}} ({{log.username}})</td>
+                                    <td>{{log.nos}}</td>
+                                    <td>{{log.userinfo}}</td>
                                     <td>{{log.activity}}</td>
                                     <td>{{log.ip}}</td>
-                                    <td>{{log.datecreated}}</td>
+                                    <td>{{log.date_created}}</td>
                                     <td class="">
-                                        <a href="" class="btn btn-sm bg-info"><i class="fas fa-eye"></i> More Details</a>
+                                        <a href="{{log.id}}" class="btn btn-sm bg-info"><i class="fas fa-eye"></i> More Details</a>
                                         <!-- <a href="" class="btn btn-sm bg-success"><i class="fas fa-pen"></i> Edit</a> -->
                                         <a href="#" class="btn btn-sm bg-danger"><i class="fas fa-trash"></i> Delete</a>
                                     </td>
@@ -49,22 +49,53 @@
                             
                             </tbody>
                         </table>
-                        <hr>
-                        <pagination 
-                            :current_page="currentPage" 
-                            :row_count_page="rowCountPage" 
-                            @page-update="pageUpdate" 
-                            :total_rows="totalRows" 
-                            :page_range="pageRange"
-                        >
-                        </pagination>	
+                        <!-- <hr> -->
+                        <!-- pagination -->
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-5">
+                            <div class="dataTables_info" >Found: <label style="color:red;">{{ this.totalRows }}</label> total entries.</div>
+                        </div>
+                        <div class="col-sm-12 col-md-7">
+                            <pagination 
+                                :current_page="currentPage" 
+                                :row_count_page="rowCountPage" 
+                                @page-update="pageUpdate" 
+                                :total_rows="totalRows" 
+                                :page_range="pageRange"
+                            >
+                            </pagination>
+
+                            <!-- <ul class="pagination">
+                                <li class="paginate_button page-item previous" id="DataTables_Table_0_previous">
+                                    <a href="#" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
+                                </li>
+                                <li class="paginate_button page-item ">
+                                    <a href="#" aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0" class="page-link">1</a>
+                                </li>
+                                <li class="paginate_button page-item ">
+                                    <a href="#" aria-controls="DataTables_Table_0" data-dt-idx="2" tabindex="0" class="page-link">2</a>
+                                </li>
+                                <li class="paginate_button page-item active">
+                                    <a href="#" aria-controls="DataTables_Table_0" data-dt-idx="3" tabindex="0" class="page-link">3</a>
+                                </li>
+                                <li class="paginate_button page-item next disabled" id="DataTables_Table_0_next">
+                                    <a href="#" aria-controls="DataTables_Table_0" data-dt-idx="4" tabindex="0" class="page-link">Next</a>
+                                </li>
+                            </ul> -->
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
 
     </div>	
 </div>
+
+
 
 <script src="<?php echo base_url();?>/assets/js/pagination.js"></script>
 
@@ -83,7 +114,8 @@ var v = new Vue({
         currentPage: 0,
         rowCountPage:8,
         totalRows:0,
-        pageRange:1
+        pageRange:3,
+        sortBy: 'userinfo',
     },
     created() {
         this.showAll();

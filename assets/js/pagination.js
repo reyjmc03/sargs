@@ -2,10 +2,10 @@
 Vue.component('pagination',{
     template:`
     <div class="pager" v-if="totalPages > 0">
+    
     <ul class="pagination float-right">
         <li @click="updatePage(prev)" class="page-item">
-            <a v-if="showPrevLink"class="page-link fa fa-arrow-left" href="javascript:void(0)" aria-label="Previous">
-            </a>
+            <a v-if="showPrevLink" href="javascript:void(0)" class="page-link">Previous</a>
         </li>
         <li class="page-item" v-if="firstPage">
             <a class="page-link" @click="updatePage(0)" href="javascript:void(0)">1</a>
@@ -19,8 +19,7 @@ Vue.component('pagination',{
             <a class="page-link" @click="updatePage(totalPages - 1)" href="javascript:void(0)">{{totalPages}}</a>
         </li>
         <li @click="updatePage(next)" class="page-item">
-            <a v-if="showNextLink"class="page-link fa fa-arrow-right" href="javascript:void(0)" aria-label="Next">
-            </a>
+            <a v-if="showNextLink" href="javascript:void(0)" class="page-link">Next</a>
         </li>
     </ul>
     </div>`,
