@@ -79,6 +79,11 @@ class User extends My_Controller{
         $this->session->sess_destroy();
         redirect('./');
     }
+
+
+    function show_all_users() {
+        
+    }
     
     // public function forgot_password(){
     //         $this->form_validation->set_rules('email','Email', 'trim|required|valid_email');

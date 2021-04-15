@@ -15,8 +15,9 @@
                         </form>
                     </div>
                     <div class="text-right float-right add-button">
-                        <!-- <a href="#" class="btn btn-outline-primary mr-2"><i class="fas fa-download"></i> Download</a> -->
-                        <a href="" class="btn btn-danger"><i class="fas fa-trash"></i> Delete All Activity Logs</a>
+                        <form name="sargs-logout-form" method="post" action="<?php echo base_url('user/logout'); ?>" id="sargs-logout-form">
+				        </form>
+                        <button class="btn btn-danger" id="sargs-delete-all" name="sargs-delete-all"><i class="fas fa-trash"></i> Delete All Activity Logs</button>
                     </div>
                 </div>
                 <!-- card body -->
@@ -42,7 +43,7 @@
                                     <td>{{log.ip}}</td>
                                     <td>{{log.activity_date}}</td>
                                     <td class="">
-                                        <button class="btn btn-sm bg-info" data-toggle="modal" data-target="#exampleModalCenter" v-on:click="setCurrentActivityLog(log)">
+                                        <button class="btn btn-sm bg-info" data-toggle="modal" data-target="#activityLogModal" v-on:click="setCurrentActivityLog(log)">
                                             <i class="fas fa-eye"></i> More Details
                                         </button>
                                 
@@ -81,7 +82,7 @@
             </div>
 
 
-            <?php include 'modal.php';?>
+            <?php include 'includes/modal.php';?>
 
         </div>
         <!-- END id="app" -->
@@ -181,10 +182,5 @@ var v = new Vue({
 })
 </script>
 
-<script type="text/javascript">
-// $(document).ready( function () {
-//     $('#sargs-table').DataTable();
-// });
-</script>
 
 

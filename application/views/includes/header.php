@@ -20,6 +20,9 @@
         <!-- Main CSS -->
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/overlay/pre-skool/assets/css/style.css">
 
+        <!-- Animate CSS -->
+        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/animate.min.css">
+
         <!-- MAIN STYLESHEET -->
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/overlay/css/main.css">
 
@@ -46,6 +49,11 @@
         thead {
             font-size: 15px;
         }
+
+        #sarg-logout > .swal-modal {
+            width: 380px !important;
+            height: 325px !important;
+        }
         </style>
 
         <!-- JAVASCRIPTS -->
@@ -62,6 +70,8 @@
         <!-- <script src="<?php //echo base_url()?>assets/js/jquery.min.js"></script> -->
         <!-- <script src="<?php //echo base_url()?>assets/js/draggable.js"></script> -->
 
+        <!-- sweet alert -->
+        <script src="<?php echo base_url(); ?>assets/js/sweetalert.min.js"></script>
 
         <!-- datatables -->
         <link rel="stylesheet" href="<?php //echo base_url(); ?>assets/datatables/jquery.dataTables.min.css">
