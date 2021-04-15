@@ -13,6 +13,7 @@ class Logs_model extends CI_Model {
         $query = $this->db->select('log.id AS id, 
             log.user_id AS userid, 
             login.username AS username, 
+            login.userlevel as userlevel,
             info.rank AS rank, 
             info.firstname AS firstname, 
             info.middlename AS middlename, 

@@ -1,29 +1,42 @@
-<!-- Modal -->
+<!-- Activity Log Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                   ..
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Activity Log Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6 class="control-label">NUMBER: </h6>
+                            <input type="text" class="form-control" v-model="currentActivityLog.nos" disabled /><br>
+                            <h6 class="control-label">NAME OF THE USER: </h6>
+                            <input type="text" class="form-control" v-model="currentActivityLog.rank + ' ' + currentActivityLog.firstname + ' ' + currentActivityLog.middlename + ' ' + currentActivityLog.lastname + ' ' + currentActivityLog.suffixname" disabled /><br>
+                            <h6 class="control-label">USER ACCOUNT: </h6>
+                            <input type="text" class="form-control" v-model="currentActivityLog.username" disabled /><br>
+                            <h6 class="control-label">EMAIL ADDRESS: </h6>
+                            <input type="text" class="form-control" v-model="currentActivityLog.email" disabled /><br>
+                            <h6 class="control-label">USER LEVEL: </h6>
+                            <input type="text" class="form-control" v-model="currentActivityLog.userlevel" disabled /><br>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="control-label">IP ADDRESS </h6>
+                            <input type="text" class="form-control" v-model="currentActivityLog.ip" disabled /><br>
+                            <h6 class="control-label">ACTIVITIES: </h6>
+                            <textarea class="form-control" disabled>{{currentActivityLog.activity}}</textarea><br>
+                            <h6 class="control-label">DATE / TIME OF ACTIVITY: </h6>
+                            <input type="text" class="form-control" v-model="currentActivityLog.activity_date" disabled /><br>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
-
-<!--delete modal-->
-<modal v-if="moreDetailsModal" @close="clearAll()">
-    <h3 slot="head">Delete</h3>
-    <div slot="body" class="text-center">Do you want to delete this record?</div>
-    <div slot="foot">
-        <button class="btn btn-dark" @click="deleteModal = false; deleteUser()" >Delete</button>
-        <button class="btn" @click="deleteModal = false">Cancel</button>
+        </div>
     </div>
-</modal>
+</div>

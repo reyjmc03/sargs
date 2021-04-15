@@ -30,7 +30,7 @@
                                     <th width="15%">USERS</th>
                                     <th width="20%">ACTIVITY</th>
                                     <th width="20%">IP ADDRESS</th>
-                                    <th width="20%">CREATED AT</th>
+                                    <th width="20%">DATE / TIME OF ACTIVITY</th>
                                     <th width="20%">ACTIONS</th>
                                 </tr>
                             </thead>
@@ -40,19 +40,12 @@
                                     <td>{{log.userinfo}}</td>
                                     <td>{{log.activity}}</td>
                                     <td>{{log.ip}}</td>
-                                    <td>{{log.date_created}}</td>
+                                    <td>{{log.activity_date}}</td>
                                     <td class="">
-                                        <button class="btn btn-sm bg-info" @click="moreDetailsModal = true; selectLog(log)"><i class="fas fa-eye"></i> More Details</button>
-                                        <!-- <a href="{{ log.nos }}" class="btn btn-sm bg-info"><i class="fas fa-eye"></i> More Details</a> -->
-
-
-                                        <button class="btn btn-info" @click="showModal">show modal</button>
-                                        <example-modal ref="modal"></example-modal>
-
-                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                                        {{log.ip}}
+                                        <button class="btn btn-sm bg-info" data-toggle="modal" data-target="#exampleModalCenter" v-on:click="setCurrentActivityLog(log)">
+                                            <i class="fas fa-eye"></i> More Details
                                         </button>
-                                        
+                                
                                         <!-- <a href="" class="btn btn-sm bg-success"><i class="fas fa-pen"></i> Edit</a> -->
                                         <a href="#" class="btn btn-sm bg-danger"><i class="fas fa-trash"></i> Delete</a>
                                     </td>
@@ -101,13 +94,13 @@
 <script src="<?php echo base_url();?>/assets/js/pagination.js"></script>
 
 
+
 <script type="text/javascript">
 // tables and modal functions
 var v = new Vue({
     el: '#app',
     data: {
         url: '<?php echo base_url(); ?>',
-        moreDetailsModal:false,
         deleteModal:false,
         logs:[],
         search: {
@@ -121,6 +114,8 @@ var v = new Vue({
         totalRows:0,
         pageRange:3,
         sortBy: 'userinfo',
+
+        currentActivityLog: {}
     },
     created() {
         this.showAll();
@@ -160,7 +155,6 @@ var v = new Vue({
         clearAll() {
             v.newLog = {},
             v.formValidate = false,
-            v.moreDetailsModal = false,
             v.refresh()
         },
         noResult(){
@@ -178,6 +172,9 @@ var v = new Vue({
         showModal() {
             let element = this.$refs.modal.$el
             $(element).modal('show')
+        },
+        setCurrentActivityLog: function(log) {
+            this.currentActivityLog = log
         }
 
     }

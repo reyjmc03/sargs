@@ -24,8 +24,16 @@ class Logs extends CI_Controller {
             $row['nos'] = $no;
             $row['userinfo'] = $result->rank . ' ' . $result->firstname . ' ' . $result->middlename . ' ' . $result->lastname . ' ' . $result->suffixname . ' (' . $result->username . ') ';
             $row['activity'] = $result->activity;
+            $row['username'] = $result->username;
+            $row['userlevel'] = $result->userlevel;
             $row['ip'] = $result->ip;
-            $row['date_created'] = $result->datecreated;
+            $row['rank'] = $result->rank; 
+            $row['firstname'] = $result->firstname; 
+            $row['middlename'] = $result->middlename; 
+            $row['lastname'] = $result->lastname; 
+            $row['suffixname'] = $result->suffixname; 
+            $row['email'] =  $result->email;
+            $row['activity_date'] = $result->datecreated;
             $row['id'] = $result->id;
             $data[] = $row;
         }
