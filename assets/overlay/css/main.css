@@ -8,13 +8,13 @@ body {
 }
 
 .sidebar {
-    background-color: #0c4316 !important;
+    background-color: #030 !important;
     border-right: 1px solid #d5dea7;
 }
 
 .header .header-left {
-    background-color: #0c4316 !important;
-    border-bottom: 1px solid #0c4316;
+    background-color: #030 !important;
+    border-bottom: 1px solid #030;
     border-right: 1px solid #d5dea7;
 }
 
@@ -33,36 +33,36 @@ body {
 }
 
 .sidebar-menu li.active>a {
-    color: #0c4316 !important;
+    color: #030 !important;
     background-color: #d5dea7 !important;
     padding-left: 20px !important;
 }
 
 .sidebar-menu li>a:hover {
-    color: #0c4316 !important;
+    color: #030 !important;
     background-color: #d5dea7 !important;
     padding-left: 40px !important;
 }
 
 #toggle_btn {
-    color: #0c4316 !important;
+    color: #030 !important;
 }
 
 .top-nav-search .form-control {
     background-color: #ffff !important;
-    color: #0c4316 !important;
+    color: #030 !important;
 }
 
 .user-menu.nav>li>a>i {
-    color: #0c4316 !important;
+    color: #030 !important;
 }
 
 .user-header {
-    background-color: #0c4316 !important;
+    background-color: #030 !important;
 }
 
 .user-menu.nav>li>a {
-    color: #0c4316 !important;
+    color: #030 !important;
 }
 
 .user-header .user-text h6 {
@@ -88,12 +88,12 @@ body {
 } */
 
 .sidebar-menu li.sub-active a {
-    color: #0c4316 !important;
+    color: #030 !important;
     background-color: #d5dea7 !important;
 }
 
 .sidebar-menu ul ul li.sub-active a {
-    color: #0c4316 !important;
+    color: #030 !important;
     background-color: #d5dea7 !important;
 }
 
@@ -103,7 +103,7 @@ body {
 
 .dropdown-item {
     background-color: #d5dea7 !important;
-    color: #0c4316 !important;
+    color: #030 !important;
 }
 
 .mini-sidebar.expand-menu .sidebar {
@@ -115,7 +115,7 @@ body {
 }
 
 .card .card-header {
-    background-color: #0c4316 !important;
+    background-color: #030 !important;
     border-bottom: 1px solid #d5dea7 !important;
     color: #d5dea7 !important;
 }
@@ -133,3 +133,7 @@ body {
     font-size: 13px !important;
 }
 
+.modal-header {
+    background-color: #030 !important;
+    color: #d5dea7 !important;
+}

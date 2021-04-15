@@ -1,8 +1,11 @@
 <div class="row">
     <div class="col-sm-12">
 
+        <!-- START id="app" -->
         <div id="app">
+
             <div class="card">
+                <!-- card header -->
                 <div class="card-header">
                     <div class="float-left">
                         <form class="search-box">
@@ -16,6 +19,7 @@
                         <a href="" class="btn btn-danger"><i class="fas fa-trash"></i> Delete All Activity Logs</a>
                     </div>
                 </div>
+                <!-- card body -->
                 <div class="card-body">
                     <div class="table-responsive">
                         <table id="sargs-table" class="table table-striped mb-0">
@@ -38,7 +42,17 @@
                                     <td>{{log.ip}}</td>
                                     <td>{{log.date_created}}</td>
                                     <td class="">
-                                        <a href="{{log.id}}" class="btn btn-sm bg-info"><i class="fas fa-eye"></i> More Details</a>
+                                        <button class="btn btn-sm bg-info" @click="moreDetailsModal = true; selectLog(log)"><i class="fas fa-eye"></i> More Details</button>
+                                        <!-- <a href="{{ log.nos }}" class="btn btn-sm bg-info"><i class="fas fa-eye"></i> More Details</a> -->
+
+
+                                        <button class="btn btn-info" @click="showModal">show modal</button>
+                                        <example-modal ref="modal"></example-modal>
+
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                                        {{log.ip}}
+                                        </button>
+                                        
                                         <!-- <a href="" class="btn btn-sm bg-success"><i class="fas fa-pen"></i> Edit</a> -->
                                         <a href="#" class="btn btn-sm bg-danger"><i class="fas fa-trash"></i> Delete</a>
                                     </td>
@@ -53,6 +67,7 @@
                         <!-- pagination -->
                     </div>
                 </div>
+                <!-- card footer -->
                 <div class="card-footer">
                     <div class="row">
                         <div class="col-sm-12 col-md-5">
@@ -67,30 +82,16 @@
                                 :page_range="pageRange"
                             >
                             </pagination>
-
-                            <!-- <ul class="pagination">
-                                <li class="paginate_button page-item previous" id="DataTables_Table_0_previous">
-                                    <a href="#" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
-                                </li>
-                                <li class="paginate_button page-item ">
-                                    <a href="#" aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0" class="page-link">1</a>
-                                </li>
-                                <li class="paginate_button page-item ">
-                                    <a href="#" aria-controls="DataTables_Table_0" data-dt-idx="2" tabindex="0" class="page-link">2</a>
-                                </li>
-                                <li class="paginate_button page-item active">
-                                    <a href="#" aria-controls="DataTables_Table_0" data-dt-idx="3" tabindex="0" class="page-link">3</a>
-                                </li>
-                                <li class="paginate_button page-item next disabled" id="DataTables_Table_0_next">
-                                    <a href="#" aria-controls="DataTables_Table_0" data-dt-idx="4" tabindex="0" class="page-link">Next</a>
-                                </li>
-                            </ul> -->
                         </div>
                     </div>
                 </div>
             </div>
 
+
+            <?php include 'modal.php';?>
+
         </div>
+        <!-- END id="app" -->
 
     </div>	
 </div>
@@ -106,8 +107,12 @@ var v = new Vue({
     el: '#app',
     data: {
         url: '<?php echo base_url(); ?>',
+        moreDetailsModal:false,
+        deleteModal:false,
         logs:[],
-        search: {text: ''},
+        search: {
+            text: ''
+        },
         emptyResult:false,
 
         //pagination
@@ -149,11 +154,19 @@ var v = new Vue({
                 v.clearAll();  
             }
         },
+        selectLog(log){
+            v.chooseLog = log; 
+        },
+        clearAll() {
+            v.newLog = {},
+            v.formValidate = false,
+            v.moreDetailsModal = false,
+            v.refresh()
+        },
         noResult(){
             v.emptyResult = true;  // become true if the record is empty, print 'No Record Found'
-            v.users = null 
-            v.totalUsers = 0 //remove current page if is empty
-       
+            v.logs = null 
+            v.totalLogs = 0 //remove current page if is empty
         },
         pageUpdate(pageNumber){
               v.currentPage = pageNumber; //receive currentPage number came from pagination template
@@ -161,7 +174,10 @@ var v = new Vue({
         },
         refresh(){
              v.search.text ? v.searchUser() : v.showAll(); //for preventing
-            
+        },
+        showModal() {
+            let element = this.$refs.modal.$el
+            $(element).modal('show')
         }
 
     }
