@@ -41,4 +41,28 @@ class Logs_model extends CI_Model {
         $this->db->from('tbl_activity_log');
         return $this->db->count_all_results();
     }
+
+
+    // delete 1 activity log only.
+    public function delete_log($id) {
+        $this->db->where('id', $id);
+        $this->db->delete('tbl_activity_log');
+           if($this->db->affected_rows() >0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    // delete all activity logs
+    public function delete_all_logs() {
+        $this->db->where('id', $id);
+        $this->db->delete('tbl_activity_log');
+           if($this->db->affected_rows() >0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 }

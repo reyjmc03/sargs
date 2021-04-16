@@ -47,11 +47,19 @@ class Logs extends CI_Controller {
     }
 
 
-    function deleteLog() {
-        
+    function delete_log_only() {
+
     }
 
-    function deleteAllLogs() {
-
+    function delete_log_all() {
+        $result = $this->logs_model->delete_all_logs();
+        if($result){
+            $msg['error'] = false;
+            $msg['success'] = 'User deleted successfully';
+        }
+        else{
+            $msg['error'] = true;
+        }
+        echo json_encode($msg);
     }
 }
