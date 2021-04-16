@@ -6,14 +6,6 @@ class Logs extends CI_Controller {
         $this->load->model('logs_model');
     }
 
-    // function show_all_logs(){
-    //     $query = $this->logs_model->get_all_logs();
-    //     if($query){
-    //         $result['logs']  = $this->logs_model->get_all_logs();
-    //     }
-    //     echo json_encode($result);
-    // }
-
     function show_all_logs() {
         $results = $this->logs_model->get_all_data();
         $data = array();
@@ -47,12 +39,20 @@ class Logs extends CI_Controller {
     }
 
 
-    function delete_log_only() {
-
+    function delete_log_only($id) {
+        $result = $this->logs_model->delete_log_data($id);
+        if($result){
+            $msg['error'] = false;
+            $msg['success'] = 'User deleted successfully';
+        }
+        else{
+            $msg['error'] = true;
+        }
+        echo json_encode($msg);
     }
 
     function delete_log_all() {
-        $result = $this->logs_model->delete_all_logs();
+        $result = $this->logs_model->delete_all_logs_data();
         if($result){
             $msg['error'] = false;
             $msg['success'] = 'User deleted successfully';

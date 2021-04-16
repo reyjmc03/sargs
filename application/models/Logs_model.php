@@ -44,7 +44,7 @@ class Logs_model extends CI_Model {
 
 
     // delete 1 activity log only.
-    public function delete_log($id) {
+    public function delete_log_data($id) {
         $this->db->where('id', $id);
         $this->db->delete('tbl_activity_log');
            if($this->db->affected_rows() >0){
@@ -55,9 +55,8 @@ class Logs_model extends CI_Model {
     }
 
     // delete all activity logs
-    public function delete_all_logs() {
-        $this->db->where('id', $id);
-        $this->db->delete('tbl_activity_log');
+    public function delete_all_logs_data() {
+        $this->db->empty_table('tbl_activity_log');
            if($this->db->affected_rows() >0){
             return true;
         }else{

@@ -3,7 +3,9 @@
 
         <!-- START id="app" -->
         <div id="app">
-
+        <div class="loading" v-if="loading">
+                Loading....
+            </div>
             <div class="card">
                 <!-- card header -->
                 <div class="card-header">
@@ -17,7 +19,7 @@
                     <div class="text-right float-right add-button">
                         <form name="sargs-logout-form" method="post" action="<?php echo base_url('user/logout'); ?>" id="sargs-logout-form">
 				        </form>
-                        <button class="btn btn-danger" id="sargs-delete-all" name="sargs-delete-all"><i class="fas fa-trash"></i> Delete All Activity Logs</button>
+                        <button class="btn btn-danger" id="sargs-delete-all" name="sargs-delete-all" @click="deleteAll()"><i class="fas fa-trash"></i> Delete All Activity Logs</button>
                     </div>
                 </div>
                 <!-- card body -->
@@ -48,7 +50,9 @@
                                         </button>
                                 
                                         <!-- <a href="" class="btn btn-sm bg-success"><i class="fas fa-pen"></i> Edit</a> -->
-                                        <a href="#" class="btn btn-sm bg-danger"><i class="fas fa-trash"></i> Delete</a>
+                                        <button class="btn btn-sm bg-danger" @click="deleteOne(log.id)">
+                                            <i class="fas fa-trash"></i> Delete
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr v-if="emptyResult">
@@ -104,6 +108,7 @@ var v = new Vue({
         url: '<?php echo base_url(); ?>',
         deleteModal:false,
         logs:[],
+        loading: false,
         search: {
             text: ''
         },
@@ -122,8 +127,11 @@ var v = new Vue({
         this.showAll();
     },
     methods: {
+        // loading
+        
+        // generate datatable using vuejs
         showAll(){
-            axios.get('<?php echo base_url(); ?>logs/show_all_logs').then(function(response){
+            axios.get('<?php echo base_url(); ?>api/logs/show_all_logs').then(function(response){
                 if(response.data.logs == null) {
                     v.noResult()
                 } else {
@@ -131,6 +139,52 @@ var v = new Vue({
                     //console.log(response.data.logs);
                 }
             })
+        },
+        deleteAll() {
+            let inst = this;
+            swal({title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon:'warning', 
+                buttons: true, 
+                dangerMode: true
+            }).then((willOUT) => {
+                if (willOUT) {
+                    // confirmation
+                    swal({
+                        title:'Deleted!',
+                        text: "Activity logs has been deleted.",
+                        type: 'success',
+                        icon: 'success', 
+                    }).then((result) => {
+                        axios.delete('<?php echo base_url(); ?>api/logs/delete_log_all')
+                        this.showAll();
+                        location.reload();
+                    });
+                }
+            });
+        },
+        deleteOne(id) {
+            let inst = this;
+            swal({title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon:'warning', 
+                buttons: true, 
+                dangerMode: true
+            }).then((willOUT) => {
+                if (willOUT) {
+                    // confirmation
+                    swal({
+                        title:'Deleted!',
+                        text: "Activity logs has been deleted.",
+                        type: 'success',
+                        icon: 'success', 
+                    }).then((result) => {
+                        axios.delete('<?php echo base_url(); ?>api/logs/delete_log_only/' + id)
+                        this.showAll();
+                        location.reload();
+                    });
+                }
+            });
         },
         formData(obj){
 			var formData = new FormData();
