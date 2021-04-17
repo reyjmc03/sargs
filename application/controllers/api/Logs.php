@@ -14,6 +14,7 @@ class Logs extends CI_Controller {
             $no++;
             $row = array();
             $row['nos'] = $no;
+            $row['user_id'] = $result->userid;
             $row['userinfo'] = $result->rank . ' ' . $result->firstname . ' ' . $result->middlename . ' ' . $result->lastname . ' ' . $result->suffixname . ' (' . $result->username . ') ';
             $row['activity'] = $result->activity;
             $row['username'] = $result->username;

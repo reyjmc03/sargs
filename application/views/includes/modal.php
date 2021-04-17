@@ -12,8 +12,8 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-6">
-                            <h6 class="control-label">NUMBER: </h6>
-                            <input type="text" class="form-control" v-model="currentActivityLog.nos" disabled /><br>
+                            <h6 class="control-label">USER ID NUMBER: </h6>
+                            <input type="text" class="form-control" v-model="currentActivityLog.user_id" disabled /><br>
                             <h6 class="control-label">NAME OF THE USER: </h6>
                             <input type="text" class="form-control" v-model="currentActivityLog.rank + ' ' + currentActivityLog.firstname + ' ' + currentActivityLog.middlename + ' ' + currentActivityLog.lastname + ' ' + currentActivityLog.suffixname" disabled /><br>
                             <h6 class="control-label">USER ACCOUNT: </h6>

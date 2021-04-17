@@ -62,20 +62,43 @@ class User extends My_Controller{
             $password = $this->input->post('password');
             $login = $this->user_model->login($username, $password);
             if($login){
-            
-            $data = array('user_id' => $login,'logged_in' => true);
-            $this->session->set_userdata($data);
-            $validator['error'] = false;
-            $validator['message']['success'] = 'dashboard';
+                $data = array('user_id' => $login,'logged_in' => true);
+                $this->session->set_userdata($data);
+                $validator['error'] = false;
+                $validator['message']['success'] = 'dashboard';
+
+                //activity
+                $this->load->model('Logs_model');
+                $params = array(
+                    'user_id' => $this->session->userdata('user_id'),
+                    'action' => 'successfully login.',
+                    'ip' =>  $_SERVER['REMOTE_ADDR'],
+                    'date_created' =>date("Y-m-d H:i:s"),
+                    'date_updated' =>date("Y-m-d H:i:s"),
+                );
+                $this->Logs_model->add_log($params);
+                ///////////
             }else{
-            $validator['error'] = true;
-            $validator['message']['failed'] = 'INVALID USERNAME OR PASSWORD!'; 
+                $validator['error'] = true;
+                $validator['message']['failed'] = 'INVALID USERNAME OR PASSWORD!'; 
             }
         }
         echo json_encode($validator);
     }
 
     public function logout(){
+        //activity
+        $this->load->model('Logs_model');
+        $params = array(
+            'user_id' => $this->session->userdata('user_id'),
+            'action' => 'successfully logout.',
+            'ip' =>  $_SERVER['REMOTE_ADDR'],
+            'date_created' =>date("Y-m-d H:i:s"),
+            'date_updated' =>date("Y-m-d H:i:s"),
+        );
+        $this->Logs_model->add_log($params);
+        ///////////
+
         $this->session->sess_destroy();
         redirect('./');
     }

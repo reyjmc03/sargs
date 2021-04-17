@@ -37,9 +37,22 @@ class Logs_model extends CI_Model {
         }
     }
 
+    // display total rows count
     public function count_all() {
         $this->db->from('tbl_activity_log');
         return $this->db->count_all_results();
+    }
+
+    // add activity log
+    public function add_log($params) {
+        $this->db->insert('tbl_activity_log', $params);
+        $id = $this->db->insert_id();
+        $db_error = $this->db->error();
+        if (!empty($db_error['code'])){
+			echo 'Database error! Error Code [' . $db_error['code'] . '] Error: ' . $db_error['message'];
+			exit;
+		}
+		return $id;
     }
 
 

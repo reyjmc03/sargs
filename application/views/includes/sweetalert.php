@@ -9,6 +9,7 @@ $(document).ready(function(){
         })
         .then((willOUT) => {
             if (willOUT) {
+
                 window.location.href = '<?php echo base_url('user/logout'); ?>', {
                     icon: 'success',
                 }
@@ -29,7 +30,7 @@ $(document).ready(function(){
 //         })
 //         .then((willOUT) => {
 //             if (willOUT) {
-//                 window.location.href = '<?php echo base_url('logs/delete_log_all'); ?>', {
+//                 window.location.href = '<?php //echo base_url('logs/delete_log_all'); ?>', {
 //                     icon: 'success',
 //                 }
 //             }
