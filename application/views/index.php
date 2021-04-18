@@ -61,10 +61,24 @@
                     <div class="authentication-bg">
                         <div class="bg-overlay">
                             <div class="text-center">
-                                <h1>STUDENT ADMISSION, REGISTRATION AND GRADING SYSTEM</h1>
+                                <br>
+                                <br><br><br><br><br><br>
+                                <a href="<?php echo base_url(); ?>" class="logo">
+                                    <img src="<?php echo base_url(); ?>assets/images/C2C.png" height="350" width="350" alt="logo">
+                                </a>
+                                <br>
+                                <br>
+                                <h1 class="mb-4 text-white font-weight-bold  "><strong>STUDENT ADMISSION, REGISTRATION AND GRADING SYSTEM</strong></h1>
+                                <p class="lead text-warning">version 1.0</p>
+                                <p class="lead text-white">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
                             </div>
                         </div>
                     </div>
+                    <footer class="footer">
+                        <div class="container">
+                            <span class="text-muted">Place sticky footer content here.</span>
+                        </div>
+                    </footer>
                 </div>
                 <!-- login form -->
                 <div class="col-lg-4">
@@ -74,12 +88,11 @@
                                 <div class="col-lg-9">
                                     <div>
                                         <div class="text-center">
-                                            <div>
-                                            <!-- <div class="animate__animated animate__zoomIn"> -->
-                                                <a href="<?php echo base_url(); ?>" class="logo">
-                                                    <img src="<?php echo base_url(); ?>assets/images/C2C.png" height="300" width="300" alt="logo">
+                                            <!-- <div class="animate__animated animate__zoomIn">
+                                                <a href="<?php //echo base_url(); ?>" class="logo">
+                                                    <img src="<?php //echo base_url(); ?>assets/images/C2C.png" height="300" width="300" alt="logo">
                                                 </a>
-                                            </div>
+                                            </div> -->
                                             <!-- <h1 class="font-size-18 mt-4"></h1> -->
                                             <!-- <h1 class="font-size-20 mt-4">Welcome, Please Login!</h1> -->
                                             <!-- <p class="text-muted">Login to continue to S.A.R.G.S.</p> -->
