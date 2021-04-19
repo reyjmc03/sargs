@@ -11,7 +11,7 @@
                 <div class="card-header">
                     <div class="float-left">
                         <form class="search-box">
-                            <input type="search" class="search-form-control" placeholder="Search Activity Logs Here">
+                            <input type="search" class="search-form-control" v-model="searchQuery" placeholder="Search Activity Logs Here">
                             <!-- <button class="btn search-button" type="submit"><i class="fas fa-search"></i></button> -->
                             <a href="" class="btn btn-success"><i class="fas fa-search"></i> Search</a>
                         </form>
@@ -113,6 +113,7 @@ var v = new Vue({
             text: ''
         },
         emptyResult:false,
+        searchQuery: null,
 
         //pagination
         currentPage: 0,
@@ -134,7 +135,14 @@ var v = new Vue({
             axios.get('<?php echo base_url(); ?>api/logs/show_all_logs').then(function(response){
                 if(response.data.logs == null) {
                     v.noResult()
-                } else {
+                } 
+                else if(this.searchQuery) {
+                    // return this.resources.filter((log)=>{
+                    //     return this.searchQuery.toLowerCase().split(' ').every(v => item.title.toLowerCase().includes(v))
+                    // })
+                    conspole.log(this.searchQuery);
+                }
+                else {
                     v.getData(response.data.logs);
                     //console.log(response.data.logs);
                 }
