@@ -1,5 +1,5 @@
 <script>
-$(document).ready(function(){
+$(document).ready(function() {
     $("#sargs-logout").click(function(){
         swal({title:'Logout', 
             text:'Do you want to logout this system?', 

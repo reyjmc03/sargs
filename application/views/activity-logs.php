@@ -31,10 +31,10 @@
                                 <tr>
                                     <th width="5%">#</th>
                                     <th width="15%">USERS</th>
-                                    <th width="20%">ACTIVITY</th>
-                                    <th width="20%">IP ADDRESS</th>
-                                    <th width="20%">DATE / TIME OF ACTIVITY</th>
-                                    <th width="20%">ACTIONS</th>
+                                    <th width="30%">ACTIVITY</th>
+                                    <th width="10%">IP ADDRESS</th>
+                                    <th width="10%">DATE / TIME OF ACTIVITY</th>
+                                    <th width="13%">ACTIONS</th>
                                 </tr>
                             </thead>
                             <tbody>

@@ -78,6 +78,14 @@
 				<li class='<?php echo $nav == "DOWNLOAD DATABASE" ? "active" : "";?>'>
 					<a href="<?php echo base_url(); ?>download-database"><i class="fas fa-database"></i> <span>Download Database</span></a>
 				</li>
+				<li class='<?php echo $nav == "ABOUT" ? "active" : "";?>'>
+					<a href="<?php echo base_url(); ?>about"><i class="fas fa-question-circle"></i> <span>About</span></a>
+				</li>
+				<br>
+				<hr style="background-color: #d5dea7">
+				<li>
+					<a id="sargs-logout"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></a>
+				</li>
 			</ul>
 		</div>
 	</div>

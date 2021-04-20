@@ -108,7 +108,7 @@
 		<!-- User Menu -->
 		<li class="nav-item dropdown has-arrow">
 			<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-				<span class="user-img"><img class="rounded-circle" src="assets/img/profiles/avatar-01.jpg" width="31" alt="<?php echo $userData->firstname . ' ' . $userData->middlename . ' ' . $userData->lastname; ?>"></span>
+				<span class="user-img"><img class="rounded-circle" src="assets/img/profiles/avatar-01.jpg" width="31" alt="<?php echo 'Welcome, ' . $userData->firstname . ' ' . $userData->middlename . ' ' . $userData->lastname; ?>"></span>
 			</a>
 			<div class="dropdown-menu">
 				<div class="user-header">
@@ -126,7 +126,7 @@
 				<!-- <a class="dropdown-item" href="<?php //echo base_url('user/logout'); ?>" id="sargs-logout">Logout</a> -->
 
 				
-				<button class="dropdown-item" id="sargs-logout">Logout</button>
+				<!-- <button class="dropdown-item" id="sargs-logout">Logout</button> -->
 
 				<!-- <button class="dropdown-item" id="sargs-logout">Logout</button> -->
 

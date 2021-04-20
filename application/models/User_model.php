@@ -36,6 +36,45 @@ class User_model extends CI_Model{
 
         return $query->row();
     }
+
+    // get all users
+    public function get_all_data() {
+        $query = $this->db->select('ul.id AS id');
+        $query = $this->db->select('ul.username AS username');
+        $query = $this->db->select('ul.email AS email');
+        $query = $this->db->select('ul.password AS password');
+        $query = $this->db->select('ul.status AS status');
+        $query = $this->db->select('ul.userlevel AS userlevel');
+        $query = $this->db->select('ul.date_created AS datecreated');
+        $query = $this->db->select('ul.date_modified AS datemodified');
+        $query = $this->db->select('ui.rank AS rank');
+        $query = $this->db->select('ui.firstname AS firstname');
+        $query = $this->db->select('ui.middlename AS middlename');
+        $query = $this->db->select('ui.lastname AS lastname');
+        $query = $this->db->select('ui.suffixname AS suffixname');
+        $query = $this->db->select('ui.afpsn AS afpsn');
+        $query = $this->db->select('ui.bos AS bos');
+        $query = $this->db->select('ui.mos AS mos');
+        $query = $this->db->select('ui.address AS address');
+        $query = $this->db->select('ui.phone AS phone');
+            $query = $this->db->from('tbl_sysuser_login ul');
+            $query = $this->db->join('tbl_sysuser_info ui', 'ui.id = ul.id');
+            $query = $this->db->get();
+
+        if($query->num_rows() >= 1){
+            return $query->result();
+        }
+        else {
+            return false;
+        }
+    }
+
+    // display total rows count
+    public function count_all() {
+        $this->db->from('tbl_sysuser_login ul');
+        $this->db->join('tbl_sysuser_info ui', 'ui.id = ul.id');
+        return $this->db->count_all_results();
+    }
     
     //   public function register(){
     //     $option = ['cost'=>12];

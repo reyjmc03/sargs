@@ -124,9 +124,21 @@ class PageController extends My_Controller {
             $this->notLoggedIn();
             $data['nav'] = 'DOWNLOAD DATABASE';
             $data['userData'] = $this->user_model->get_userdata($this->session->userdata('user_id'));
-            $data['page_title'] = 'Download Databasae';
+            $data['page_title'] = 'Download Database';
             $data['breadcrumbs'] = '<li class="breadcrumb-item active">System Management</li>' 
             . '<li class="breadcrumb-item"><a href="'. base_url($page) . '">' . $data['page_title'] . '</a></li>';
+
+        }
+
+        /* about the system */
+        if($page == 'about'){
+            $this->notLoggedIn();
+            $data['nav'] = 'ABOUT';
+            $data['userData'] = $this->user_model->get_userdata($this->session->userdata('user_id'));
+            $data['page_title'] = 'About the System';
+            $data['breadcrumbs'] = '<li class="breadcrumb-item active">System Management</li>' 
+            . '<li class="breadcrumb-item"><a href="'. base_url($page) . '">' . $data['page_title'] . '</a></li>';
+
 
         }
 
