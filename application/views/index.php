@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html  class="perfect-scrollbar-on" lang="en">
     <head>
         <meta charset="utf-8" />
         <?php $this->load->view('includes/titletag'); ?>
@@ -75,11 +75,6 @@
                             </div>
                         </div>
                     </div>
-                    <footer class="footer">
-                        <div class="container">
-                            <span class="text-muted">Place sticky footer content here.</span>
-                        </div>
-                    </footer>
                 </div>
                 <!-- login form -->
                 <div class="col-lg-4">

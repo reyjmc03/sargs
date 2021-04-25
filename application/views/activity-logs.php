@@ -11,9 +11,10 @@
                 <div class="card-header">
                     <div class="float-left">
                         <form class="search-box">
-                            <input type="search" class="search-form-control" v-model="searchQuery" placeholder="Search Activity Logs Here">
-                            <!-- <button class="btn search-button" type="submit"><i class="fas fa-search"></i></button> -->
-                            <a href="" class="btn btn-success"><i class="fas fa-search"></i> Search</a>
+                            <?php //<input type="search" class="search-form-control" v-model="searchQuery" placeholder="Search Activity Logs Here"> ?>
+                            <input placeholder="Search Activity Logs Here" type="search" class="search-form-control" v-model="search.text" @keyup="searchLog" name="search">
+                            <?php //<button class="btn search-button" type="submit"><i class="fas fa-search"></i></button> ?>
+                            <?php //<a href="" class="btn btn-success"><i class="fas fa-search"></i> Search</a> ?>
                         </form>
                     </div>
                     <div class="text-right float-right add-button">
@@ -136,16 +137,21 @@ var v = new Vue({
                 if(response.data.logs == null) {
                     v.noResult()
                 } 
-                else if(this.searchQuery) {
-                    // return this.resources.filter((log)=>{
-                    //     return this.searchQuery.toLowerCase().split(' ').every(v => item.title.toLowerCase().includes(v))
-                    // })
-                    conspole.log(this.searchQuery);
-                }
                 else {
                     v.getData(response.data.logs);
                     //console.log(response.data.logs);
                 }
+            })
+        },
+        // to search logs
+        searchLog(){
+            var formData = v.formData(v.search);
+            axios.post('<?php echo base_url(); ?>api/logs/search_log', formData).then(function(response){
+                if(response.data.logs == null){
+                    v.noResult()
+                }else{
+                    v.getData(response.data.logs); 
+                }  
             })
         },
         deleteAll() {
@@ -238,9 +244,11 @@ var v = new Vue({
         },
         setCurrentActivityLog: function(log) {
             this.currentActivityLog = log
+        },
+        refresh() {
+            v.search.text ? v.searchUser() : v.showAll(); // preventing
         }
-
-    }
+    } 
 })
 </script>
 
