@@ -42,7 +42,9 @@
                                     <td>{{user.username}}</td>
                                     <td>{{user.userlevel}}</td>
                                     <!-- <td><a href="edit-teacher.html" class="btn btn-sm bg-success mr-2"><i class="fas fa-pen"></i> Change</a></td> -->
-                                    <td>{{user.status}}</td>
+                                    <td><button v-bind:class="user.status == 'Active' ? 'btn btn-sm bg-success' : 'btn btn-sm bg-danger'" type="button">{{user.status}}</button>
+                                        
+                                    </td>
                                     <td class="">
                                         <a href="edit-teacher.html" class="btn btn-sm bg-info mr-2"><i class="fas fa-eye"></i> More Details</a>
                                         <a href="edit-teacher.html" class="btn btn-sm bg-success mr-2"><i class="fas fa-pen"></i> Edit</a>

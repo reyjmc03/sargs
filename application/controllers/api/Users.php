@@ -6,6 +6,76 @@ class Users extends CI_Controller {
         $this->load->model('user_model');
     }
 
+    //login function
+    public function login(){
+        $validator = array('erro3r' => true, 'message' =>array());
+        $validation_data = array(
+        array(
+                'field' => 'username',
+                'label' => 'Username',
+                'rules' => 'trim|required'
+        ),
+              array(
+                'field' => 'password',
+                'label' => 'Password',
+                'rules' => 'trim|required'
+        ));
+
+        $this->form_validation->set_rules($validation_data);
+        
+        if($this->form_validation->run()===false){
+          $validator['error'] = true;
+            foreach($_POST as $key =>$value){
+                $validator['message'][$key] = form_error($key);
+            }
+        }else{
+            $username = $this->input->post('username');
+            $password = $this->input->post('password');
+            $login = $this->user_model->login($username, $password);
+            if($login){
+                $data = array('user_id' => $login,'logged_in' => true);
+                $this->session->set_userdata($data);
+                $validator['error'] = false;
+                $validator['message']['success'] = 'dashboard';
+
+                //activity
+                $this->load->model('Logs_model');
+                $params = array(
+                    'user_id' => $this->session->userdata('user_id'),
+                    'action' => 'successfully login.',
+                    'ip' =>  $_SERVER['REMOTE_ADDR'],
+                    'date_created' =>date("Y-m-d H:i:s"),
+                    'date_updated' =>date("Y-m-d H:i:s"),
+                );
+                $this->Logs_model->add_log($params);
+                ///////////
+            }else{
+                $validator['error'] = true;
+                $validator['message']['failed'] = 'INVALID USERNAME OR PASSWORD!'; 
+            }
+        }
+        echo json_encode($validator);
+    }
+
+    // for logout function
+    public function logout(){
+        //activity
+        $this->load->model('Logs_model');
+        $params = array(
+            'user_id' => $this->session->userdata('user_id'),
+            'action' => 'successfully logout.',
+            'ip' =>  $_SERVER['REMOTE_ADDR'],
+            'date_created' =>date("Y-m-d H:i:s"),
+            'date_updated' =>date("Y-m-d H:i:s"),
+        );
+        $this->Logs_model->add_log($params);
+        ///////////
+
+        $this->session->sess_destroy();
+        redirect('./');
+    }
+
+    // for table display
     function show_all_users() {
         $results = $this->user_model->get_all_data();
 
@@ -45,24 +115,4 @@ class Users extends CI_Controller {
 
         echo json_encode($output) . "\r\n";
     }
-
-    // $query = $this->db->select('ul.id AS id');
-    //     $query = $this->db->select('ul.username AS username');
-    //     $query = $this->db->select('ul.email AS email');
-    //     $query = $this->db->select('ul.password AS password');
-    //     $query = $this->db->select('ul.status AS status');
-    //     $query = $this->db->select('ul.userlevel AS userlevel');
-    //     $query = $this->db->select('ul.date_created AS datecreated');
-    //     $query = $this->db->select('ul.date_modified AS datemodified');
-    //     $query = $this->db->select('ui.rank AS rank');
-    //     $query = $this->db->select('ui.firstname AS firstname');
-    //     $query = $this->db->select('ui.middlename AS middlename');
-    //     $query = $this->db->select('ui.lastname AS lastname');
-    //     $query = $this->db->select('ui.suffixname AS suffixname');
-    //     $query = $this->db->select('ui.afpsn AS afpsn');
-    //     $query = $this->db->select('ui.bos AS bos');
-    //     $query = $this->db->select('ui.mos AS mos');
-    //     $query = $this->db->select('ui.address AS address');
-    //     $query = $this->db->select('ui.phone AS phone');
-   
 }

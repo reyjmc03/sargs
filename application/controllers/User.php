@@ -5,38 +5,9 @@ class User extends My_Controller{
         $this->load->model('user_model');
     }
     
-//     public function register(){
-//         $validator = array('success' => false, 'message' =>array());
-//         $validation_data = array(
-//         array('field' => 'firstname','label' => 'Firstname','rules' => 'trim|required'),
-//         array('field' => 'lastname','label' => 'Lastname','rules' => 'trim|required'),
-//         array('field' => 'username','label' => 'Username','rules' => 'trim|required|is_unique[users.username]'),
-//         array('field' => 'email','label' => 'Email','rules' => 'trim|required|valid_email|is_unique[users.email]' ),
-//          array('field' => 'password','label' => 'Password','rules' => 'trim|required|matches[confirm_password]' ),
-//         array('field' => 'confirm_password','label' => 'Confirm Password','rules' => 'trim|required')
-// );
-//         $this->form_validation->set_rules($validation_data);
-//         $this->form_validation->set_message('is_unique', 'The {field} is already exist');
-//         $this->form_validation->set_message('required', '{field} is required');
-//         $this->form_validation->set_message('valid_email', '{field} is not formatted properly');
-//         $this->form_validation->set_error_delimiters('<p class="text-danger"></p>');
-        
-//         if($this->form_validation->run()){
-//             $this->user_model->register();
-//             $validator['success'] = true;
-//             $validator['message']['success'] = 'Successfully Registered';
-            
-//         }else{
-//             $validator['success'] = false;
-//             foreach($_POST as $key =>$value){
-//                 $validator['message'][$key] = form_error($key);
-//             }
-//         }
-//         echo json_encode($validator);
-//     }
-    
-    
-    
+
+   
+    //login function
     public function login(){
         $validator = array('erro3r' => true, 'message' =>array());
         $validation_data = array(
@@ -87,44 +58,8 @@ class User extends My_Controller{
         echo json_encode($validator);
     }
 
-    public function logout(){
-        //activity
-        $this->load->model('Logs_model');
-        $params = array(
-            'user_id' => $this->session->userdata('user_id'),
-            'action' => 'successfully logout.',
-            'ip' =>  $_SERVER['REMOTE_ADDR'],
-            'date_created' =>date("Y-m-d H:i:s"),
-            'date_updated' =>date("Y-m-d H:i:s"),
-        );
-        $this->Logs_model->add_log($params);
-        ///////////
-
-        $this->session->sess_destroy();
-        redirect('./');
-    }
-
 
     function show_all_users() {
-        // $query = $this->db->select('ul.id AS id');
-        // $query = $this->db->select('ul.username AS username');
-        // $query = $this->db->select('ul.email AS email');
-        // $query = $this->db->select('ul.password AS password');
-        // $query = $this->db->select('ul.status AS status');
-        // $query = $this->db->select('ul.userlevel AS userlevel');
-        // $query = $this->db->select('ul.date_created AS datecreated');
-        // $query = $this->db->select('ul.date_modified AS datemodified');
-        // $query = $this->db->select('ui.rank AS rank');
-        // $query = $this->db->select('ui.firstname AS firstname');
-        // $query = $this->db->select('ui.middlename AS middlename');
-        // $query = $this->db->select('ui.lastname AS lastname');
-        // $query = $this->db->select('ui.suffixname AS suffixname');
-        // $query = $this->db->select('ui.afpsn AS afpsn');
-        // $query = $this->db->select('ui.bos AS bos');
-        // $query = $this->db->select('ui.mos AS mos');
-        // $query = $this->db->select('ui.address AS address');
-        // $query = $this->db->select('ui.phone AS phone');
-
         $RESULTS = $this->user_model->get_all_data();
         $data = array();
         $no = '0';

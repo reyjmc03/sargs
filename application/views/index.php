@@ -130,9 +130,9 @@
                                                 </div>
 
 
-                                                <div class="mt-4 text-center">
+                                                <!-- <div class="mt-4 text-center">
                                                     <a href="auth-recoverpw.html" class="text-muted"><i class="mdi mdi-lock mr-1"></i> Forgot your password?</a>
-                                                </div>
+                                                </div> -->
                                             </div>
                                         </div>
 
@@ -162,8 +162,8 @@
         <script src="<?php echo base_url();?>assets/js/vue.min.js"></script>
         <script src="<?php echo base_url();?>assets/js/vuex.min.js"></script>
         <script src="<?php echo base_url();?>assets/js/axios.min.js"></script>
-        <script src="<?php echo base_url();?>assets/store.js"></script>
-        <script src="<?php echo base_url();?>assets/auth.js"></script>
+        // <script src="<?php //echo base_url();?>assets/store.js"></script>
+        <script src="<?php echo base_url();?>assets/js/login.js"></script>
     
     </body>
 </html>
