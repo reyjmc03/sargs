@@ -86,9 +86,7 @@
                 </div>
             </div>
 
-
-            <?php include 'includes/modal.php';?>
-
+            <?php include 'modals/modal_activity_logs.php';?>
         </div>
         <!-- END id="app" -->
 
@@ -154,6 +152,7 @@ var v = new Vue({
                 }  
             })
         },
+        // to delete all log
         deleteAll() {
             let inst = this;
             swal({title: 'Are you sure?',
@@ -177,6 +176,7 @@ var v = new Vue({
                 }
             });
         },
+        // to delete one log
         deleteOne(id) {
             let inst = this;
             swal({title: 'Are you sure?',

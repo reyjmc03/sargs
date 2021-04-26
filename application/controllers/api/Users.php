@@ -17,7 +17,7 @@ class Users extends CI_Controller {
             $no++;
             $row = array();
             $row['nos'] = $no;
-            $row['id'] = $result->id;
+            $row['userid'] = $result->id;
             $row['username'] = $result->username;
             $row['email'] = $result->email;
             $row['password'] = $result->password;

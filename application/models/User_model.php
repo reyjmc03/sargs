@@ -65,7 +65,7 @@ class User_model extends CI_Model{
             return $query->result();
         }
         else {
-            return FALSE;
+            return false;
         }
     }
 
