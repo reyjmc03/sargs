@@ -13,8 +13,7 @@
                         </form>
                     </div>
                     <div class="text-right float-right add-button">
-                        <!-- <a href="#" class="btn btn-outline-primary mr-2"><i class="fas fa-download"></i> Download</a> -->
-                        <a href="add-teacher.html" class="btn btn-primary"><i class="fas fa-plus"></i> Add New User Account</a>
+                        <button class="btn btn-danger" data-toggle="modal" data-target="#addNewUserAccountModal"><i class="fas fa-plus"></i>&nbsp; Add New User Account</button>
                     </div>
                 </div>
                 <!-- card body -->
@@ -80,9 +79,10 @@
                     </div>
                 </div>
             </div>
+
+            <?php include 'modals/modal_users.php'; ?>
         </div>
         <!-- END id="app" -->
-
 
     </div>			
 </div>
