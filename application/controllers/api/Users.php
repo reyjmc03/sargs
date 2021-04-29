@@ -102,7 +102,7 @@ class Users extends CI_Controller {
             $row['suffixname'] = $result->suffixname;
             $row['afpsn'] = $result->afpsn;
             $row['bos'] = $result->bos;
-            $row['mos'] = $result->mos;
+            $row['afpos'] = $result->afpos;
             $row['address'] = $result->address;
             $row['phone'] = $result->phone;
             $data[] = $row;

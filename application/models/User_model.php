@@ -54,7 +54,7 @@ class User_model extends CI_Model{
         $query = $this->db->select('ui.suffixname AS suffixname');
         $query = $this->db->select('ui.afpsn AS afpsn');
         $query = $this->db->select('ui.bos AS bos');
-        $query = $this->db->select('ui.mos AS mos');
+        $query = $this->db->select('ui.afpos AS afpos');
         $query = $this->db->select('ui.address AS address');
         $query = $this->db->select('ui.phone AS phone');
             $query = $this->db->from('tbl_sysuser_login ul');

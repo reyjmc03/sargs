@@ -63,12 +63,14 @@
                             <div class="text-center">
                                 <br>
                                 <br><br><br><br><br><br><br><br>
+                                <div class="animate__animated animate__fadeIn">
                                 <a href="<?php echo base_url(); ?>" class="logo">
                                     <img src="<?php echo base_url(); ?>assets/images/C2C.png" height="350" width="350" alt="logo">
                                 </a>
+                                </div>
                                 <br>
                                 <br>
-                                <h1 class="mb-4 text-white font-weight-bold  "><strong>STUDENT ADMISSION, REGISTRATION AND GRADING SYSTEM</strong></h1>
+                                <h1 class="mb-4 text-white font-weight-bold animate__animated animate__fadeIn"><strong>STUDENT ADMISSION, REGISTRATION AND GRADING SYSTEM</strong></h1>
                                 <!-- <h1 class="mb-4 text-white font-weight-bold  "><strong>STUDENT ADMISSION, REGISTRATION AND GRADING SYSTEM</strong></h1>
                                 <p class="lead text-warning">version 1.0</p> -->
                                 <!-- <p class="lead text-white">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p> -->
@@ -102,7 +104,7 @@
                                             <p>Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.</p>
                                             <br>
                                             <div id="login" class="form-horizontal">
-                                                <p class="text-danger text-center" v-html="message.failed" v-if="message.failed"></p>
+                                                <p class="text-danger text-center animate__animated animate__zoomIn" v-html="message.failed" v-if="message.failed"></p>
 
                                                 <div class="form-group auth-form-group-custom mb-4">
                                                     <!-- <i class="ri-user-2-line auti-custom-input-icon"></i> -->
@@ -110,7 +112,7 @@
                                                     <label for="username">USERNAME</label>
                                                     <input type="text" class="form-control red-tooltip" placeholder="Please Enter Username" name="username"v-model="userLogin.username">
                                                 </div>
-                                                <p class="text-danger" v-if="message.username" v-html="message.username"></p>
+                                                <p class="text-danger animate__animated animate__fadeIn" v-if="message.username" v-html="message.username"></p>
                         
                                                 <div class="form-group auth-form-group-custom mb-4">
                                                     <!-- <i class="ri-lock-2-line auti-custom-input-icon"></i> -->
@@ -118,7 +120,7 @@
                                                     <label for="userpassword">PASSWORD</label>
                                                     <input type="password" class="form-control" placeholder="Please Enter Password" name="password"v-model="userLogin.password" id="password">
                                                 </div>
-                                                <p class="text-danger" v-if="message.password" v-html="message.password"></p>
+                                                <p class="text-danger animate__animated animate__fadeIn" v-if="message.password" v-html="message.password"></p>
                         
                                                 <div class="custom-control custom-checkbox">
                                                     <input type="checkbox" class="custom-control-input" id="customControlInline">
@@ -162,7 +164,6 @@
         <script src="<?php echo base_url();?>assets/js/vue.min.js"></script>
         <script src="<?php echo base_url();?>assets/js/vuex.min.js"></script>
         <script src="<?php echo base_url();?>assets/js/axios.min.js"></script>
-        // <script src="<?php //echo base_url();?>assets/store.js"></script>
         <script src="<?php echo base_url();?>assets/js/login.js"></script>
     
     </body>

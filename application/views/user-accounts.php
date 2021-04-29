@@ -13,7 +13,7 @@
                         </form>
                     </div>
                     <div class="text-right float-right add-button">
-                        <button class="btn btn-danger" data-toggle="modal" data-target="#addNewUserAccountModal"><i class="fas fa-plus"></i>&nbsp; Add New User Account</button>
+                        <button class="btn btn-danger" data-toggle="modal" data-target="#addNewUserAccountModal"><i class="fas fa-plus"></i>&nbsp; CREATE NEW ACCOUNT</button>
                     </div>
                 </div>
                 <!-- card body -->
@@ -41,13 +41,15 @@
                                     <td>{{user.username}}</td>
                                     <td>{{user.userlevel}}</td>
                                     <!-- <td><a href="edit-teacher.html" class="btn btn-sm bg-success mr-2"><i class="fas fa-pen"></i> Change</a></td> -->
-                                    <td><button v-bind:class="user.status == 'Active' ? 'btn btn-sm bg-success' : 'btn btn-sm bg-danger'" type="button">{{user.status}}</button>
-                                        
+                                    <td>
+                                        <button v-bind:class="user.status == 'Active' ? 'btn btn-sm bg-success' : 'btn btn-sm bg-danger'" type="button">{{user.status}}</button>
                                     </td>
                                     <td class="">
-                                        <a href="edit-teacher.html" class="btn btn-sm bg-info mr-2"><i class="fas fa-eye"></i> More Details</a>
-                                        <a href="edit-teacher.html" class="btn btn-sm bg-success mr-2"><i class="fas fa-pen"></i> Edit</a>
-                                        <a href="#" class="btn btn-sm bg-danger"><i class="fas fa-trash"></i> Delete</a>
+                                        <button class="btn btn-sm bg-info" data-toggle="modal" data-target="#moreDetailsModal" v-on:click="setUserMoreDetails(user)">
+                                            <i class="fas fa-eye"></i> MORE DETAILS
+                                        </button>
+                                        <a href="edit-teacher.html" class="btn btn-sm bg-success mr-2"><i class="fas fa-pen"></i> EDIT</a>
+                                        <a href="#" class="btn btn-sm bg-danger"><i class="fas fa-trash"></i> DELETE</a>
                                     </td>
                                 </tr>
 
@@ -112,7 +114,8 @@ var v = new Vue({
         pageRange:3,
         sortBy: 'nos',
 
-        currentUser: {}
+        currentUser: {},
+        modalUser: {},
     },
     created() {
         this.showAll();
@@ -177,9 +180,12 @@ var v = new Vue({
         setCurrentUser: function(user) {
             this.currentUser = user
         },
+        setUserMoreDetails: function(user) {
+            this.modalUser = user
+        },
         refresh() {
             v.search.text ? v.searchUser() : v.showAll(); // preventing
-        }
+        },
     }
 })
 </script>

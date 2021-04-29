@@ -20,7 +20,7 @@
                     <div class="text-right float-right add-button">
                         <form name="sargs-logout-form" method="post" action="<?php echo base_url('user/logout'); ?>" id="sargs-logout-form">
 				        </form>
-                        <button class="btn btn-danger" id="sargs-delete-all" name="sargs-delete-all" @click="deleteAll()"><i class="fas fa-trash"></i> Delete All Activity Logs</button>
+                        <button class="btn btn-danger" id="sargs-delete-all" name="sargs-delete-all" @click="deleteAll()"><i class="fas fa-trash"></i> DELETE ALL ACTIVITY LOGS</button>
                     </div>
                 </div>
                 <!-- card body -->
@@ -47,12 +47,12 @@
                                     <td>{{log.activity_date}}</td>
                                     <td class="">
                                         <button class="btn btn-sm bg-info" data-toggle="modal" data-target="#activityLogModal" v-on:click="setCurrentActivityLog(log)">
-                                            <i class="fas fa-eye"></i> More Details
+                                            <i class="fas fa-eye"></i> MORE DETAILS
                                         </button>
                                 
                                         <!-- <a href="" class="btn btn-sm bg-success"><i class="fas fa-pen"></i> Edit</a> -->
                                         <button class="btn btn-sm bg-danger" @click="deleteOne(log.id)">
-                                            <i class="fas fa-trash"></i> Delete
+                                            <i class="fas fa-trash"></i> DELETE
                                         </button>
                                     </td>
                                 </tr>
