@@ -19,6 +19,10 @@ class Logs_model extends CI_Model {
         $query = $this->db->select('info.middlename AS middlename'); 
         $query = $this->db->select('info.lastname AS lastname'); 
         $query = $this->db->select('info.suffixname AS suffixname'); 
+        $query = $this->db->select('info.afpsn AS suffixname'); 
+        $query = $this->db->select('info.afpsn AS afpsn'); 
+        $query = $this->db->select('info.afpos AS afpos'); 
+        $query = $this->db->select('info.bos AS bos'); 
         $query = $this->db->select('login.email AS  email');
         $query = $this->db->select('log.action AS activity'); 
         $query = $this->db->select('log.ip AS ip'); 

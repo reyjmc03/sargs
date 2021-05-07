@@ -32,7 +32,8 @@
                                 <tr>
                                     <th width="5%">#</th>
                                     <th width="15%">USERS</th>
-                                    <th width="30%">ACTIVITY</th>
+                                    <th width="10%">USER ACCOUNT</th>
+                                    <th width="20%">ACTIVITY</th>
                                     <th width="10%">IP ADDRESS</th>
                                     <th width="10%">DATE / TIME OF ACTIVITY</th>
                                     <th width="13%">ACTIONS</th>
@@ -41,7 +42,8 @@
                             <tbody>
                                 <tr v-for="log in logs">
                                     <td>{{log.nos}}</td>
-                                    <td>{{log.userinfo}}</td>
+                                    <td>{{log.rank}}&nbsp;{{log.firstname}}&nbsp;{{log.middlename}}&nbsp;{{log.lastname}}{{log.suffixname == null ? '' : '&nbsp;' + log.suffixname}}{{log.afpsn== null ? '' : '&nbsp;' + log.afpsn}}{{log.afpos== null ? '' : '&nbsp;' + log.afpos}}{{log.bos== null ? '' : '&nbsp;' + log.bos}}</td>
+                                    <td>{{log.username}}</td>
                                     <td>{{log.activity}}</td>
                                     <td>{{log.ip}}</td>
                                     <td>{{log.activity_date}}</td>
@@ -57,7 +59,7 @@
                                     </td>
                                 </tr>
                                 <tr v-if="emptyResult">
-                                    <td colspan="6"  class="text-center h4" style="color:red;">No Record Found!</td>
+                                    <td colspan="7"  class="text-center h4" style="color:red;">No Record Found!</td>
                                 </tr>
                             
                             </tbody>

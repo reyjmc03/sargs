@@ -8,8 +8,9 @@
                 <div class="card-header">
                     <div class="float-left">
                         <form class="search-box">
-                            <input type="text" class="search-form-control" placeholder="Search here">
-                            <button class="btn search-button" type="submit"><i class="fas fa-search"></i></button>
+                            <!-- <input type="text" class="search-form-control" placeholder="Search here">
+                            <button class="btn search-button" type="submit"><i class="fas fa-search"></i></button> -->
+                            <input placeholder="Search Users Here" type="search" class="search-form-control" v-model="search.text" @keyup="searchUser" name="search">
                         </form>
                     </div>
                     <div class="text-right float-right add-button">
@@ -134,7 +135,16 @@ var v = new Vue({
             })
         },
         // to search a user
-
+        searchUser() {
+            var formData = v.formData(v.search);
+            axios.post('<?php echo base_url(); ?>api/users/search_user', formData).then(function(response){
+                if(response.data.logs == null){
+                    v.noResult()
+                }else{
+                    v.getData(response.data.logs); 
+                }  
+            })
+        },
         formData(obj){
             var formData = new FormData();
             for(var key in obj) {
