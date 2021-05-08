@@ -99,6 +99,7 @@ var v = new Vue({
     el: '#app',
     data: {
         url: '<?php echo base_url(); ?>',
+        addModal: false,
 
         deleteModal:false,
         users: [],
@@ -167,8 +168,9 @@ var v = new Vue({
             v.chooseUser = user;
         },
         clearAll(){
-            v.newUser = {},
-            v.formValidate = false,
+            v.newUser = {};
+            v.formValidate = false;
+            v.addModal = false;
             v.refresh()
         },
         noResult(){

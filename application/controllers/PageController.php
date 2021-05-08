@@ -95,6 +95,21 @@ class PageController extends My_Controller {
             . '<li class="breadcrumb-item"><a href="'. base_url($page) . '">' . $data['page_title'] . '</a></li>';
         }
 
+        // ******************************
+        // * REFERENCES
+        // ******************************
+        /* signatories */
+        /* ranks */
+           if($page == 'ranks'){
+            $this->notLoggedIn();
+            $data['nav'] = 'RANKS';
+            $data['userData'] = $this->user_model->get_userdata($this->session->userdata('user_id'));
+            $data['page_title'] = 'Ranks';
+            $data['breadcrumbs'] = '<li class="breadcrumb-item active">References</li>' 
+            . '<li class="breadcrumb-item"><a href="'. base_url($page) . '">' . $data['page_title'] . '</a></li>';
+
+
+        }
 
         // *******************
         // * SYSTEM MANAGEMENT

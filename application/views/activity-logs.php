@@ -18,8 +18,6 @@
                         </form>
                     </div>
                     <div class="text-right float-right add-button">
-                        <form name="sargs-logout-form" method="post" action="<?php echo base_url('user/logout'); ?>" id="sargs-logout-form">
-				        </form>
                         <button class="btn btn-danger" id="sargs-delete-all" name="sargs-delete-all" @click="deleteAll()"><i class="fas fa-trash"></i> DELETE ALL ACTIVITY LOGS</button>
                     </div>
                 </div>
@@ -33,9 +31,9 @@
                                     <th width="5%">#</th>
                                     <th width="15%">USERS</th>
                                     <th width="10%">USER ACCOUNT</th>
-                                    <th width="20%">ACTIVITY</th>
+                                    <th width="15%">ACTIVITY</th>
                                     <th width="10%">IP ADDRESS</th>
-                                    <th width="10%">DATE / TIME OF ACTIVITY</th>
+                                    <th width="15%">DATE / TIME OF ACTIVITY</th>
                                     <th width="13%">ACTIONS</th>
                                 </tr>
                             </thead>
@@ -46,7 +44,10 @@
                                     <td>{{log.username}}</td>
                                     <td>{{log.activity}}</td>
                                     <td>{{log.ip}}</td>
-                                    <td>{{log.activity_date}}</td>
+                                    <td>
+                                        <label style="color:blue;">created:&nbsp;{{log.created_date}}</label><br>
+                                        <label style="color:red;">updated:&nbsp;{{log.updated_date}}</label>
+                                    </td>
                                     <td class="">
                                         <button class="btn btn-sm bg-info" data-toggle="modal" data-target="#activityLogModal" v-on:click="setCurrentActivityLog(log)">
                                             <i class="fas fa-eye"></i> MORE DETAILS

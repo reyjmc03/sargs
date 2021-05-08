@@ -29,7 +29,8 @@ class Logs extends CI_Controller {
             $row['afpos'] = $result->afpos;
             $row['bos'] = $result->bos;
             $row['email'] =  $result->email;
-            $row['activity_date'] = $result->datecreated;
+            $row['created_date'] = $result->datecreated;
+            $row['updated_date'] = $result->dateupdated;
             $row['id'] = $result->id;
             $data[] = $row;
         }
@@ -88,7 +89,8 @@ class Logs extends CI_Controller {
             $row['lastname'] = $result->lastname; 
             $row['suffixname'] = $result->suffixname; 
             $row['email'] =  $result->email;
-            $row['activity_date'] = $result->datecreated;
+            $row['created_date'] = $result->datecreated;
+            $row['updated_date'] = $result->dateupdated;
             $row['id'] = $result->id;
             $data[] = $row;
         }

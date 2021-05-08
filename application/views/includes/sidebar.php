@@ -98,8 +98,8 @@
 						<li><a href="<?php echo base_url(); ?>comtradoc-award"><i class="fas fa-certificate"></i> <span>COMTRADOC Award</span></a></li>
 					</ul>
 				</li>
-				<li class=''> 
-					<a href=""><i class="fas fa-th-large"></i> <span>Ranks</span></a>
+				<li class='<?php echo $nav == "RANKS" ? "active" : " "; ?>'>  
+					<a href="<?php echo base_url(); ?>ranks"><i class="fas fa-th-large"></i> <span>Ranks</span></a>
 				</li>
 				<br>
 
