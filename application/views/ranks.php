@@ -47,7 +47,7 @@
                                         <a href="edit-teacher.html" class="btn btn-sm bg-success mr-2"><i class="fas fa-pen"></i> EDIT</a>
                                 
                                         <!-- <a href="" class="btn btn-sm bg-success"><i class="fas fa-pen"></i> Edit</a> -->
-                                        <button class="btn btn-sm bg-danger" @click="deleteOne(log.id)">
+                                        <button class="btn btn-sm bg-danger" @click="deleteOne(rank.id)">
                                             <i class="fas fa-trash"></i> DELETE
                                         </button>
                                     </td>
@@ -64,6 +64,7 @@
                 </div>
             </div>
 
+            <?php include 'modals/references/modal_ranks.php'?>
         </div>
         <!-- END id="app" -->
 
@@ -97,7 +98,7 @@ var v = new Vue({
         currentRank: {}
     },
     created() {
-        $this.showAll();
+        this.showAll();
     },
     methods: {
         // loading
@@ -109,8 +110,9 @@ var v = new Vue({
                     v.noResult()
                 } 
                 else {
-                    v.getData(response.data.ranks);
-                    //console.log(response.data.logs);
+                    v.getData(response.data.logs);
+                    //v.getData(response.data.ranks);
+                    //console.log(response.data.ranks);
                 }
             })
         },
@@ -121,59 +123,65 @@ var v = new Vue({
                 if(response.data.ranks== null){
                     v.noResult()
                 }else{
-                    v.getData(response.data.ranks); 
+                    //v.getData(response.data.ranks); 
                 }  
             })
         },
-    },
-    formData(obj){
-        var formData = new FormData();
-        for ( var key in obj ) {
-            formData.append(key, obj[key]);
-        } 
-        return formData;
-    },
-    getData(ranks){
-        v.emptyResult = false; // become false if has a record
-        v.totalRows = ranks.length //get total of rows
-        v.ranks = ranks.slice(v.currentPage * v.rowCountPage, (v.currentPage * v.rowCountPage) + v.rowCountPage); //slice the result for pagination
-        
-            // if the record is empty, go back a page
-        if(v.ranks.length == 0 && v.currentPage > 0){ 
-            v.pageUpdate(v.currentPage - 1)
-            v.clearAll();  
-        }
-    },
-    selectLog(rank){
-        v.chooseRank = rank; 
-    },
-    clearAll() {
-        v.newLRank = {},
-        v.formValidate = false,
-        v.refresh()
-    },
-    noResult(){
-        v.emptyResult = true;  // become true if the record is empty, print 'No Record Found'
-        v.ranks = null 
-        v.totalRanks = 0 //remove current page if is empty
-    },
-    pageUpdate(pageNumber){
-        v.currentPage = pageNumber; //receive currentPage number came from pagination template
-        v.refresh()  
-    },
-    refresh(){
-        v.search.text ? v.searchRank() : v.showAll(); //for preventing
-    },
-    showModal() {
-        let element = this.$refs.modal.$el
-        $(element).modal('show')
-    },
-    setCurrentRank: function(rank) {
-        this.currentRank = rank
-    },
-    refresh() {
-        v.search.text ? v.searchRank() : v.showAll(); // preventing
-    }
+        // to delete all ranks
+        deleteAll() {
 
+        },
+        deleteOne(id) {
+
+        },
+        formData(obj){
+            var formData = new FormData();
+            for ( var key in obj ) {
+                formData.append(key, obj[key]);
+            } 
+            return formData;
+        },
+        getData(ranks){
+            v.emptyResult = false; // become false if has a record
+            v.totalRows = ranks.length //get total of rows
+            v.ranks = ranks.slice(v.currentPage * v.rowCountPage, (v.currentPage * v.rowCountPage) + v.rowCountPage); //slice the result for pagination
+            
+             // if the record is empty, go back a page
+            if(v.logs.length == 0 && v.currentPage > 0){ 
+                v.pageUpdate(v.currentPage - 1)
+                v.clearAll();  
+            }
+        },
+        selectLog(rank){
+            v.chooseRank = rank; 
+        },
+        clearAll() {
+            v.newLRank = {},
+            v.formValidate = false,
+            v.refresh()
+        },
+        noResult(){
+            v.emptyResult = true;  // become true if the record is empty, print 'No Record Found'
+            v.ranks = null 
+            v.totalRanks = 0 //remove current page if is empty
+        },
+        pageUpdate(pageNumber){
+            v.currentPage = pageNumber; //receive currentPage number came from pagination template
+            v.refresh()  
+        },
+        refresh(){
+            v.search.text ? v.searchRank() : v.showAll(); //for preventing
+        },
+        showModal() {
+            let element = this.$refs.modal.$el
+            $(element).modal('show')
+        },
+        setCurrentRank: function(rank) {
+            this.currentRank = rank
+        },
+        refresh() {
+            v.search.text ? v.searchRank() : v.showAll(); // preventing
+        }
+    }
 })
 </script>
