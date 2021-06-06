@@ -108,20 +108,21 @@
 		<!-- User Menu -->
 		<li class="nav-item dropdown has-arrow">
 			<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-				<span class="user-img"><img class="rounded-circle" src="assets/img/profiles/avatar-01.jpg" width="31" alt="<?php echo 'Welcome, ' . $userData->firstname . ' ' . $userData->middlename . ' ' . $userData->lastname; ?>"></span>
+				<span class="user-img"><img class="rounded-circle" src="https://via.placeholder.com/150" width="31" alt="<?php echo 'Welcome, ' . $userData->firstname . ' ' . $userData->middlename . ' ' . $userData->lastname; ?>"></span>
 			</a>
 			<div class="dropdown-menu">
 				<div class="user-header">
 					<div class="avatar avatar-sm">
-						<img src="" alt="User Image" class="avatar-img rounded-circle">
+						<img src="https://via.placeholder.com/150" alt="User Image" class="avatar-img rounded-circle">
 					</div>
 					<div class="user-text">
 						<h6><?php echo $userData->firstname . ' ' . $userData->middlename . ' ' . $userData->lastname; ?></h6>
 						<p class="text-muted mb-0"><?php echo $userData->userlevel; ?></p>
 					</div>
 				</div>
-				<a class="dropdown-item" href="<?php echo base_url('user-profile')?>">My Profile</a>
-				<a class="dropdown-item" href="inbox.html">Inbox</a>
+				<a class="dropdown-item" href="<?php echo base_url()?>user-profile">My Profile</a>
+				<a class="dropdown-item" href="<?php echo base_url()?>user-profile-logs">My Profile Activity Logs</a>
+				<button class="dropdown-item" id="sargs-logout">Logout</button>
 
 				<!-- <a class="dropdown-item" href="<?php //echo base_url('user/logout'); ?>" id="sargs-logout">Logout</a> -->
 

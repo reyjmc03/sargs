@@ -170,6 +170,15 @@ class PageController extends My_Controller {
             . '<li class="breadcrumb-item"><a href="'. base_url($page) . '">' . $data['page_title'] . '</a></li>';
         }
 
+        /* user profile logs */
+        if($page == 'user-profile-logs') {
+            $data['nav'] = 'MY PROFILE ACTIVITY LOGS';
+            $data['userData'] = $this->user_model->get_userdata($this->session->userdata('user_id'));
+            $data['page_title'] = 'My Profile Activity Logs';
+            $data['breadcrumbs'] = '<li class="breadcrumb-item active">System Management</li>' 
+            . '<li class="breadcrumb-item"><a href="'. base_url($page) . '">' . $data['page_title'] . '</a></li>';
+        }
+
         // page output
         $page == 'index' ? '' : $this->load->view('includes/header', $data);
         $this->load->view($page, $data);

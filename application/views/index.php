@@ -71,6 +71,7 @@
                                 <br>
                                 <br>
                                 <h1 class="mb-4 text-white font-weight-bold animate__animated animate__fadeIn"><strong>STUDENT ADMISSION, REGISTRATION AND GRADING SYSTEM</strong></h1>
+                                <hr>
                                 <!-- <h1 class="mb-4 text-white font-weight-bold  "><strong>STUDENT ADMISSION, REGISTRATION AND GRADING SYSTEM</strong></h1>
                                 <p class="lead text-warning">version 1.0</p> -->
                                 <!-- <p class="lead text-white">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p> -->
