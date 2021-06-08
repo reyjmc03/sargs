@@ -28,29 +28,33 @@
                                 <tr>
                                     <th width="5%">#</th>
                                     <th width="15%">RANK</th>
-                                    <th width="20%">RANK DESCRIPTION</th>
-                                    <th width="20%">CATEGORY</th>
-                                    <th width="20%">DATE / TIME OF ACTIVITY</th>
-                                    <th width="20%">ACTIONS</th>
+                                    <th width="">RANK DESCRIPTION</th>
+                                    <th width="">CATEGORY</th>
+                                    <th width="15%">DATE / TIME OF ACTIVITY (created)</th>
+                                    <th width="15%">DATE / TIME OF ACTIVITY (modified)</th>
+                                    <!-- <th width="20%">ACTIONS</th> -->
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr v-for="rank in ranks">
                                     <td>{{rank.nos}}</td>
                                     <td>{{rank.rank}}</td>
-                                    <td>{{rank.rank_description}}</td>
+                                    <td>{{rank.description}}</td>
                                     <td>{{rank.category}}</td>
-                                    <td>created:&nbsp;{{rank.activity_date}}<br>
-                                    updated:&nbsp;{{rank.activity_date}
+                                    <td>
+                                        <label style="color:blue;">created:&nbsp;{{rank.date_created}}</label>
                                     </td>
-                                    <td class="">
+                                    <td>
+                                        <label style="color:red;">modified:&nbsp;{{rank.date_modified}}</label>
+                                    </td>
+                                    <!-- <td class="">
                                         <a href="edit-teacher.html" class="btn btn-sm bg-success mr-2"><i class="fas fa-pen"></i> EDIT</a>
                                 
                                         <!-- <a href="" class="btn btn-sm bg-success"><i class="fas fa-pen"></i> Edit</a> -->
-                                        <button class="btn btn-sm bg-danger" @click="deleteOne(rank.id)">
+                                        <!-- <button class="btn btn-sm bg-danger" @click="deleteOne(rank.id)">
                                             <i class="fas fa-trash"></i> DELETE
-                                        </button>
-                                    </td>
+                                        </button> -->
+                                    <!-- </td> -->
                                 </tr>
                                 <tr v-if="emptyResult">
                                     <td colspan="7"  class="text-center h4" style="color:red;">No Record Found!</td>
@@ -60,6 +64,24 @@
                         </table>
                         <!-- <hr> -->
                         <!-- pagination -->
+                    </div>
+                </div>
+                <!-- card footer -->
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-5">
+                            <div class="dataTables_info" >Found: <label style="color:red;">{{ this.totalRows }}</label> total entries.</div>
+                        </div>
+                        <div class="col-sm-12 col-md-7">
+                            <pagination 
+                                :current_page="currentPage" 
+                                :row_count_page="rowCountPage" 
+                                @page-update="pageUpdate" 
+                                :total_rows="totalRows" 
+                                :page_range="pageRange"
+                            >
+                            </pagination>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -72,6 +94,8 @@
 </div>
 
 <script src="<?php echo base_url();?>/assets/js/pagination.js"></script>
+
+
 
 <script type="text/javascript">
 // tables and model functions
@@ -110,7 +134,7 @@ var v = new Vue({
                     v.noResult()
                 } 
                 else {
-                    v.getData(response.data.logs);
+                    v.getData(response.data.ranks);
                     //v.getData(response.data.ranks);
                     //console.log(response.data.ranks);
                 }

@@ -27,7 +27,7 @@
                             <thead>
                                 <tr>
                                     <th width="5%">#</th>
-                                    <th width="15%">ACTIVITY</th>
+                                    <th width="15%">ACTIVITY <?php echo $userData->id; ?></th>
                                     <th width="10%">IP ADDRESS</th>
                                     <th width="15%">DATE / TIME OF ACTIVITY (Created)</th>
                                     <th width="15%">DATE / TIME OF ACTIVITY (Updated)</th>
@@ -126,7 +126,7 @@ var v = new Vue({
         
         // generate datatable using vuejs
         showAll(){
-            axios.get('<?php echo base_url(); ?>api/logs/show_all_logs').then(function(response){
+            axios.get('<?php echo base_url(); ?>api/logs/show_by_user_log/<?php echo $userData->id; ?>').then(function(response){
                 if(response.data.logs == null) {
                     v.noResult()
                 } 

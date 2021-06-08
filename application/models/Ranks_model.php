@@ -12,6 +12,8 @@ class Ranks_model extends CI_Model {
         $query = $this->db->select('rank');
         $query = $this->db->select('description');
         $query = $this->db->select('category');
+        $qeury = $this->db->select('date_created');
+        $query = $this->db->select('date_modified');
             $query = $this->db->from('tbl_ref_ranks');
             $query = $this->db->get();
 
@@ -34,6 +36,8 @@ class Ranks_model extends CI_Model {
         $query = $this->db->select('rank');
         $query = $this->db->select('description');
         $query = $this->db->select('category');
+        $qeury = $this->db->select('date_created');
+        $query = $this->db->select('date_modified');
 
         $query = $this->db->from('tbl_ref_ranks');
 

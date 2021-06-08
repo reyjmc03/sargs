@@ -21,6 +21,8 @@ class Ranks extends CI_Controller {
             $row['rank'] = $result->rank;
             $row['description'] = $result->description;
             $row['category'] = $result->category;
+            $row['date_created'] = $result->date_created;
+            $row['date_modified'] = $result->date_modified;
             $data[] = $row;
         }
 
@@ -47,6 +49,8 @@ class Ranks extends CI_Controller {
             $row['rank'] = $result->rank;
             $row['description'] = $result->description;
             $row['category'] = $result->category;
+            $row['date_created'] = $result->date_created;
+            $row['date_modified'] = $result->date_modified;
             $data[] = $row;
         }
 
