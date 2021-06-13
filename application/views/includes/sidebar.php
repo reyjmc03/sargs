@@ -99,7 +99,13 @@
 					</ul>
 				</li>
 				<li class='<?php echo $nav == "RANKS" ? "active" : " "; ?>'>  
-					<a href="<?php echo base_url(); ?>ranks"><i class="fas fa-th-large"></i> <span>Ranks</span></a>
+					<a href="<?php echo base_url(); ?>ranks"><i class="fas fa-chevron-up"></i> <span>Ranks</span></a>
+				</li>
+				<li class='<?php echo $nav == "BOS" ? "active" : " "; ?>'>  
+					<a href="<?php echo base_url(); ?>branch-of-service"><i class="far fa-building"></i> <span>Branch of Service (BOS)</span></a>
+				</li>
+				<li class='<?php echo $nav == "AFPOS" ? "active" : " "; ?>'>  
+					<a href="<?php echo base_url(); ?>afp-of-service"><i class="fas fa-building"></i> <span>AFP of Service (AFPOS)</span></a>
 				</li>
 				<br>
 

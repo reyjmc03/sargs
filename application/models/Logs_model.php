@@ -135,11 +135,6 @@ class Logs_model extends CI_Model {
         $query = $this->db->join('tbl_sysuser_login login', 'login.id = log.user_id');
         $query = $this->db->join('tbl_sysuser_info info', 'info.id = login.id');
 
-       
-
-        $query = $this->db->where('log.user_id', $id);
-
-
         $query = $this->db->like('log.id', $match, 'both');
         $query = $this->db->or_like('login.username',$match, 'both');
         $query = $this->db->or_like('login.userlevel',$match, 'both');
@@ -154,6 +149,7 @@ class Logs_model extends CI_Model {
         $query = $this->db->or_like('log.date_created',$match, 'both');
         $query = $this->db->or_like('log.date_updated',$match, 'both');
 
+        $query = $this->db->where('log.user_id', $id);
         $query = $this->db->get();
 
         if($query->num_rows() > 0){

@@ -15,7 +15,8 @@
         
         <!-- Fontawesome CSS -->
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/overlay/pre-skool/assets/plugins/fontawesome/css/fontawesome.min.css">
-        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/overlay/pre-skool/assets/plugins/fontawesome/css/all.min.css">
+        <!-- <link rel="stylesheet" href="<?php //echo base_url(); ?>assets/overlay/pre-skool/assets/plugins/fontawesome/css/all.min.css"> -->
+        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/fontawesome-free-5.15.3-web/css/all.css">
         
         <!-- Main CSS -->
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/overlay/pre-skool/assets/css/style.css">

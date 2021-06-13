@@ -140,7 +140,6 @@ var v = new Vue({
                 } 
                 else {
                     v.getData(response.data.logs);
-                    //console.log(response.data.logs);
                 }
             })
         },

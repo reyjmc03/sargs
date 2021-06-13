@@ -12,7 +12,8 @@
                     <div class="float-left">
                         <form class="search-box">
                             <?php //<input type="search" class="search-form-control" v-model="searchQuery" placeholder="Search Activity Logs Here"> ?>
-                            <input placeholder="Search Activity Logs Here" type="search" class="search-form-control" v-model="search.text" @keyup="searchLog" name="search">
+                            <!-- <input placeholder="Search Activity Logs Here" type="search" class="search-form-control" v-model="search.text" @keyup="searchLog" name="search"> -->
+                            <br>
                             <?php //<button class="btn search-button" type="submit"><i class="fas fa-search"></i></button> ?>
                             <?php //<a href="" class="btn btn-success"><i class="fas fa-search"></i> Search</a> ?>
                         </form>
@@ -27,7 +28,7 @@
                             <thead>
                                 <tr>
                                     <th width="5%">#</th>
-                                    <th width="15%">ACTIVITY <?php echo $userData->id; ?></th>
+                                    <th width="15%">ACTIVITY</th>
                                     <th width="10%">IP ADDRESS</th>
                                     <th width="15%">DATE / TIME OF ACTIVITY (Created)</th>
                                     <th width="15%">DATE / TIME OF ACTIVITY (Updated)</th>
@@ -132,14 +133,13 @@ var v = new Vue({
                 } 
                 else {
                     v.getData(response.data.logs);
-                    //console.log(response.data.logs);
                 }
             })
         },
         // to search logs
         searchLog(){
             var formData = v.formData(v.search);
-            axios.post('<?php echo base_url(); ?>api/logs/search_log', formData).then(function(response){
+            axios.post('<?php echo base_url(); ?>api/logs/search_user_log/<?php echo $userData->id; ?>', formData).then(function(response){
                 if(response.data.logs == null){
                     v.noResult()
                 }else{
@@ -172,29 +172,29 @@ var v = new Vue({
             });
         },
         // to delete one log
-        deleteOne(id) {
-            let inst = this;
-            swal({title: 'Are you sure?',
-                text: "You won't be able to revert this!",
-                icon:'warning', 
-                buttons: true, 
-                dangerMode: true
-            }).then((willOUT) => {
-                if (willOUT) {
-                    // confirmation
-                    swal({
-                        title:'Deleted!',
-                        text: "Activity logs has been deleted.",
-                        type: 'success',
-                        icon: 'success', 
-                    }).then((result) => {
-                        axios.delete('<?php echo base_url(); ?>api/logs/delete_log_only/' + id)
-                        this.showAll();
-                        location.reload();
-                    });
-                }
-            });
-        },
+        // deleteOne(id) {
+        //     let inst = this;
+        //     swal({title: 'Are you sure?',
+        //         text: "You won't be able to revert this!",
+        //         icon:'warning', 
+        //         buttons: true, 
+        //         dangerMode: true
+        //     }).then((willOUT) => {
+        //         if (willOUT) {
+        //             // confirmation
+        //             swal({
+        //                 title:'Deleted!',
+        //                 text: "Activity logs has been deleted.",
+        //                 type: 'success',
+        //                 icon: 'success', 
+        //             }).then((result) => {
+        //                 axios.delete('<?php echo base_url(); ?>api/logs/delete_log_only/' + id)
+        //                 this.showAll();
+        //                 location.reload();
+        //             });
+        //         }
+        //     });
+        // },
         formData(obj){
 			var formData = new FormData();
 		      for ( var key in obj ) {

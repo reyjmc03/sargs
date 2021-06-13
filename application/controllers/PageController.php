@@ -100,16 +100,35 @@ class PageController extends My_Controller {
         // ******************************
         /* signatories */
         /* ranks */
-           if($page == 'ranks'){
+        if($page == 'ranks'){
             $this->notLoggedIn();
             $data['nav'] = 'RANKS';
             $data['userData'] = $this->user_model->get_userdata($this->session->userdata('user_id'));
             $data['page_title'] = 'Ranks';
             $data['breadcrumbs'] = '<li class="breadcrumb-item active">References</li>' 
             . '<li class="breadcrumb-item"><a href="'. base_url($page) . '">' . $data['page_title'] . '</a></li>';
-
-
         }
+        
+        /* branch of service */
+         if($page == 'branch-of-service'){
+            $this->notLoggedIn();
+            $data['nav'] = 'BOS';
+            $data['userData'] = $this->user_model->get_userdata($this->session->userdata('user_id'));
+            $data['page_title'] = 'Branch of Service (BOS)';
+            $data['breadcrumbs'] = '<li class="breadcrumb-item active">References</li>' 
+            . '<li class="breadcrumb-item"><a href="'. base_url($page) . '">' . $data['page_title'] . '</a></li>';
+        }
+
+        /* afp of service */
+        if($page == 'afp-of-service'){
+            $this->notLoggedIn();
+            $data['nav'] = 'AFPOS';
+            $data['userData'] = $this->user_model->get_userdata($this->session->userdata('user_id'));
+            $data['page_title'] = 'AFP of Service (AFPOS)';
+            $data['breadcrumbs'] = '<li class="breadcrumb-item active">References</li>' 
+            . '<li class="breadcrumb-item"><a href="'. base_url($page) . '">' . $data['page_title'] . '</a></li>';
+        }
+
 
         // *******************
         // * SYSTEM MANAGEMENT
@@ -172,6 +191,7 @@ class PageController extends My_Controller {
 
         /* user profile logs */
         if($page == 'user-profile-logs') {
+            $this->notLoggedIn();
             $data['nav'] = 'MY PROFILE ACTIVITY LOGS';
             $data['userData'] = $this->user_model->get_userdata($this->session->userdata('user_id'));
             $data['page_title'] = 'My Profile Activity Logs';
