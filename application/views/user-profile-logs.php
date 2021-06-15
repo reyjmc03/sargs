@@ -82,7 +82,7 @@
                 </div>
             </div>
 
-            <?php include 'modals/modal_user-profile-logs.php';?>
+            <?php include 'modals/references/modal_user-profile-logs.php';?>
         </div>
         <!-- END id="app" -->
 

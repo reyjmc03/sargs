@@ -3,36 +3,33 @@
 
         <!-- START id="app" -->
         <div id="app">
-
             <div class="card">
                 <!-- card header -->
                 <div class="card-header">
                     <div class="float-left">
                         <form class="search-box">
-                            <?php //<input type="search" class="search-form-control" v-model="searchQuery" placeholder="Search Activity Logs Here"> ?>
-                            <input placeholder="Search Activity Logs Here" type="search" class="search-form-control" v-model="search.text" @keyup="searchRank" name="search">
-                            <?php //<button class="btn search-button" type="submit"><i class="fas fa-search"></i></button> ?>
-                            <?php //<a href="" class="btn btn-success"><i class="fas fa-search"></i> Search</a> ?>
+                            <!-- <input type="text" class="search-form-control" placeholder="Search here">
+                            <button class="btn search-button" type="submit"><i class="fas fa-search"></i></button> -->
+                            <input placeholder="Search Ranks Here" type="search" class="search-form-control" v-model="search.text" @keyup="searchRank" name="search">
                         </form>
                     </div>
                     <div class="text-right float-right add-button">
+                        <button class="btn btn-warning" data-toggle="modal" data-target="#addNewRankAccountModal"><i class="fas fa-plus"></i>&nbsp; CREATE NEW RAN</button>
                         <button class="btn btn-danger" id="sargs-delete-all" name="sargs-delete-all" @click="deleteAll()"><i class="fas fa-trash"></i> DELETE ALL RANKS</button>
                     </div>
                 </div>
                 <!-- card body -->
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table id="sargs-table" class="table table-striped mb-0">
-                        <!-- <table id="" class="table table-stripped"> -->
+                        <table class="table table-striped mb-0">
                             <thead>
                                 <tr>
                                     <th width="5%">#</th>
-                                    <th width="15%">RANK</th>
-                                    <th width="">RANK DESCRIPTION</th>
-                                    <th width="">CATEGORY</th>
-                                    <th width="15%">DATE / TIME OF ACTIVITY (created)</th>
-                                    <th width="15%">DATE / TIME OF ACTIVITY (modified)</th>
-                                    <!-- <th width="20%">ACTIONS</th> -->
+                                    <th>RANK</th>
+                                    <th>DESCRIPTION</th>
+                                    <th>DATE CREATED</th>
+                                    <th>DATE MODIFIED</th>
+                                    <th width="20%" >ACTIONS</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -40,30 +37,28 @@
                                     <td>{{rank.nos}}</td>
                                     <td>{{rank.rank}}</td>
                                     <td>{{rank.description}}</td>
-                                    <td>{{rank.category}}</td>
-                                    <td>
-                                        <label style="color:blue;">created:&nbsp;{{rank.date_created}}</label>
-                                    </td>
-                                    <td>
-                                        <label style="color:red;">modified:&nbsp;{{rank.date_modified}}</label>
-                                    </td>
-                                    <!-- <td class="">
-                                        <a href="edit-teacher.html" class="btn btn-sm bg-success mr-2"><i class="fas fa-pen"></i> EDIT</a>
-                                
-                                        <!-- <a href="" class="btn btn-sm bg-success"><i class="fas fa-pen"></i> Edit</a> -->
-                                        <!-- <button class="btn btn-sm bg-danger" @click="deleteOne(rank.id)">
+                                    <td>{{rank.date_created}}</td>
+                                    <td>{{rank.date_modified}}</td>
+                                    <td class="">
+                                        <button class="btn btn-sm bg-info" data-toggle="modal" data-target="#activityRankModal" v-on:click="setCurrentRank(rank)">
+                                            <i class="fas fa-eye"></i> MORE DETAILS
+                                        </button>
+                                        <button class="btn btn-sm bg-success" data-toggle="modal" data-target="#editRankModal" v-on:click="setCurrentRank(rank)">
+                                            <i class="fas fa-pen"></i> EDIT
+                                        </button>
+                                        <button class="btn btn-sm bg-danger" @click="deleteOne(rank.id)">
                                             <i class="fas fa-trash"></i> DELETE
-                                        </button> -->
-                                    <!-- </td> -->
+                                        </button>
+                                    </td>
                                 </tr>
+
+                                <!-- empty result -->
                                 <tr v-if="emptyResult">
                                     <td colspan="7"  class="text-center h4" style="color:red;">No Record Found!</td>
                                 </tr>
                             
                             </tbody>
                         </table>
-                        <!-- <hr> -->
-                        <!-- pagination -->
                     </div>
                 </div>
                 <!-- card footer -->
@@ -86,83 +81,121 @@
                 </div>
             </div>
 
-            <?php include 'modals/references/modal_ranks.php'?>
+            <?php include 'modals/references/modal_ranks.php'; ?>
         </div>
         <!-- END id="app" -->
 
-    </div>
+    </div>			
 </div>
+
 
 <script src="<?php echo base_url();?>/assets/js/pagination.js"></script>
 
-
-
 <script type="text/javascript">
-// tables and model functions
+// tables and modal functions
 var v = new Vue({
     el: '#app',
     data: {
         url: '<?php echo base_url(); ?>',
+        addModal: false,
+
         deleteModal:false,
-        ranks:[],
-        loading: false,
+        ranks: [],
         search: {
             text: ''
         },
-        emptyResult:false,
+        emptyResult: false,
         searchQuery: null,
 
         //pagination
-        currentPage: 0,
+        currentPage:0,
         rowCountPage:8,
         totalRows:0,
         pageRange:3,
-        sortBy: 'id',
+        sortBy: 'nos',
 
-        currentRank: {}
+        currentRank: {},
+        modalRank: {},
     },
     created() {
         this.showAll();
     },
     methods: {
-        // loading
-
-        // generate datatable using vuejs
+        //generate datatable using vuejs
         showAll(){
-            axios.get('<?php echo base_url(); ?>api/ranks/show_all_ranks').then(function(response){
+            axios.get('<?php echo base_url(); ?>api/ranks/show_all').then(function(response){
                 if(response.data.ranks == null) {
                     v.noResult()
                 } 
                 else {
                     v.getData(response.data.ranks);
-                    //v.getData(response.data.ranks);
-                    //console.log(response.data.ranks);
                 }
             })
         },
-        // to search rank
-        searchRank(){
+        // to search a rank
+        searchRank() {
             var formData = v.formData(v.search);
-            axios.post('<?php echo base_url(); ?>api/ranks/search_rank', formData).then(function(response){
-                if(response.data.ranks== null){
+            axios.post('<?php echo base_url(); ?>api/ranks/search', formData).then(function(response){
+                if(response.data.logs == null){
                     v.noResult()
                 }else{
-                    //v.getData(response.data.ranks); 
+                    v.getData(response.data.logs); 
                 }  
             })
         },
         // to delete all ranks
         deleteAll() {
-
+            let inst = this;
+            swal({title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon:'warning', 
+                buttons: true, 
+                dangerMode: true
+            }).then((willOUT) => {
+                if (willOUT) {
+                    // confirmation
+                    swal({
+                        title:'Deleted!',
+                        text: "All ranks has been deleted.",
+                        type: 'success',
+                        icon: 'success', 
+                    }).then((result) => {
+                        axios.delete('<?php echo base_url(); ?>api/ranks/delete_all')
+                        this.showAll();
+                        location.reload();
+                    });
+                }
+            });
         },
+        // to delete one rank
         deleteOne(id) {
-
+            let inst = this;
+            swal({title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon:'warning', 
+                buttons: true, 
+                dangerMode: true
+            }).then((willOUT) => {
+                if (willOUT) {
+                    // confirmation
+                    swal({
+                        title:'Deleted!',
+                        text: "Rank has been deleted.",
+                        type: 'success',
+                        icon: 'success', 
+                    }).then((result) => {
+                        axios.delete('<?php echo base_url(); ?>api/ranks/delete_only/' + id)
+                        this.showAll();
+                        location.reload();
+                    });
+                }
+            });
         },
         formData(obj){
             var formData = new FormData();
-            for ( var key in obj ) {
+            for(var key in obj) {
                 formData.append(key, obj[key]);
-            } 
+            }
             return formData;
         },
         getData(ranks){
@@ -171,17 +204,18 @@ var v = new Vue({
             v.ranks = ranks.slice(v.currentPage * v.rowCountPage, (v.currentPage * v.rowCountPage) + v.rowCountPage); //slice the result for pagination
             
              // if the record is empty, go back a page
-            if(v.logs.length == 0 && v.currentPage > 0){ 
+            if(v.ranks.length == 0 && v.currentPage > 0){ 
                 v.pageUpdate(v.currentPage - 1)
                 v.clearAll();  
             }
         },
-        selectLog(rank){
-            v.chooseRank = rank; 
+        selectRank(rank){
+            v.chooseRank = rank;
         },
-        clearAll() {
-            v.newLRank = {},
-            v.formValidate = false,
+        clearAll(){
+            v.newRank = {};
+            v.formValidate = false;
+            v.addModal = false;
             v.refresh()
         },
         noResult(){
@@ -190,11 +224,11 @@ var v = new Vue({
             v.totalRanks = 0 //remove current page if is empty
         },
         pageUpdate(pageNumber){
-            v.currentPage = pageNumber; //receive currentPage number came from pagination template
-            v.refresh()  
+              v.currentPage = pageNumber; //receive currentPage number came from pagination template
+                v.refresh()  
         },
         refresh(){
-            v.search.text ? v.searchRank() : v.showAll(); //for preventing
+             v.search.text ? v.searchRank() : v.showAll(); //for preventing
         },
         showModal() {
             let element = this.$refs.modal.$el
@@ -203,9 +237,16 @@ var v = new Vue({
         setCurrentRank: function(rank) {
             this.currentRank = rank
         },
+        setRankMoreDetails: function(rank) {
+            this.modalRank = rank
+        },
         refresh() {
             v.search.text ? v.searchRank() : v.showAll(); // preventing
-        }
+        },
     }
 })
 </script>
+
+
+
+

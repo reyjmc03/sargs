@@ -54,4 +54,27 @@ class Ranks_model extends CI_Model {
             return false;
         }
     }
+
+    // delete only rank
+    public function delete_only_data($id) {
+        $this->db->where('id', $id);
+        $this->db->delete('tbl_ref_ranks');
+
+        if($this->db->affected_rows() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    } 
+
+    // delete all ranks
+    public function delete_all_data() {
+        $this->db->empty_table('tbl_ref_ranks');
+
+        if($this->db->affected_rows() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

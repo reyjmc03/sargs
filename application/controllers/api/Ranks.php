@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Ranks extends CI_Controller {
+class Ranks extends My_Controller {
 
     public function __Construct() {
 		parent::__construct();
@@ -8,7 +8,9 @@ class Ranks extends CI_Controller {
     }
 
     // show all rank table
-    function show_all_ranks() {
+    function show_all() {
+        $this->notLoggedIn();
+
         $results = $this->ranks_model->get_all_data();
         $data = array();
         $no = '0';
@@ -35,9 +37,11 @@ class Ranks extends CI_Controller {
     }
 
     // search rank 
-    function search_rank() {
+    function search() {
+        $this->notLoggedIn();
+
         $value = $this->input->post('text');
-        $results = $this->ranks_model->search_rank_data($value);
+        $results = $this->ranks_model->search_data($value);
         $data = array();
         $no = '0';
         
@@ -61,5 +65,37 @@ class Ranks extends CI_Controller {
 
         echo json_encode($output);
 
+    }
+
+    // delete one rank
+    function delete_only($id) {
+        $this->notLoggedIn();
+
+        $result = $this->ranks_model->delete_only_data($id);
+
+        if($result){
+            $msg['error'] = false;
+            $msg['success'] = 'User deleted successfully';
+        } else{
+            $msg['error'] = true;
+        }
+
+        echo json_encode($msg);
+    }
+
+    // delete all rank
+    function delete_all() {
+        $this->notLoggedIn();
+
+        $result =  $this->ranks_model->delete_all_data();
+
+        if($result) {
+            $msg['error'] = false;
+            $msg['success'] = 'User deleted successfully';
+        } else {
+            $msg['error'] = true;
+        }
+        
+        echo json_encode($msg);
     }
 }

@@ -89,7 +89,7 @@
                 </div>
             </div>
 
-            <?php include 'modals/modal_activity_logs.php';?>
+            <?php include 'modals/references/modal_activity_logs.php';?>
         </div>
         <!-- END id="app" -->
 

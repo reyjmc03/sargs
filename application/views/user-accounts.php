@@ -83,7 +83,7 @@
                 </div>
             </div>
 
-            <?php include 'modals/modal_users.php'; ?>
+            <?php include 'modals/references/modal_users.php'; ?>
         </div>
         <!-- END id="app" -->
 
