@@ -64,7 +64,6 @@ class Ranks extends My_Controller {
         );
 
         echo json_encode($output);
-
     }
 
     // delete one rank

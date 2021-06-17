@@ -14,8 +14,8 @@ class Ranks_model extends CI_Model {
         $query = $this->db->select('category');
         $qeury = $this->db->select('date_created');
         $query = $this->db->select('date_modified');
-            $query = $this->db->from('tbl_ref_ranks');
-            $query = $this->db->get();
+        $query = $this->db->from('tbl_ref_ranks');
+        $query = $this->db->get();
 
         if ($query->num_rows() >= 1){
             return $query->result();
@@ -31,7 +31,7 @@ class Ranks_model extends CI_Model {
     }
 
     // search  rank data
-    public function search_rank_data($match) {
+    public function search_data($match) {
         $query = $this->db->select('id');
         $query = $this->db->select('rank');
         $query = $this->db->select('description');
@@ -42,9 +42,11 @@ class Ranks_model extends CI_Model {
         $query = $this->db->from('tbl_ref_ranks');
 
         $query = $this->db->like('id', $match, 'both');
-        $query = $this->db->like('ranks', $match, 'both');
-        $query = $this->db->like('description', $match, 'both');
-        $query = $this->db->like('category', $match, 'both');
+        $query = $this->db->or_like('rank', $match, 'both');
+        $query = $this->db->or_like('description', $match, 'both');
+        $query = $this->db->or_like('category', $match, 'both');
+        $query = $this->db->or_like('date_created', $match, 'both');
+        $query = $this->db->or_like('date_modified', $match, 'both');
 
         $query = $this->db->get();
 

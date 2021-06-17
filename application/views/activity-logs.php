@@ -122,7 +122,7 @@ var v = new Vue({
         rowCountPage:8,
         totalRows:0,
         pageRange:3,
-        sortBy: 'userinfo',
+        sortBy: 'nos',
 
         currentActivityLog: {}
     },

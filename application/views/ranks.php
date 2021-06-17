@@ -14,7 +14,7 @@
                         </form>
                     </div>
                     <div class="text-right float-right add-button">
-                        <button class="btn btn-warning" data-toggle="modal" data-target="#addNewRankAccountModal"><i class="fas fa-plus"></i>&nbsp; CREATE NEW RAN</button>
+                        <button class="btn btn-warning" data-toggle="modal" data-target="#addNewRankAccountModal"><i class="fas fa-plus"></i>&nbsp; CREATE NEW RANK</button>
                         <button class="btn btn-danger" id="sargs-delete-all" name="sargs-delete-all" @click="deleteAll()"><i class="fas fa-trash"></i> DELETE ALL RANKS</button>
                     </div>
                 </div>
@@ -98,7 +98,6 @@ var v = new Vue({
     data: {
         url: '<?php echo base_url(); ?>',
         addModal: false,
-
         deleteModal:false,
         ranks: [],
         search: {
@@ -136,10 +135,10 @@ var v = new Vue({
         searchRank() {
             var formData = v.formData(v.search);
             axios.post('<?php echo base_url(); ?>api/ranks/search', formData).then(function(response){
-                if(response.data.logs == null){
+                if(response.data.ranks == null){
                     v.noResult()
                 }else{
-                    v.getData(response.data.logs); 
+                    v.getData(response.data.ranks); 
                 }  
             })
         },
