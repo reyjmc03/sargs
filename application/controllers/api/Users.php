@@ -45,7 +45,7 @@ class Users extends CI_Controller {
                     'action' => 'successfully login.',
                     'ip' =>  $_SERVER['REMOTE_ADDR'],
                     'date_created' =>date("Y-m-d H:i:s"),
-                    'date_updated' =>date("Y-m-d H:i:s"),
+                    'date_modified' =>date("Y-m-d H:i:s"),
                 );
                 $this->Logs_model->add_log($params);
                 ///////////
@@ -66,7 +66,7 @@ class Users extends CI_Controller {
             'action' => 'successfully logout.',
             'ip' =>  $_SERVER['REMOTE_ADDR'],
             'date_created' =>date("Y-m-d H:i:s"),
-            'date_updated' =>date("Y-m-d H:i:s"),
+            'date_modified' =>date("Y-m-d H:i:s"),
         );
         $this->Logs_model->add_log($params);
         ///////////
@@ -114,5 +114,20 @@ class Users extends CI_Controller {
         );
 
         echo json_encode($output) . "\r\n";
+    }
+
+
+
+
+    function add() {
+        $config = array(
+            array('field' => 'rank', 'label' => 'Rank', 'rules' => 'trim|required'),
+            array('field' => 'description', 'label' => 'Description', 'rules' => 'trim|required'),
+            array('field' => 'category', 'label' => 'Category', 'rules' => 'trim|required')
+        );
+
+        $this->from_validation->set_rules($config);
+
+        //if($this)
     }
 }

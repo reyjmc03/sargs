@@ -3,6 +3,11 @@
 
         <!-- START id="app" -->
         <div id="app">
+            <transition
+                enter-active-class="animated fadeInLeft"
+                     leave-active-class="animated fadeOutRight">
+                     <div class="notification is-success text-center px-5 top-middle" v-if="successMSG" @click="successMSG = false">{{successMSG}}</div>
+            </transition>
             <div class="card">
                 <!-- card header -->
                 <div class="card-header">
@@ -10,11 +15,11 @@
                         <form class="search-box">
                             <!-- <input type="text" class="search-form-control" placeholder="Search here">
                             <button class="btn search-button" type="submit"><i class="fas fa-search"></i></button> -->
-                            <input placeholder="Search Ranks Here" type="search" class="search-form-control" v-model="search.text" @keyup="searchRank" name="search">
+                            <input placeholder="Search Here" type="search" class="search-form-control" v-model="search.text" @keyup="searchRank" name="search">
                         </form>
                     </div>
                     <div class="text-right float-right add-button">
-                        <button class="btn btn-warning" data-toggle="modal" data-target="#addNewRankAccountModal"><i class="fas fa-plus"></i>&nbsp; CREATE NEW RANK</button>
+                        <button class="btn btn-warning" data-toggle="modal" data-target="#addModal"><i class="fas fa-plus"></i>&nbsp; CREATE NEW RANK</button>
                         <button class="btn btn-danger" id="sargs-delete-all" name="sargs-delete-all" @click="deleteAll()"><i class="fas fa-trash"></i> DELETE ALL RANKS</button>
                     </div>
                 </div>
@@ -40,10 +45,10 @@
                                     <td>{{rank.date_created}}</td>
                                     <td>{{rank.date_modified}}</td>
                                     <td class="">
-                                        <button class="btn btn-sm bg-info" data-toggle="modal" data-target="#activityRankModal" v-on:click="setCurrentRank(rank)">
+                                        <button class="btn btn-sm bg-info" data-toggle="modal" data-target="#detailModal" v-on:click="setCurrentRank(rank)">
                                             <i class="fas fa-eye"></i> MORE DETAILS
                                         </button>
-                                        <button class="btn btn-sm bg-success" data-toggle="modal" data-target="#editRankModal" v-on:click="setCurrentRank(rank)">
+                                        <button class="btn btn-sm bg-success" data-toggle="modal" data-target="#editModal" v-on:click="setCurrentRank(rank)">
                                             <i class="fas fa-pen"></i> EDIT
                                         </button>
                                         <button class="btn btn-sm bg-danger" @click="deleteOne(rank.id)">
@@ -92,19 +97,50 @@
 <script src="<?php echo base_url();?>/assets/js/pagination.js"></script>
 
 <script type="text/javascript">
-// tables and modal functions
+// Vue.component('modal',{ //modal
+//     template:`
+//       <transition
+//                 enter-active-class="animated rollIn"
+//                      leave-active-class="animated rollOut">
+//     <div class="modal is-active" >
+//   <div class="modal-card border border border-secondary">
+//     <div class="modal-card-head text-center bg-dark">
+//     <div class="modal-card-title text-white">
+//           <slot name="head"></slot>
+//     </div>
+// <button class="delete" @click="$emit('close')"></button>
+//     </div>
+//     <div class="modal-card-body">
+//          <slot name="body"></slot>
+//     </div>
+//     <div class="modal-card-foot" >
+//       <slot name="foot"></slot>
+//     </div>
+//   </div>
+// </div>
+// </transition>
+//     `
+// })
+//tables and modal functions
 var v = new Vue({
     el: '#app',
     data: {
         url: '<?php echo base_url(); ?>',
         addModal: false,
+        editModal: false,
         deleteModal:false,
         ranks: [],
-        search: {
-            text: ''
-        },
+        search: { text: '' },
         emptyResult: false,
         searchQuery: null,
+        newRank: {
+            rank:'', 
+            description:'', 
+            category:''
+        },
+        chooseRank:{},
+        formValidate:[],
+        successMSG:'',
 
         //pagination
         currentPage:0,
@@ -142,6 +178,21 @@ var v = new Vue({
                 }  
             })
         },
+        // add new rank
+        addRank() {
+            var formData = v.formData(v.newRank);
+            axios.post('<?php echo base_url(); ?>api/ranks/add', formData).then(function(response){
+                if(response.data.error){
+                    v.formValidate = response.data.msg;
+                } else {
+                    v.successMSG = response.data.msg;
+                    v.clearAll();
+                    v.clearMSG();
+                }
+            })
+
+            //console.log(formData);
+        },
         // to delete all ranks
         deleteAll() {
             let inst = this;
@@ -165,6 +216,14 @@ var v = new Vue({
                     });
                 }
             });
+        },
+        // formdata
+        formData(obj) {
+            var formData = new FormData();
+            for(var key in obj) {
+                formData.append(key, obj[key]);
+            }
+            return formData;
         },
         // to delete one rank
         deleteOne(id) {
@@ -211,10 +270,17 @@ var v = new Vue({
         selectRank(rank){
             v.chooseRank = rank;
         },
+        clearMSG() {
+            setTimeout(function() {
+                v.successMSG = ''
+            }, 3000); // disapprearing message success in 2 secs
+        },
         clearAll(){
-            v.newRank = {};
+            v.newRank = { rank:'', description:'', category:'' };
             v.formValidate = false;
             v.addModal = false;
+            v.editModal = false;
+            v.deleteModal = false;
             v.refresh()
         },
         noResult(){

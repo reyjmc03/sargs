@@ -79,4 +79,9 @@ class Ranks_model extends CI_Model {
             return false;
         }
     }
+
+    // add rank
+    public function add_data($data) {
+        return $this->db->insert('tbl_ref_ranks', $data);
+    }
 }

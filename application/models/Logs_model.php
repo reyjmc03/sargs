@@ -25,7 +25,7 @@ class Logs_model extends CI_Model {
         $query = $this->db->select('log.action AS activity'); 
         $query = $this->db->select('log.ip AS ip'); 
         $query = $this->db->select('log.date_created AS datecreated');
-        $query = $this->db->select('log.date_updated AS dateupdated');
+        $query = $this->db->select('log.date_modified AS dateupdated');
         // $query = $this->db->select('login.username AS username');
         $query = $this->db->from('tbl_activity_log log');
         $query = $this->db->join('tbl_sysuser_login login', 'login.id = log.user_id');
@@ -60,7 +60,7 @@ class Logs_model extends CI_Model {
         $query = $this->db->select('log.action AS activity'); 
         $query = $this->db->select('log.ip AS ip'); 
         $query = $this->db->select('log.date_created AS datecreated');
-        $query = $this->db->select('log.date_updated AS dateupdated');
+        $query = $this->db->select('log.date_modified AS dateupdated');
         // $query = $this->db->select('login.username AS username');
         $query = $this->db->from('tbl_activity_log log');
         $query = $this->db->join('tbl_sysuser_login login', 'login.id = log.user_id');
@@ -130,7 +130,7 @@ class Logs_model extends CI_Model {
         $query = $this->db->select('log.action AS activity'); 
         $query = $this->db->select('log.ip AS ip'); 
         $query = $this->db->select('log.date_created AS datecreated');
-        $query = $this->db->select('log.date_updated AS dateupdated');
+        $query = $this->db->select('log.date_modified AS dateupdated');
         $query = $this->db->from('tbl_activity_log log');
         $query = $this->db->join('tbl_sysuser_login login', 'login.id = log.user_id');
         $query = $this->db->join('tbl_sysuser_info info', 'info.id = login.id');
@@ -147,7 +147,7 @@ class Logs_model extends CI_Model {
         $query = $this->db->or_like('log.action',$match, 'both');
         $query = $this->db->or_like('log.ip',$match, 'both');
         $query = $this->db->or_like('log.date_created',$match, 'both');
-        $query = $this->db->or_like('log.date_updated',$match, 'both');
+        $query = $this->db->or_like('log.date_modified',$match, 'both');
 
         $query = $this->db->where('log.user_id', $id);
         $query = $this->db->get();
@@ -174,7 +174,7 @@ class Logs_model extends CI_Model {
         $query = $this->db->select('log.action AS activity'); 
         $query = $this->db->select('log.ip AS ip'); 
         $query = $this->db->select('log.date_created AS datecreated');
-        $query = $this->db->select('log.date_updated AS dateupdated');
+        $query = $this->db->select('log.date_modified AS dateupdated');
         $query = $this->db->from('tbl_activity_log log');
         $query = $this->db->join('tbl_sysuser_login login', 'login.id = log.user_id');
         $query = $this->db->join('tbl_sysuser_info info', 'info.id = login.id');
@@ -192,7 +192,7 @@ class Logs_model extends CI_Model {
         $query = $this->db->or_like('log.action',$match, 'both');
         $query = $this->db->or_like('log.ip',$match, 'both');
         $query = $this->db->or_like('log.date_created',$match, 'both');
-        $query = $this->db->or_like('log.date_updated',$match, 'both');
+        $query = $this->db->or_like('log.date_modified',$match, 'both');
 
 
         $query = $this->db->get();

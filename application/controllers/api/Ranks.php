@@ -97,4 +97,59 @@ class Ranks extends My_Controller {
         
         echo json_encode($msg);
     }
+
+    // add rank
+    function add() {
+        $config = array(
+            // rank field
+            array('field' => 'rank', 'label' => 'Rank', 'rules' => 'trim|required'),
+            // description
+            array('field' => 'description', 'label' => 'Description', 'rules' => 'trim|required'),
+            // category
+            array('field' => 'category', 'label' => 'Category', 'rules' => 'trim|required' ),
+        );
+
+        $this->form_validation->set_rules($config);
+
+        if ($this->form_validation->run() == FALSE) {
+            $result['error'] = true;
+            $result['msg'] = array(
+                'rank' => form_error('rank'),
+                'description' => form_error('description'),
+                'category' => form_error('category')
+            );
+        } else {
+            $data = array(
+                'rank' => $this->input->post('rank'),
+                'description' => $this->input->post('description'),
+                'category' => $this->input->post('category'),
+                'date_created' =>date("Y-m-d H:i:s"),
+            );
+
+            // add new rank
+            if($this->ranks_model->add_data($data)) {
+                $result['error'] = false;
+                $result['msg'] ='A new rank added successfully.';
+
+                //activity
+                $this->load->model('logs_model');
+                $params = array(
+                    'user_id' => $this->session->userdata('user_id'),
+                    'action' => 'successfully added a new rank.',
+                    'ip' =>  $_SERVER['REMOTE_ADDR'],
+                    'date_created' =>date("Y-m-d H:i:s"),
+                    'date_modified' =>date("Y-m-d H:i:s"),
+                );
+                $this->logs_model->add_log($params);
+                /////////
+            }
+        }
+
+        echo json_encode($result);
+    }
+
+    // update rank
+    function update() {
+
+    }
 }

@@ -23,6 +23,7 @@ var v = new Vue({
                     window.location.href = response.data.message.success;
                 }
             }) //for login user
+
         },
         clearMSG(){
             setTimeout(function(){
