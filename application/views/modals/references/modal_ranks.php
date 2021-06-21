@@ -24,7 +24,18 @@
                             </div>
                             <div class="form-group">
                                 <h6 class="control-label"><strong>CATEGORY:</strong></h6>
-                                <input type="text" class="form-control" :class="{'is-invalid': formValidate.category}" name="category" v-model="newRank.category">
+                                <!-- <select class="form-control" :class="{'is-invalid': formValidate.category}" name="category" v-model="newRank.category">
+                                    <option>-- Select --</option>
+                                    <option>Officer</option>
+                                    <option>Enlisted Personnel</option>
+                                    <option>Civilian Human Resource</option>
+                                </select>   -->
+                                <select class="form-control">
+                                    <option>-- Select --</option>
+                                    <option>Officer</option>
+                                    <option>Enlisted Personnel</option>
+                                    <option>Civilian Human Resource</option>
+                                </select>
                                 <p class="text-danger animate__animated animate__fadeIn" v-if="formValidate.category" v-html="formValidate.category"></p>
                             </div>
                         </div>
