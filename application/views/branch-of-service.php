@@ -40,13 +40,13 @@
                                     <td>{{bos.date_created}}</td>
                                     <td>{{bos.date_modified}}</td>
                                     <td class="">
-                                        <button class="btn btn-sm bg-info" data-toggle="modal" data-target="#detailBOSModal" v-on:click="setCurrentRank(rank)">
+                                        <button class="btn btn-sm bg-info" data-toggle="modal" data-target="#detailBOSModal" v-on:click="setCurrentBOS(bos)">
                                             <i class="fas fa-eye"></i> MORE DETAILS
                                         </button>
-                                        <button class="btn btn-sm bg-success" data-toggle="modal" data-target="#editRankModal" v-on:click="setCurrentRank(rank)">
+                                        <button class="btn btn-sm bg-success" data-toggle="modal" data-target="#editBOSModal" v-on:click="setCurrentBOS(bos)">
                                             <i class="fas fa-pen"></i> EDIT
                                         </button>
-                                        <button class="btn btn-sm bg-danger" @click="deleteOne(rank.id)">
+                                        <button class="btn btn-sm bg-danger" @click="deleteOne(bos.id)">
                                             <i class="fas fa-trash"></i> DELETE
                                         </button>
                                     </td>
@@ -81,7 +81,7 @@
                 </div>
             </div>
 
-            <?php include 'modals/references/modal_ranks.php'; ?>
+            <?php include 'modals/references/modal_bos.php'; ?>
         </div>
         <!-- END id="app" -->
 
@@ -99,7 +99,7 @@ var v = new Vue({
         url: '<?php echo base_url(); ?>',
         addModal: false,
         deleteModal:false,
-        ranks: [],
+        bos: [],
         search: {
             text: ''
         },
@@ -113,8 +113,8 @@ var v = new Vue({
         pageRange:3,
         sortBy: 'nos',
 
-        currentRank: {},
-        modalRank: {},
+        currentBOS: {},
+        modalBOS: {},
     },
     created() {
         this.showAll();
@@ -122,27 +122,27 @@ var v = new Vue({
     methods: {
         //generate datatable using vuejs
         showAll(){
-            axios.get('<?php echo base_url(); ?>api/ranks/show_all').then(function(response){
-                if(response.data.ranks == null) {
+            axios.get('<?php echo base_url(); ?>api/bos/show_all').then(function(response){
+                if(response.data.bos == null) {
                     v.noResult()
                 } 
                 else {
-                    v.getData(response.data.ranks);
+                    v.getData(response.data.boss);
                 }
             })
         },
-        // to search a rank
-        searchRank() {
+        // to search a bos
+        searchBOS() {
             var formData = v.formData(v.search);
-            axios.post('<?php echo base_url(); ?>api/ranks/search', formData).then(function(response){
-                if(response.data.ranks == null){
+            axios.post('<?php echo base_url(); ?>api/bos/search', formData).then(function(response){
+                if(response.data.boss == null){
                     v.noResult()
                 }else{
-                    v.getData(response.data.ranks); 
+                    v.getData(response.data.boss); 
                 }  
             })
         },
-        // to delete all ranks
+        // to delete all bos
         deleteAll() {
             let inst = this;
             swal({title: 'Are you sure?',
@@ -155,18 +155,18 @@ var v = new Vue({
                     // confirmation
                     swal({
                         title:'Deleted!',
-                        text: "All ranks has been deleted.",
+                        text: "All BOS has been deleted.",
                         type: 'success',
                         icon: 'success', 
                     }).then((result) => {
-                        axios.delete('<?php echo base_url(); ?>api/ranks/delete_all')
+                        axios.delete('<?php echo base_url(); ?>api/bos/delete_all')
                         this.showAll();
                         location.reload();
                     });
                 }
             });
         },
-        // to delete one rank
+        // to delete one bos
         deleteOne(id) {
             let inst = this;
             swal({title: 'Are you sure?',
@@ -179,11 +179,11 @@ var v = new Vue({
                     // confirmation
                     swal({
                         title:'Deleted!',
-                        text: "Rank has been deleted.",
+                        text: "BOS has been deleted.",
                         type: 'success',
                         icon: 'success', 
                     }).then((result) => {
-                        axios.delete('<?php echo base_url(); ?>api/ranks/delete_only/' + id)
+                        axios.delete('<?php echo base_url(); ?>api/bos/delete_only/' + id)
                         this.showAll();
                         location.reload();
                     });
@@ -197,50 +197,50 @@ var v = new Vue({
             }
             return formData;
         },
-        getData(ranks){
+        getData(boss){
             v.emptyResult = false; // become false if has a record
-            v.totalRows = ranks.length //get total of rows
-            v.ranks = ranks.slice(v.currentPage * v.rowCountPage, (v.currentPage * v.rowCountPage) + v.rowCountPage); //slice the result for pagination
+            v.totalRows = boss.length //get total of rows
+            v.boss = boss.slice(v.currentPage * v.rowCountPage, (v.currentPage * v.rowCountPage) + v.rowCountPage); //slice the result for pagination
             
              // if the record is empty, go back a page
-            if(v.ranks.length == 0 && v.currentPage > 0){ 
+            if(v.boss.length == 0 && v.currentPage > 0){ 
                 v.pageUpdate(v.currentPage - 1)
                 v.clearAll();  
             }
         },
-        selectRank(rank){
-            v.chooseRank = rank;
+        selectBOS(bos){
+            v.chooseBOS = bos;
         },
         clearAll(){
-            v.newRank = {};
+            v.newBOS = {};
             v.formValidate = false;
             v.addModal = false;
             v.refresh()
         },
         noResult(){
             v.emptyResult = true;  // become true if the record is empty, print 'No Record Found'
-            v.ranks = null 
-            v.totalRanks = 0 //remove current page if is empty
+            v.boss = null 
+            v.totalBOS = 0 //remove current page if is empty
         },
         pageUpdate(pageNumber){
               v.currentPage = pageNumber; //receive currentPage number came from pagination template
                 v.refresh()  
         },
         refresh(){
-             v.search.text ? v.searchRank() : v.showAll(); //for preventing
+             v.search.text ? v.searchBOS() : v.showAll(); //for preventing
         },
         showModal() {
             let element = this.$refs.modal.$el
             $(element).modal('show')
         },
-        setCurrentRank: function(rank) {
-            this.currentRank = rank
+        setCurrentBOS: function(bos) {
+            this.currentBOS = bos
         },
-        setRankMoreDetails: function(rank) {
-            this.modalRank = rank
+        setBOSMoreDetails: function(bos) {
+            this.modalBOS = bos
         },
         refresh() {
-            v.search.text ? v.searchRank() : v.showAll(); // preventing
+            v.search.text ? v.searchBOS() : v.showAll(); // preventing
         },
     }
 })
