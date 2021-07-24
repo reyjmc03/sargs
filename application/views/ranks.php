@@ -8,6 +8,8 @@
                      leave-active-class="animated fadeOutRight">
                      <div class="notification is-success text-center px-5 top-middle" v-if="successMSG" @click="successMSG = false">{{successMSG}}</div>
             </transition>
+
+            
             <div class="card">
                 <!-- card header -->
                 <div class="card-header">
@@ -97,31 +99,14 @@
 <script src="<?php echo base_url();?>/assets/js/pagination.js"></script>
 
 <script type="text/javascript">
-// Vue.component('modal',{ //modal
-//     template:`
-//       <transition
-//                 enter-active-class="animated rollIn"
-//                      leave-active-class="animated rollOut">
-//     <div class="modal is-active" >
-//   <div class="modal-card border border border-secondary">
-//     <div class="modal-card-head text-center bg-dark">
-//     <div class="modal-card-title text-white">
-//           <slot name="head"></slot>
-//     </div>
-// <button class="delete" @click="$emit('close')"></button>
-//     </div>
-//     <div class="modal-card-body">
-//          <slot name="body"></slot>
-//     </div>
-//     <div class="modal-card-foot" >
-//       <slot name="foot"></slot>
-//     </div>
-//   </div>
-// </div>
-// </transition>
-//     `
+// const newLocal = `
+
+//     `;
+
+// Vue.component('modal',{ //modale
+//     template:newLocal
 // })
-//tables and modal functions
+
 var v = new Vue({
     el: '#app',
     data: {
@@ -191,7 +176,8 @@ var v = new Vue({
                 }
             })
 
-            //console.log(formData);
+            console.log(v.successMSG);
+            
         },
         // to delete all ranks
         deleteAll() {
