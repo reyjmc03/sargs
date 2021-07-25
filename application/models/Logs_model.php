@@ -65,6 +65,7 @@ class Logs_model extends CI_Model {
         $query = $this->db->from('tbl_activity_log log');
         $query = $this->db->join('tbl_sysuser_login login', 'login.id = log.user_id');
         $query = $this->db->join('tbl_sysuser_info info', 'info.id = login.id');
+        $query = $this->db->order_by("id", "desc");
         $query = $this->db->get();
 
         if ($query->num_rows() >= 1){

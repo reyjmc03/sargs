@@ -134,7 +134,8 @@ var v = new Vue({
         
         // generate datatable using vuejs
         showAll(){
-            axios.get('<?php echo base_url(); ?>api/logs/show_all_logs').then(function(response){
+            //axios.get('<?php //echo base_url(); ?>api/logs/show_all_logs').then(function(response){
+            axios.get(this.url + "api/logs/show_all_logs").then(function(response){
                 if(response.data.logs == null) {
                     v.noResult()
                 } 
@@ -146,7 +147,8 @@ var v = new Vue({
         // to search logs
         searchLog(){
             var formData = v.formData(v.search);
-            axios.post('<?php echo base_url(); ?>api/logs/search_log', formData).then(function(response){
+            //axios.post('<?php //echo base_url(); ?>api/logs/search_log', formData).then(function(response){
+            axios.post(this.url + "api/logs/search_log", formData).then(function(response){
                 if(response.data.logs == null){
                     v.noResult()
                 }else{
@@ -171,7 +173,8 @@ var v = new Vue({
                         type: 'success',
                         icon: 'success', 
                     }).then((result) => {
-                        axios.delete('<?php echo base_url(); ?>api/logs/delete_log_all')
+                        //axios.delete('<?php //echo base_url(); ?>api/logs/delete_log_all')
+                        axios.delete(this.url + "api/logs/delete_log_all")
                         this.showAll();
                         location.reload();
                     });
@@ -195,7 +198,8 @@ var v = new Vue({
                         type: 'success',
                         icon: 'success', 
                     }).then((result) => {
-                        axios.delete('<?php echo base_url(); ?>api/logs/delete_log_only/' + id)
+                        //axios.delete('<?php //echo base_url(); ?>api/logs/delete_log_only/' + id)
+                        axios.delete(this.url + "api/logs/delete_log_only/" + id)
                         this.showAll();
                         location.reload();
                     });

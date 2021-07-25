@@ -34,8 +34,8 @@
                                     <th width="5%">#</th>
                                     <th>RANK</th>
                                     <th>DESCRIPTION</th>
-                                    <th>DATE CREATED</th>
-                                    <th>DATE MODIFIED</th>
+                                    <th>CATEGORY</th>
+                                    <th width="15%">DATE / TIME OF ACTIVITY</th>
                                     <th width="20%" >ACTIONS</th>
                                 </tr>
                             </thead>
@@ -44,8 +44,11 @@
                                     <td>{{rank.nos}}</td>
                                     <td>{{rank.rank}}</td>
                                     <td>{{rank.description}}</td>
-                                    <td>{{rank.date_created}}</td>
-                                    <td>{{rank.date_modified}}</td>
+                                    <td>{{rank.category}}</td>
+                                    <td>
+                                        <!-- <div v-if="rank.date_created"> --><label style="color:blue;">created:&nbsp;{{rank.date_created}}</label><!-- </div> --><br>
+                                        <div v-if="rank.date_modified"><label style="color:red;">updated:&nbsp;{{rank.date_modified}}</label></div>
+                                    </td>
                                     <td class="">
                                         <button class="btn btn-sm bg-info" data-toggle="modal" data-target="#detailModal" v-on:click="setCurrentRank(rank)">
                                             <i class="fas fa-eye"></i> MORE DETAILS
@@ -143,7 +146,8 @@ var v = new Vue({
     methods: {
         //generate datatable using vuejs
         showAll(){
-            axios.get('<?php echo base_url(); ?>api/ranks/show_all').then(function(response){
+            //axios.get('<?php //echo base_url(); ?>api/ranks/show_all').then(function(response){
+            axios.get(this.url + "api/ranks/show_all").then(function(response){
                 if(response.data.ranks == null) {
                     v.noResult()
                 } 
@@ -155,7 +159,7 @@ var v = new Vue({
         // to search a rank
         searchRank() {
             var formData = v.formData(v.search);
-            axios.post('<?php echo base_url(); ?>api/ranks/search', formData).then(function(response){
+            axios.post(this.url + "api/ranks/search", formData).then(function(response){
                 if(response.data.ranks == null){
                     v.noResult()
                 }else{
@@ -165,20 +169,41 @@ var v = new Vue({
         },
         // add new rank
         addRank() {
-            var formData = v.formData(v.newRank);
-            axios.post('<?php echo base_url(); ?>api/ranks/add', formData).then(function(response){
+           var formData = v.formData(v.newRank);
+
+            //axios.post('<?php //echo base_url(); ?>api/ranks/add', formData).then(function(response){
+            axios.post(this.url + "api/ranks/add", formData).then(function(response){
                 if(response.data.error){
                     v.formValidate = response.data.msg;
                 } else {
-                    v.successMSG = response.data.msg;
+                    // v.successMSG = response.data.msg;
+                    swal("Good job!", response.data.msg, "success")
                     v.clearAll();
-                    v.clearMSG();
+                    // v.clearMSG();
                 }
             })
 
-            console.log(v.successMSG);
+            //console.log(v.successMSG);
+
+
+            //console.log(this.url);
             
         },
+        // update rank
+        updateRank() {
+            var formData = v.formData(v.chooseRank); 
+            // axios.post(this.url + "api/ranks/update").then(function(response){
+            //     if(response.data.error){
+            //         v.formValidate = response.data.msg;
+            //     }else{
+            //         //v.successMSG = response.data.msg;
+            //         swal("Good job!", response.data.msg, "success")
+            //         v.clearAll();
+            //         // v.clearMSG();
+            //     }
+            // })
+            console.log(formData);
+        }, 
         // to delete all ranks
         deleteAll() {
             let inst = this;
@@ -196,7 +221,7 @@ var v = new Vue({
                         type: 'success',
                         icon: 'success', 
                     }).then((result) => {
-                        axios.delete('<?php echo base_url(); ?>api/ranks/delete_all')
+                        axios.delete(this.url + "api/ranks/delete_all")
                         this.showAll();
                         location.reload();
                     });
@@ -228,20 +253,20 @@ var v = new Vue({
                         type: 'success',
                         icon: 'success', 
                     }).then((result) => {
-                        axios.delete('<?php echo base_url(); ?>api/ranks/delete_only/' + id)
+                        axios.delete(this.url + "api/ranks/delete_only/" + id)
                         this.showAll();
                         location.reload();
                     });
                 }
             });
         },
-        formData(obj){
-            var formData = new FormData();
-            for(var key in obj) {
-                formData.append(key, obj[key]);
-            }
-            return formData;
-        },
+        // formData(obj){
+        //     var formData = new FormData();
+        //     for(var key in obj) {
+        //         formData.append(key, obj[key]);
+        //     }
+        //     return formData;
+        // },
         getData(ranks){
             v.emptyResult = false; // become false if has a record
             v.totalRows = ranks.length //get total of rows

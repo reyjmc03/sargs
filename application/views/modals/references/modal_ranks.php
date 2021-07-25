@@ -50,6 +50,109 @@
     </div>
 </modal>
 
+<!-- edit rank modal -->
+<modal class="modal animate__animated animate__fadeIn" id="editModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle"><i class="fas fa-pen"></i>&nbsp;&nbsp;Edit (Rank)</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <!-- <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h6 class="control-label"><strong>USER ID NUMBER:</strong></h6>
+                            <label style="color:black;" class="form-control">{{currentRank.id}}</label><br>
+                            <h6 class="control-label"><strong>RANK:</strong></h6>
+                            <label style="color:black;" class="form-control">{{currentRank.rank}}</label><br>
+                            <h6 class="control-label"><strong>DESCRIPTION:</strong></h6>
+                            <textarea class="form-control">{{currentRank.description}}</textarea><br>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <h6 class="control-label"><strong>RANK:</strong></h6>
+                                <input type="text" class="form-control" :class="{'is-invalid': formValidate.rank}" name="rank" v-model="currentRank.rank">
+                                <p class="text-danger animate__animated animate__fadeIn" v-if="formValidate.rank" v-html="formValidate.rank"></p>
+                            </div>
+                            <div class="form-group">
+                                <h6 class="control-label"><strong>DESCRIPTION:</strong></h6>
+                                <textarea cols="35" rows="5" :class="{'is-invalid': formValidate.description}" name="description" v-model="currentRank.description" class="form-control">
+                                {{currentRank.description}}
+                                </textarea>
+                                <p class="text-danger animate__animated animate__fadeIn" v-if="formValidate.description" v-html="formValidate.description"></p>
+                            </div>
+                            <div class="form-group">
+                                <h6 class="control-label"><strong>CATEGORY:</strong></h6>
+                                <!-- <select class="form-control" :class="{'is-invalid': formValidate.category}" name="category" v-model="newRank.category">
+                                    <option>-- Select --</option>
+                                    <option>Officer</option>
+                                    <option>Enlisted Personnel</option>
+                                    <option>Civilian Human Resource</option>
+                                </select>   -->
+                                <select class="form-control" name="category" :class="{'is-invalid': formValidate.rank}" v-model="currentRank.category">
+                                    <option>-- Select --</option>
+                                    <option value="Officer">Officer</option>
+                                    <option value="Enlisted Personnel">Enlisted Personnel</option>
+                                    <option value="Civilian Human Resource">Civilian Human Resource</option>
+                                </select>
+                                <p class="text-danger animate__animated animate__fadeIn" v-if="formValidate.category" v-html="formValidate.category"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i> Cancel</button>
+                <button class="btn bg-success" data-toggle="modal" data-target="#editModal" v-on:click="setCurrentRank(rank)">
+                    <i class="fas fa-pen"></i> Update
+                </button>
+                <button class="btn btn-dark" @click="updateRank"><i class="fas fa-pen"></i> Update</button>
+            </div>
+        </div>
+    </div>
+</modal>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <!-- detail Ranks Modal -->
@@ -88,36 +191,5 @@
     </div>
 </modal>
 
-<!-- edit rank modal -->
-<modal class="modal animate__animated animate__fadeIn" id="editModal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-md" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle"><i class="fas fa-pen"></i>&nbsp;&nbsp;Edit (Rank / Insignia Details)</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h6 class="control-label"><strong>USER ID NUMBER:</strong></h6>
-                            <label style="color:black;" class="form-control">{{currentRank.id}}</label><br>
-                            <h6 class="control-label"><strong>RANK:</strong></h6>
-                            <label style="color:black;" class="form-control">{{currentRank.rank}}</label><br>
-                            <h6 class="control-label"><strong>DESCRIPTION:</strong></h6>
-                            <textarea class="form-control">{{currentRank.description}}</textarea><br>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i> Cancel</button>
-                <button class="btn bg-success" data-toggle="modal" data-target="#editModal" v-on:click="setCurrentRank(rank)">
-                    <i class="fas fa-pen"></i> Update
-                </button>
-            </div>
-        </div>
-    </div>
-</modal>
+
+

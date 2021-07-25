@@ -15,6 +15,7 @@ class Ranks_model extends CI_Model {
         $qeury = $this->db->select('date_created');
         $query = $this->db->select('date_modified');
         $query = $this->db->from('tbl_ref_ranks');
+        $query = $this->db->order_by("id", "desc");
         $query = $this->db->get();
 
         if ($query->num_rows() >= 1){
@@ -83,5 +84,16 @@ class Ranks_model extends CI_Model {
     // add rank
     public function add_data($data) {
         return $this->db->insert('tbl_ref_ranks', $data);
+    }
+
+    // update rank
+    public function update_data($id, $field) {
+        $this->db->where('id', $id);
+        $this->db->update('tbl_ref_ranks', $field);
+        if($this->db->affected_rows() > 0) {
+            return true;
+        }else{
+            return false;
+        }
     }
 }
