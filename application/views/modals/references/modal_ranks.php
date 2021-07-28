@@ -80,13 +80,13 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <h6 class="control-label"><strong>RANK:</strong></h6>
-                                <input type="text" class="form-control" :class="{'is-invalid': formValidate.rank}" name="rank" v-model="currentRank.rank">
+                                <input type="text" class="form-control" :class="{'is-invalid': formValidate.rank}" name="rank" v-model="chooseRank.rank">
                                 <p class="text-danger animate__animated animate__fadeIn" v-if="formValidate.rank" v-html="formValidate.rank"></p>
                             </div>
                             <div class="form-group">
                                 <h6 class="control-label"><strong>DESCRIPTION:</strong></h6>
-                                <textarea cols="35" rows="5" :class="{'is-invalid': formValidate.description}" name="description" v-model="currentRank.description" class="form-control">
-                                {{currentRank.description}}
+                                <textarea cols="35" rows="5" :class="{'is-invalid': formValidate.description}" name="description" v-model="chooseRank.description" class="form-control">
+                                {{chooseRank.description}}
                                 </textarea>
                                 <p class="text-danger animate__animated animate__fadeIn" v-if="formValidate.description" v-html="formValidate.description"></p>
                             </div>
@@ -98,7 +98,7 @@
                                     <option>Enlisted Personnel</option>
                                     <option>Civilian Human Resource</option>
                                 </select>   -->
-                                <select class="form-control" name="category" :class="{'is-invalid': formValidate.rank}" v-model="currentRank.category">
+                                <select class="form-control" name="category" :class="{'is-invalid': formValidate.rank}" v-model="chooseRank.category">
                                     <option>-- Select --</option>
                                     <option value="Officer">Officer</option>
                                     <option value="Enlisted Personnel">Enlisted Personnel</option>
@@ -112,10 +112,10 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i> Cancel</button>
-                <button class="btn bg-success" data-toggle="modal" data-target="#editModal" v-on:click="setCurrentRank(rank)">
+                <!-- <button class="btn bg-success" data-toggle="modal" data-target="#editModal" v-on:click="setCurrentRank(rank)">
                     <i class="fas fa-pen"></i> Update
-                </button>
-                <button class="btn btn-dark" @click="updateRank"><i class="fas fa-pen"></i> Update</button>
+                </button> -->
+                <button class="btn btn-success" @click="updateRank"><i class="fas fa-pen"></i> Update</button>
             </div>
         </div>
     </div>

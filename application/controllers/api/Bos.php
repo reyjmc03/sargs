@@ -33,4 +33,108 @@ class Bos extends My_Controller {
 
         echo json_encode($output);
     }
+
+    // search bos
+    function search() {
+        $this->notLoggedIn();
+
+        $value = $this->input->post('text');
+        $result = $this->bos_model->search_data($value);
+        $data = array();
+        $no = '0';
+
+        foreach($results as $result) {
+            $no++;
+            $row = array();
+            $row['nos'] = $no;
+            $row['id'] = $result->id;
+            $row['bos'] = $result->bos;
+            $row['description'] = $result->description;
+            $row['date_created'] = $result->date_created;
+            $row['date_modified'] = $result->date_modified;
+            $data[] = $row;
+        }
+
+        $output = array(
+            "boss" => $data,
+            "recordsTotal" => $this->bos_model->count_all(),
+        );
+
+        echo json_encode($output);
+    }
+
+    // delete one bos
+    function delete_only($id) {
+        $this->notLoggedIn();
+
+        $result = $this->bos_model->delete_only_data($id);
+
+        if($result){
+            $msg['error'] = false;
+            $msg['success'] = 'BOS deleted successfully';
+
+            //activity
+            $this->load->model('logs_model');
+            $params = array(
+                'user_id' => $this->session->userdata('user_id'),
+                'action' => 'successfully deleted a one BOS.',
+                'ip' =>  $_SERVER['REMOTE_ADDR'],
+                'date_created' =>date("Y-m-d H:i:s"),
+                'date_modified' =>date("Y-m-d H:i:s"),
+            );
+            $this->logs_model->add_log($params);
+            /////////
+        } else{
+            $msg['error'] = true;
+        }
+
+        echo json_encode($msg);
+    }
+
+    // delete all bos
+    function delete_all() {
+        $this->notLoggedIn();
+
+        $result =  $this->bos_model->delete_all_data();
+
+        if($result) {
+            $msg['error'] = false;
+            $msg['success'] = 'User deleted successfully';
+
+             //activity
+             $this->load->model('logs_model');
+             $params = array(
+                 'user_id' => $this->session->userdata('user_id'),
+                 'action' => 'successfully deleted all bos data.',
+                 'ip' =>  $_SERVER['REMOTE_ADDR'],
+                 'date_created' =>date("Y-m-d H:i:s"),
+                 'date_modified' =>date("Y-m-d H:i:s"),
+             );
+             $this->logs_model->add_log($params);
+             /////////
+        } else{
+            $msg['error'] = true;
+        }
+
+        echo json_encode($msg);
+    }
+
+    // add bos
+    function add() {
+        $config = array(
+            // bos field
+            array('field' => 'bos', 'label' => 'BOS', 'rules' => 'trim|required'),
+            // description
+            array('field' => 'description', 'label' => 'Description', 'rules' => 'trim|required'),
+        );
+
+        $this->form_validation->set_rules($config);
+
+        
+    }
+
+    // update bos
+    function update() {
+
+    }
 }

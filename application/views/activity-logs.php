@@ -31,9 +31,9 @@
                                     <th width="5%">#</th>
                                     <th width="15%">USERS</th>
                                     <th width="10%">USER ACCOUNT</th>
-                                    <th width="15%">ACTIVITY</th>
                                     <th width="10%">IP ADDRESS</th>
                                     <th width="15%">DATE / TIME OF ACTIVITY</th>
+                                    <th width="15%">REMARKS</th>
                                     <th width="13%">ACTIONS</th>
                                 </tr>
                             </thead>
@@ -42,12 +42,12 @@
                                     <td>{{log.nos}}</td>
                                     <td>{{log.rank}}&nbsp;{{log.firstname}}&nbsp;{{log.middlename}}&nbsp;{{log.lastname}}{{log.suffixname == null ? '' : '&nbsp;' + log.suffixname}}{{log.afpsn== null ? '' : '&nbsp;' + log.afpsn}}{{log.afpos== null ? '' : '&nbsp;' + log.afpos}}{{log.bos== null ? '' : '&nbsp;' + log.bos}}</td>
                                     <td>{{log.username}}</td>
-                                    <td>{{log.activity}}</td>
                                     <td>{{log.ip}}</td>
                                     <td>
                                         <label style="color:blue;">created:&nbsp;{{log.created_date}}</label><br>
                                         <label style="color:red;">updated:&nbsp;{{log.updated_date}}</label>
                                     </td>
+                                    <td>{{log.activity}}</td>
                                     <td class="">
                                         <button class="btn btn-sm bg-info" data-toggle="modal" data-target="#activityLogModal" v-on:click="setCurrentActivityLog(log)">
                                             <i class="fas fa-eye"></i> MORE DETAILS

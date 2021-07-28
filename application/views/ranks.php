@@ -53,7 +53,7 @@
                                         <button class="btn btn-sm bg-info" data-toggle="modal" data-target="#detailModal" v-on:click="setCurrentRank(rank)">
                                             <i class="fas fa-eye"></i> MORE DETAILS
                                         </button>
-                                        <button class="btn btn-sm bg-success" data-toggle="modal" data-target="#editModal" v-on:click="setCurrentRank(rank)">
+                                        <button class="btn btn-sm bg-success" data-toggle="modal" data-target="#editModal" v-on:click="setChooseRank(rank)">
                                             <i class="fas fa-pen"></i> EDIT
                                         </button>
                                         <button class="btn btn-sm bg-danger" @click="deleteOne(rank.id)">
@@ -182,27 +182,34 @@ var v = new Vue({
                     // v.clearMSG();
                 }
             })
-
-            //console.log(v.successMSG);
-
-
-            //console.log(this.url);
-            
         },
         // update rank
         updateRank() {
             var formData = v.formData(v.chooseRank); 
-            // axios.post(this.url + "api/ranks/update").then(function(response){
-            //     if(response.data.error){
-            //         v.formValidate = response.data.msg;
-            //     }else{
-            //         //v.successMSG = response.data.msg;
-            //         swal("Good job!", response.data.msg, "success")
-            //         v.clearAll();
-            //         // v.clearMSG();
-            //     }
-            // })
-            console.log(formData);
+            let inst = this;
+            swal({title: 'Are you sure?',
+                text: "Data is edit permanently!",
+                icon:'information', 
+                buttons: true, 
+                dangerMode: true
+            }).then((willOUT) => {
+                if (willOUT) {
+                    // confirmation
+                    swal({
+                        title:'Updated!',
+                        text: "Rank has been updated.",
+                        type: 'success',
+                        icon: 'success', 
+                    }).then((result) => {
+                        // edit
+                        axios.post(this.url + "api/ranks/update", formData);
+                        v.clearAll();
+                        v.clearMSG();
+                        this.showAll();
+                        location.reload();
+                    });
+                }
+            });
         }, 
         // to delete all ranks
         deleteAll() {
@@ -288,6 +295,7 @@ var v = new Vue({
         },
         clearAll(){
             v.newRank = { rank:'', description:'', category:'' };
+            v.chooseRank = { rank:'', description:'', category:'' };
             v.formValidate = false;
             v.addModal = false;
             v.editModal = false;
@@ -310,8 +318,14 @@ var v = new Vue({
             let element = this.$refs.modal.$el
             $(element).modal('show')
         },
+
+        // for view details button
         setCurrentRank: function(rank) {
             this.currentRank = rank
+        },
+        // for edit
+        setChooseRank: function(rank) {
+            this.chooseRank = rank
         },
         setRankMoreDetails: function(rank) {
             this.modalRank = rank
