@@ -124,6 +124,8 @@ class Ranks extends My_Controller {
 
     // add rank
     function add() {
+        $this->notLoggedIn();
+        
         $config = array(
             // rank field
             array('field' => 'rank', 'label' => 'Rank', 'rules' => 'trim|required'),

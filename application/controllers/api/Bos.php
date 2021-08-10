@@ -1,6 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct scripts access allowed');
 
 class Bos extends My_Controller {
+
     public function __Construct() {
         parent::__construct();
         $this->load->model('bos_model');
@@ -10,11 +11,11 @@ class Bos extends My_Controller {
     function show_all() {
         $this->notLoggedIn();
 
-        $result = $this->bos_model->get_all_data();
+        $results = $this->bos_model->get_all_data();
         $data = array();
         $no = '0';
 
-        foreach($results as $result) {
+        foreach ($results as $result) {
             $no++;
             $row = array();
             $row['nos'] = $no;
@@ -27,7 +28,7 @@ class Bos extends My_Controller {
         }
 
         $output = array(
-            "ranks" => $data, 
+            "boss" => $data, 
             "recordsTotal" => $this->bos_model->count_all(),
         );
 
@@ -39,7 +40,7 @@ class Bos extends My_Controller {
         $this->notLoggedIn();
 
         $value = $this->input->post('text');
-        $result = $this->bos_model->search_data($value);
+        $results = $this->bos_model->search_data($value);
         $data = array();
         $no = '0';
 
@@ -121,6 +122,8 @@ class Bos extends My_Controller {
 
     // add bos
     function add() {
+        $this->notLoggedIn();
+        
         $config = array(
             // bos field
             array('field' => 'bos', 'label' => 'BOS', 'rules' => 'trim|required'),
@@ -130,7 +133,42 @@ class Bos extends My_Controller {
 
         $this->form_validation->set_rules($config);
 
+        if ($this->form_validation->run() == FALSE) {
+            $result['error'] = true;
+            $result['msg'] = array(
+                'bos' => form_error('bos'), 
+                'description' => form_error('description')
+            );
+        }
+        else {
+            $data = array(
+                'bos' => $this->input->post('bos'),
+                'description' => $this->input->post('description'),
+                'date_created' =>date("Y-m-d H:i:s"),
+            );
+
+            $result = $this->bos_model->add_data($data);
+
+            // add new bos
+            if($result) {
+                $result['error'] = false;
+                $result['msg'] ='A new bos added successfully.';
+
+                //activity
+                $this->load->model('logs_model');
+                $params = array(
+                    'user_id' => $this->session->userdata('user_id'),
+                    'action' => 'successfully added a new branch of service.',
+                    'ip' =>  $_SERVER['REMOTE_ADDR'],
+                    'date_created' =>date("Y-m-d H:i:s"),
+                    'date_modified' =>date("Y-m-d H:i:s"),
+                );
+                $this->logs_model->add_log($params);
+                /////////
+            }
+        }
         
+        echo json_encode($result);
     }
 
     // update bos

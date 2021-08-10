@@ -1,5 +1,5 @@
 <?php
-class Ranks_model extends CI_Model {
+class Bos_model extends CI_Model {
     public $table_bos = 'tbl_ref_bos';
 
     function __construct() {
@@ -14,6 +14,7 @@ class Ranks_model extends CI_Model {
         $query = $this->db->select('date_created');
         $query = $this->db->select('date_modified');
         $query = $this->db->from('tbl_ref_bos');
+        $query = $this->db->order_by("id", "desc");
         $query = $this->db->get();
 
         if($query->num_rows() >= 1) {
@@ -48,7 +49,7 @@ class Ranks_model extends CI_Model {
         $query = $this->db->get();
 
         if($query->num_rows() > 0) {
-            return $query->results();
+            return $query->result();
         } else {
             return false;
         }

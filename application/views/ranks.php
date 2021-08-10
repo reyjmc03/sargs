@@ -311,9 +311,9 @@ var v = new Vue({
               v.currentPage = pageNumber; //receive currentPage number came from pagination template
                 v.refresh()  
         },
-        refresh(){
-             v.search.text ? v.searchRank() : v.showAll(); //for preventing
-        },
+        // refresh(){
+        //      v.search.text ? v.searchRank() : v.showAll(); //for preventing
+        // },
         showModal() {
             let element = this.$refs.modal.$el
             $(element).modal('show')
