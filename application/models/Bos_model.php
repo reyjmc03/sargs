@@ -82,4 +82,16 @@ class Bos_model extends CI_Model {
     public function add_data($data) {
         return $this->db->insert('tbl_ref_bos', $data);
     }
+
+    // update bos
+    public function update_data($id, $field) {
+        $this->db->where('id', $id);
+        $this->db->update('tbl_ref_bos', $field);
+
+        if($this->db->affected_rows() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

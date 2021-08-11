@@ -267,13 +267,6 @@ var v = new Vue({
                 }
             });
         },
-        // formData(obj){
-        //     var formData = new FormData();
-        //     for(var key in obj) {
-        //         formData.append(key, obj[key]);
-        //     }
-        //     return formData;
-        // },
         getData(ranks){
             v.emptyResult = false; // become false if has a record
             v.totalRows = ranks.length //get total of rows

@@ -42,7 +42,10 @@
                                         <!-- <div v-if="rank.date_modified"> --><label style="color:red;">updated:&nbsp;{{bos.date_modified}}</label><!-- </div> -->
                                     </td>
                                     <td class="">
-                                        <button class="btn btn-sm bg-info" data-toggle="modal" data-target="#detailBOSModal" v-on:click="setCurrentBOS(bos)">
+                                        <!-- <button class="btn btn-sm bg-info" data-toggle="modal" data-target="#detailBOSModal" v-on:click="setCurrentBOS(bos)">
+                                            <i class="fas fa-eye"></i> MORE DETAILS
+                                        </button> -->
+                                        <button class="btn btn-sm bg-info" data-toggle="modal" data-target="#detailModal" v-on:click="setCurrentBOS(bos)">
                                             <i class="fas fa-eye"></i> MORE DETAILS
                                         </button>
                                         <button class="btn btn-sm bg-success" data-toggle="modal" data-target="#editBOSModal" v-on:click="setCurrentBOS(bos)">
@@ -190,6 +193,31 @@ var v = new Vue({
                 }
             });
         },
+        // TO DELETE ONE BRANCH OF SERVICE
+        deleteOne(id) {
+            let inst = this;
+            swal({title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon:'warning', 
+                buttons: true, 
+                dangerMode: true
+            }).then((willOUT) => {
+                if (willOUT) {
+                    // confirmation
+                    swal({
+                        title:'Deleted!',
+                        text: "Branch of servce has been deleted.",
+                        type: 'success',
+                        icon: 'success', 
+                    }).then((result) => {
+                        axios.delete(this.url + "api/bos/delete_only/" + id)
+                        this.showAll();
+                        location.reload();
+                    });
+                }
+            });
+        },
+
 
         ///////////////////////////
         //////////////////////////
