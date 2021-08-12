@@ -72,13 +72,13 @@ class Bos extends My_Controller {
 
         if($result){
             $msg['error'] = false;
-            $msg['success'] = 'BOS deleted successfully';
+            $msg['success'] = 'A branch of service deleted successfully';
 
             //activity
             $this->load->model('logs_model');
             $params = array(
                 'user_id' => $this->session->userdata('user_id'),
-                'action' => 'successfully deleted a one BOS.',
+                'action' => 'successfully deleted a one branch of service.',
                 'ip' =>  $_SERVER['REMOTE_ADDR'],
                 'date_created' =>date("Y-m-d H:i:s"),
                 'date_modified' =>date("Y-m-d H:i:s"),
@@ -106,7 +106,7 @@ class Bos extends My_Controller {
              $this->load->model('logs_model');
              $params = array(
                  'user_id' => $this->session->userdata('user_id'),
-                 'action' => 'successfully deleted all bos data.',
+                 'action' => 'successfully deleted all branch of service data.',
                  'ip' =>  $_SERVER['REMOTE_ADDR'],
                  'date_created' =>date("Y-m-d H:i:s"),
                  'date_modified' =>date("Y-m-d H:i:s"),
@@ -144,7 +144,7 @@ class Bos extends My_Controller {
             $data = array(
                 'bos' => $this->input->post('bos'),
                 'description' => $this->input->post('description'),
-                'date_created' =>date("Y-m-d H:i:s"),
+                'date_created' => date("Y-m-d H:i:s"),
             );
 
             $result = $this->bos_model->add_data($data);
@@ -160,8 +160,8 @@ class Bos extends My_Controller {
                     'user_id' => $this->session->userdata('user_id'),
                     'action' => 'successfully added a new branch of service.',
                     'ip' =>  $_SERVER['REMOTE_ADDR'],
-                    'date_created' =>date("Y-m-d H:i:s"),
-                    'date_modified' =>date("Y-m-d H:i:s"),
+                    'date_created' => date("Y-m-d H:i:s"),
+                    'date_modified' => date("Y-m-d H:i:s"),
                 );
                 $this->logs_model->add_log($params);
                 /////////
@@ -173,6 +173,55 @@ class Bos extends My_Controller {
 
     // update bos
     function update() {
+        $this->notLoggedIn();
 
+        $config = array(
+            //bos field
+            array(
+                'field' => 'bos', 
+                'label' => 'BOS', 
+                'rules' => 'trim|required'),
+            // description field
+            array(
+                'field' => 'description', 
+                'label' => 'Description', 
+                'rules' => 'trim|required'),
+        );
+
+        $this->form_validation->set_rules($config);
+
+        if($this->form_validation->run() == FALSE) {
+            $result['error'] = true;
+            $result['msg'] = array(
+                'bos' => form_error('bos'), 
+                'description' => form_error('description')
+            );
+        }
+        else {
+            $id = $this->input->post('id');
+            $data = array(
+                'bos' => $this->input->post('bos'),
+                'description' => $this->input->post('description'),
+                'date_modified' =>date("Y-m-d H:i:s"),
+            );
+                if($this->bos_model->update_data($id, $data)){
+                    $result['error'] = false;
+                    $result['success'] = 'A branch of service updated successfully.';
+
+                    //activity
+                    $this->load->model('logs_model');
+                    $params = array(
+                        'user_id' => $this->session->userdata('user_id'),
+                        'action' => 'successfully updated a branch of service.',
+                        'ip' =>  $_SERVER['REMOTE_ADDR'],
+                        'date_created' =>date("Y-m-d H:i:s"),
+                        'date_modified' =>date("Y-m-d H:i:s"),
+                    );
+                    $this->logs_model->add_log($params);
+                    /////////
+                }
+        }
+
+        echo json_encode($result);
     }
 }

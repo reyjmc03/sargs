@@ -39,7 +39,7 @@
                                     <td>{{bos.description}}</td>
                                     <td>
                                         <!-- <div v-if="rank.date_created"> --><label style="color:blue;">created:&nbsp;{{bos.date_created}}</label><!-- </div> --><br>
-                                        <!-- <div v-if="rank.date_modified"> --><label style="color:red;">updated:&nbsp;{{bos.date_modified}}</label><!-- </div> -->
+                                        <div v-if="bos.date_modified"><label style="color:red;">updated:&nbsp;{{bos.date_modified}}</label></div>
                                     </td>
                                     <td class="">
                                         <!-- <button class="btn btn-sm bg-info" data-toggle="modal" data-target="#detailBOSModal" v-on:click="setCurrentBOS(bos)">
@@ -48,7 +48,7 @@
                                         <button class="btn btn-sm bg-info" data-toggle="modal" data-target="#detailModal" v-on:click="setCurrentBOS(bos)">
                                             <i class="fas fa-eye"></i> MORE DETAILS
                                         </button>
-                                        <button class="btn btn-sm bg-success" data-toggle="modal" data-target="#editBOSModal" v-on:click="setCurrentBOS(bos)">
+                                        <button class="btn btn-sm bg-success" data-toggle="modal" data-target="#editModal" v-on:click="setChooseBOS(bos)">
                                             <i class="fas fa-pen"></i> EDIT
                                         </button>
                                         <button class="btn btn-sm bg-danger" @click="deleteOne(bos.id)">
@@ -162,10 +162,18 @@ var v = new Vue({
                 if(response.data.error){
                     v.formValidate = response.data.msg;
                 } else {
-                    //v.successMSG = response.data.msg;
-                    swal("Good job!", response.data.msg, "success")
-                    v.clearAll();
-                    // v.clearMSG();
+                    // confirmation
+                    swal({
+                        title:'Added!',
+                        text: "A new branch of services has been created.",
+                        type: 'success',
+                        icon: 'success', 
+                    }).then((result) => {
+                        $('#addModal').modal('hide');
+                        v.clearAll();
+                    });
+
+                    
                 }
             })
         },
@@ -187,8 +195,10 @@ var v = new Vue({
                         icon: 'success', 
                     }).then((result) => {
                         axios.delete(this.url + "api/bos/delete_all")
-                        this.showAll();
-                        location.reload();
+                        // this.showAll();
+                        // location.reload();
+                        //$('#addModal').modal('hide');
+                        v.clearAll();
                     });
                 }
             });
@@ -211,9 +221,44 @@ var v = new Vue({
                         icon: 'success', 
                     }).then((result) => {
                         axios.delete(this.url + "api/bos/delete_only/" + id)
-                        this.showAll();
-                        location.reload();
+                        // this.showAll();
+                        // location.reload();
+                        //$('#addModal').modal('hide');
+                        v.clearAll();
                     });
+                }
+            });
+        },
+        // TO UPDATE
+        updateBOS() {
+            var formData = v.formData(v.chooseBOS);
+            let inst = this;
+
+           
+
+            swal({title: 'Are you sure?',
+                text: "Data is edit permanently!",
+                icon:'warning', 
+                buttons: true, 
+                dangerMode: true
+            }).then((willOUT) => {
+                if (willOUT) {
+                    axios.post(this.url + "api/bos/update", formData).then(function(response){
+                        if(response.data.error){
+                            v.formValidate = response.data.msg;
+                        } else {
+                             // confirmation
+                            swal({
+                                title:'Updated!',
+                                text: "BOS has been updated.",
+                                type: 'success',
+                                icon: 'success', 
+                            }).then((result) => {
+                                $('#editModal').modal('hide');
+                                v.clearAll();
+                            });
+                        }
+                    })
                 }
             });
         },
@@ -254,6 +299,7 @@ var v = new Vue({
             v.chooseBOS = { bos:'', description:'' };
             v.formValidate = false;
             v.addModal = false;
+            v.addModal.show = false;
             v.editModal = false;
             v.deleteModal = false;
             v.refresh()

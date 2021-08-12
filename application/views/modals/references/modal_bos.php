@@ -70,3 +70,42 @@
         </div>
     </div>
 </modal>
+
+
+<!-- edit rank modal -->
+<modal class="modal animate__animated animate__fadeIn" id="editModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle"><i class="fas fa-pen"></i>&nbsp;&nbsp;Edit Brandh of Service (BOS)</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <h6 class="control-label"><strong>BRANCH OF SERVICE (BOS):</strong></h6>
+                                <input type="text" class="form-control" :class="{'is-invalid': formValidate.bos}" name="bos" v-model="chooseBOS.bos">
+                                <p class="text-danger animate__animated animate__fadeIn" v-if="formValidate.bos" v-html="formValidate.bos"></p>
+                            </div>
+                            <div class="form-group">
+                                <h6 class="control-label"><strong>DESCRIPTION:</strong></h6>
+                                <textarea cols="35" rows="5" :class="{'is-invalid': formValidate.description}" name="description" v-model="chooseBOS.description" class="form-control">
+                                {{chooseBOS.description}}
+                                </textarea>
+                                <p class="text-danger animate__animated animate__fadeIn" v-if="formValidate.description" v-html="formValidate.description"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i> Cancel</button>
+                <button class="btn btn-success" @click="updateBOS"><i class="fas fa-pen"></i> Update</button>
+            </div>
+        </div>
+    </div>
+</modal>

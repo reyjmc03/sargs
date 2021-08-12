@@ -171,17 +171,19 @@ var v = new Vue({
         addRank() {
            var formData = v.formData(v.newRank);
 
-            //axios.post('<?php //echo base_url(); ?>api/ranks/add', formData).then(function(response){
-            axios.post(this.url + "api/ranks/add", formData).then(function(response){
-                if(response.data.error){
-                    v.formValidate = response.data.msg;
-                } else {
-                    // v.successMSG = response.data.msg;
-                    swal("Good job!", response.data.msg, "success")
-                    v.clearAll();
-                    // v.clearMSG();
-                }
-            })
+            // confirmation
+            swal({
+                title:'Added!',
+                text: "A new rank has been created.",
+                type: 'success',
+                icon: 'success', 
+            }).then((result) => {
+                axios.post(this.url + "api/ranks/add", formData)
+                // this.showAll();
+                // location.reload();
+                $('#addModal').modal('hide');
+                v.clearAll();
+            });
         },
         // update rank
         updateRank() {
