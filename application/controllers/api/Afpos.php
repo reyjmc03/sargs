@@ -77,7 +77,7 @@ class Afpos extends My_Controller {
             $this->load->model('logs_model');
             $params = array(
                 'user_id' => $this->session->userdata('user_id'),
-                'action' => 'successfully deleted a AFPOS.',
+                'action' => 'successfully DELETED a AFP of service.',
                 'ip' =>  $_SERVER['REMOTE_ADDR'],
                 'date_created' =>date("Y-m-d H:i:s"),
                 'date_modified' =>date("Y-m-d H:i:s"),
@@ -105,7 +105,7 @@ class Afpos extends My_Controller {
              $this->load->model('logs_model');
              $params = array(
                  'user_id' => $this->session->userdata('user_id'),
-                 'action' => 'successfully deleted all AFP of service data.',
+                 'action' => 'successfully DELETED all AFP of service data.',
                  'ip' =>  $_SERVER['REMOTE_ADDR'],
                  'date_created' =>date("Y-m-d H:i:s"),
                  'date_modified' =>date("Y-m-d H:i:s"),
@@ -157,7 +157,7 @@ class Afpos extends My_Controller {
                 $this->load->model('logs_model');
                 $params = array(
                     'user_id' => $this->session->userdata('user_id'),
-                    'action' => 'successfully added a new AFP of service.',
+                    'action' => 'successfully ADDED a new AFP of service.',
                     'ip' =>  $_SERVER['REMOTE_ADDR'],
                     'date_created' => date("Y-m-d H:i:s"),
                     'date_modified' => date("Y-m-d H:i:s"),
@@ -211,7 +211,7 @@ class Afpos extends My_Controller {
                     $this->load->model('logs_model');
                     $params = array(
                         'user_id' => $this->session->userdata('user_id'),
-                        'action' => 'successfully updated a AFP of service.',
+                        'action' => 'successfully UPDATED a AFP of service.',
                         'ip' =>  $_SERVER['REMOTE_ADDR'],
                         'date_created' =>date("Y-m-d H:i:s"),
                         'date_modified' =>date("Y-m-d H:i:s"),
