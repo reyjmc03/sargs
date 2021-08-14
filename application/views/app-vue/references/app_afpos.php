@@ -136,7 +136,29 @@ var v = new Vue({
             });
         },
 
-
+        // TO DELETE ALL AFP OF SERVICE
+        deleteAll() {
+            let inst = this;
+            swal({title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon:'warning', 
+                buttons: true, 
+                dangerMode: true
+            }).then((willOUT) => {
+                if (willOUT) {
+                    // confirmation
+                    swal({
+                        title:'Deleted!',
+                        text: "All AFP of services has been deleted.",
+                        type: 'success',
+                        icon: 'success', 
+                    }).then((result) => {
+                        axios.delete(this.url + "api/afpos/delete_all")
+                        v.clearAll();
+                    });
+                }
+            });
+        },
 
 
         
@@ -189,9 +211,6 @@ var v = new Vue({
                 v.currentPage = pageNumber; //receive currentPage number came from pagination template
                 v.refresh()  
         },
-        // refresh(){
-        //      v.search.text ? v.searchBOS() : v.showAll(); //for preventing
-        // },
         showModal() {
             let element = this.$refs.modal.$el
             $(element).modal('show')

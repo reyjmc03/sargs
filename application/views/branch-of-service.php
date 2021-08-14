@@ -42,9 +42,6 @@
                                         <div v-if="bos.date_modified"><label style="color:red;">updated:&nbsp;{{bos.date_modified}}</label></div>
                                     </td>
                                     <td class="">
-                                        <!-- <button class="btn btn-sm bg-info" data-toggle="modal" data-target="#detailBOSModal" v-on:click="setCurrentBOS(bos)">
-                                            <i class="fas fa-eye"></i> MORE DETAILS
-                                        </button> -->
                                         <button class="btn btn-sm bg-info" data-toggle="modal" data-target="#detailModal" v-on:click="setCurrentBOS(bos)">
                                             <i class="fas fa-eye"></i> MORE DETAILS
                                         </button>

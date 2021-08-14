@@ -64,6 +64,9 @@ class Afpos extends My_Controller {
 
         echo json_encode($output);
     }
+
+
+    
     function delete_only($id) {
         $this->notLoggedIn();
 

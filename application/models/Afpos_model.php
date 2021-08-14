@@ -37,26 +37,26 @@ class Afpos_model extends CI_Model {
         $query = $this->db->select('id');
         $query = $this->db->select('afpos');
         $query = $this->db->select('description');
-        $qeury = $this->db->select('date_created');
+        $query = $this->db->select('date_created');
         $query = $this->db->select('date_modified');
 
         $query = $this->db->from('tbl_ref_afpos');
 
         $query = $this->db->like('id', $match, 'both');
-        $query = $this->db->like('afpos', $match, 'both');
-        $query = $this->db->like('description', $match, 'both');
-        $query = $this->db->like('date_created', $match, 'both');
-        $query = $this->db->like('date_modified', $match, 'both');
+        $query = $this->db->or_like('afpos', $match, 'both');
+        $query = $this->db->or_like('description', $match, 'both');
+        $query = $this->db->or_like('date_created', $match, 'both');
+        $query = $this->db->or_like('date_modified', $match, 'both');
 
         $query = $this->db->get();
 
-        
         if($query->num_rows() > 0) {
             return $query->result();
         } else {
             return false;
-        } 
+        }
     }
+
 
     // delete only afpos
     public function delete_only_data($id) {
