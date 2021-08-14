@@ -128,7 +128,7 @@
 				<br>
 				<hr style="background-color: #d5dea7">
 				<li>
-					<a id="sargs-logout"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></a>
+					<a id="sargs-logout-sidebar"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></a>
 				</li>
 			</ul>
 		</div>

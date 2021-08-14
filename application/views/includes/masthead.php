@@ -122,7 +122,7 @@
 				</div>
 				<a class="dropdown-item" href="<?php echo base_url()?>user-profile">My Profile</a>
 				<a class="dropdown-item" href="<?php echo base_url()?>user-profile-logs">My Profile Activity Logs</a>
-				<button class="dropdown-item" id="sargs-logout">Logout</button>
+				<button class="dropdown-item" id="sargs-logout-masthead">Logout</button>
 
 				<!-- <a class="dropdown-item" href="<?php //echo base_url('user/logout'); ?>" id="sargs-logout">Logout</a> -->
 

@@ -1,6 +1,6 @@
 <script>
 $(document).ready(function() {
-    $("#sargs-logout").click(function(){
+    $("#sargs-logout-masthead").click(function(){
         swal({title:'Logout', 
             text:'Do you want to logout this system?', 
             icon:'warning', 
@@ -16,12 +16,9 @@ $(document).ready(function() {
             }
         });
     });
-});
-</script>
 
-<script>
-$(document).ready(function() {
-    $("#sargs-logout-header").click(function(){
+
+    $("#sargs-logout-sidebar").click(function(){
         swal({title:'Logout', 
             text:'Do you want to logout this system?', 
             icon:'warning', 
