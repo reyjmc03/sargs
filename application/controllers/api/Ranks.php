@@ -74,13 +74,13 @@ class Ranks extends My_Controller {
 
         if($result){
             $msg['error'] = false;
-            $msg['success'] = 'User deleted successfully';
+            $msg['success'] = 'A rank deleted successfully.';
 
             //activity
             $this->load->model('logs_model');
             $params = array(
                 'user_id' => $this->session->userdata('user_id'),
-                'action' => 'successfully deleted a one rank',
+                'action' => 'successfully DELETED a rank.',
                 'ip' =>  $_SERVER['REMOTE_ADDR'],
                 'date_created' =>date("Y-m-d H:i:s"),
                 'date_modified' =>date("Y-m-d H:i:s"),
@@ -108,7 +108,7 @@ class Ranks extends My_Controller {
              $this->load->model('logs_model');
              $params = array(
                  'user_id' => $this->session->userdata('user_id'),
-                 'action' => 'successfully deleted all rank data.',
+                 'action' => 'successfully DELETED all rank data.',
                  'ip' =>  $_SERVER['REMOTE_ADDR'],
                  'date_created' =>date("Y-m-d H:i:s"),
                  'date_modified' =>date("Y-m-d H:i:s"),
@@ -161,7 +161,7 @@ class Ranks extends My_Controller {
                 $this->load->model('logs_model');
                 $params = array(
                     'user_id' => $this->session->userdata('user_id'),
-                    'action' => 'successfully added a new rank.',
+                    'action' => 'successfully ADDED a new rank.',
                     'ip' =>  $_SERVER['REMOTE_ADDR'],
                     'date_created' =>date("Y-m-d H:i:s"),
                     'date_modified' =>date("Y-m-d H:i:s"),
@@ -216,7 +216,7 @@ class Ranks extends My_Controller {
                 $this->load->model('logs_model');
                 $params = array(
                     'user_id' => $this->session->userdata('user_id'),
-                    'action' => 'successfully updated a rank.',
+                    'action' => 'successfully UPDATED a rank.',
                     'ip' =>  $_SERVER['REMOTE_ADDR'],
                     'date_created' =>date("Y-m-d H:i:s"),
                     'date_modified' =>date("Y-m-d H:i:s"),

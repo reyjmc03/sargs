@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-dialog-centered modal-md" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle"><i class="fas fa-plus"></i>&nbsp; Create New BOS</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle"><i class="fas fa-plus"></i>&nbsp;Create (Branch of Service)</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
@@ -40,7 +40,7 @@
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle"><i class="fas fa-chevron-up"></i>&nbsp;&nbsp;Branch of Service (BOS) Details</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle"><i class="fas fa-eye"></i>&nbsp;&nbsp;Details (Branch of Service)</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
@@ -77,7 +77,7 @@
     <div class="modal-dialog modal-dialog-centered modal-md" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle"><i class="fas fa-pen"></i>&nbsp;&nbsp;Edit Brandh of Service (BOS)</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle"><i class="fas fa-pen"></i>&nbsp;&nbsp;Edit (Branch of Service)</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>

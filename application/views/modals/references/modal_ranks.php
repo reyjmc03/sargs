@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-dialog-centered modal-md" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle"><i class="fas fa-plus"></i>&nbsp; Create New Rank</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle"><i class="fas fa-plus"></i>&nbsp;Create (Rank)</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
@@ -24,12 +24,6 @@
                             </div>
                             <div class="form-group">
                                 <h6 class="control-label"><strong>CATEGORY:</strong></h6>
-                                <!-- <select class="form-control" :class="{'is-invalid': formValidate.category}" name="category" v-model="newRank.category">
-                                    <option>-- Select --</option>
-                                    <option>Officer</option>
-                                    <option>Enlisted Personnel</option>
-                                    <option>Civilian Human Resource</option>
-                                </select>   -->
                                 <select class="form-control" name="category" :class="{'is-invalid': formValidate.rank}" v-model="newRank.category">
                                     <option>-- Select --</option>
                                     <option value="Officer">Officer</option>
@@ -60,20 +54,6 @@
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <!-- <div class="modal-body">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h6 class="control-label"><strong>USER ID NUMBER:</strong></h6>
-                            <label style="color:black;" class="form-control">{{currentRank.id}}</label><br>
-                            <h6 class="control-label"><strong>RANK:</strong></h6>
-                            <label style="color:black;" class="form-control">{{currentRank.rank}}</label><br>
-                            <h6 class="control-label"><strong>DESCRIPTION:</strong></h6>
-                            <textarea class="form-control">{{currentRank.description}}</textarea><br>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
             <div class="modal-body">
                 <div class="container-fluid">
                     <div class="row">
@@ -92,12 +72,6 @@
                             </div>
                             <div class="form-group">
                                 <h6 class="control-label"><strong>CATEGORY:</strong></h6>
-                                <!-- <select class="form-control" :class="{'is-invalid': formValidate.category}" name="category" v-model="newRank.category">
-                                    <option>-- Select --</option>
-                                    <option>Officer</option>
-                                    <option>Enlisted Personnel</option>
-                                    <option>Civilian Human Resource</option>
-                                </select>   -->
                                 <select class="form-control" name="category" :class="{'is-invalid': formValidate.rank}" v-model="chooseRank.category">
                                     <option>-- Select --</option>
                                     <option value="Officer">Officer</option>
@@ -160,7 +134,7 @@
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle"><i class="fas fa-chevron-up"></i>&nbsp;&nbsp;Rank / Insignia Details</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle"><i class="fas fa-eye"></i>&nbsp;&nbsp;Details (Rank / Insignia)</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>

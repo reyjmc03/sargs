@@ -7,7 +7,7 @@ class Bos extends My_Controller {
         $this->load->model('bos_model');
     }
 
-    // show all rank table
+    // show all BOS table
     function show_all() {
         $this->notLoggedIn();
 
@@ -78,7 +78,7 @@ class Bos extends My_Controller {
             $this->load->model('logs_model');
             $params = array(
                 'user_id' => $this->session->userdata('user_id'),
-                'action' => 'successfully deleted a one branch of service.',
+                'action' => 'successfully DELETED a branch of service.',
                 'ip' =>  $_SERVER['REMOTE_ADDR'],
                 'date_created' =>date("Y-m-d H:i:s"),
                 'date_modified' =>date("Y-m-d H:i:s"),
@@ -100,13 +100,13 @@ class Bos extends My_Controller {
 
         if($result) {
             $msg['error'] = false;
-            $msg['success'] = 'User deleted successfully';
+            $msg['success'] = 'BOS deleted successfully';
 
              //activity
              $this->load->model('logs_model');
              $params = array(
                  'user_id' => $this->session->userdata('user_id'),
-                 'action' => 'successfully deleted all branch of service data.',
+                 'action' => 'successfully DELETED all branch of service.',
                  'ip' =>  $_SERVER['REMOTE_ADDR'],
                  'date_created' =>date("Y-m-d H:i:s"),
                  'date_modified' =>date("Y-m-d H:i:s"),
@@ -158,7 +158,7 @@ class Bos extends My_Controller {
                 $this->load->model('logs_model');
                 $params = array(
                     'user_id' => $this->session->userdata('user_id'),
-                    'action' => 'successfully added a new branch of service.',
+                    'action' => 'successfully ADDED a new branch of service.',
                     'ip' =>  $_SERVER['REMOTE_ADDR'],
                     'date_created' => date("Y-m-d H:i:s"),
                     'date_modified' => date("Y-m-d H:i:s"),
@@ -212,7 +212,7 @@ class Bos extends My_Controller {
                     $this->load->model('logs_model');
                     $params = array(
                         'user_id' => $this->session->userdata('user_id'),
-                        'action' => 'successfully updated a branch of service.',
+                        'action' => 'successfully UPDATED a branch of service.',
                         'ip' =>  $_SERVER['REMOTE_ADDR'],
                         'date_created' =>date("Y-m-d H:i:s"),
                         'date_modified' =>date("Y-m-d H:i:s"),
