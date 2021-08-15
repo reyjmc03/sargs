@@ -28,7 +28,9 @@
                             <label style="color:black;" class="form-control">{{currentActivityLog.ip}}</label><br>
                             <h6 class="control-label"><strong>ACTIVITIES:</strong></h6>
                             <label style="color:blue;" class="form-control">created:&nbsp;{{currentActivityLog.created_date}}</label>
-                            <label style="color:red;" class="form-control">updated:&nbsp;{{currentActivityLog.updated_date}}</label>
+                            <label style="color:red;" class="form-control">updated:&nbsp;{{currentActivityLog.updated_date}}</label><br>
+                            <h6 class="control-label"><strong>REMARKS:</strong></h6>
+                            <textarea style="color:black;" class="form-control" disable>{{currentActivityLog.activity}}</textarea>
                         </div>
                     </div>
                 </div>

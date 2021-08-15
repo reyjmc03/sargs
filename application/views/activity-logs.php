@@ -69,7 +69,7 @@
                 </div>
             </div>
 
-            <?php include 'modals/references/modal_activity_logs.php';?>
+            <?php include 'modals/system-management/modal_activity_logs.php';?>
         </div>
         <!-- END id="app" -->
 
@@ -79,7 +79,7 @@
 
 
 <script src="<?php echo base_url();?>/assets/js/pagination.js"></script>
-<?php include 'app-vue/user-management/app_logs.php'; ?>
+<?php include 'app-vue/system-management/app_logs.php'; ?>
 
 
 
